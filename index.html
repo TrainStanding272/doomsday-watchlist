@@ -222,10 +222,10 @@
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
                     <div class="flex items-center gap-2">
-                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">OPTION B RELOCK PROTOCOL</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">DYNAMIC RUNTIME UNLOCK PROTOCOL</span>
                         <h2 class="text-base sm:text-lg font-bold text-white" id="vault-buffer-heading">Net Buffer: +339 Surplus Minutes (3,400m capacity − 3,067m queue • +6m overflow today)</h2>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="vault-buffer-subtext">Next Unlock: <span class="text-amber-300 font-semibold">Ironheart (Season 1)</span> at +390 mins (<span class="text-white font-semibold">+51 mins</span> needed). Pulling items into the Queue automatically slots them into their ideal spoiler-free narrative order.</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="vault-buffer-subtext">Every Vault title unlocks as soon as your live Net Buffer covers its runtime! Pulling a title into your Queue automatically slots it into its ideal spoiler-free narrative order.</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openLogMinutesModal()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-doom-950 text-xs font-bold transition shadow-lg shadow-cyan-500/20">
@@ -399,7 +399,7 @@
     <script>
         const PREMIERE_DATE = new Date('2026-12-16T00:00:00');
         const REFERENCE_TODAY = new Date('2026-11-12T00:00:00');
-        const STORAGE_KEY = 'doomsday_watchlist_v6_nov12';
+        const STORAGE_KEY = 'doomsday_watchlist_v7_nov12';
         const DEFAULT_DAILY_PACE = 100;
 
         // Canonical Narrative & Spoiler-Free Placement Map for All Queue & Vault Titles
@@ -1457,8 +1457,8 @@
                         "totalEpisodes": 6,
                         "watchedEpisodes": 0,
                         "mins": 270,
-                        "threshold": 390,
-                        "statusNote": "🟡 Next Unlock — Only +51 mins needed to clear +390m threshold!",
+                        "threshold": 270,
+                        "statusNote": "Unlocks as soon as Net Buffer covers its 270m runtime",
                         "synopsis": "Genius young inventor Riri Williams returns to Chicago after Black Panther: Wakanda Forever, pitting her advanced armored technology against Parker Robbins / The Hood’s dark magic.",
                         "doomsdayLink": "Explores the collision of Stark-level armor tech and Mephisto-linked dark magic—a core theme mirrored by Doctor Doom.",
                         "loreNotes": "6 episodes (~45 mins avg). Ideal placement in Act 4 after Captain America: Brave New World and What If...? S3E06 (The Hood)."
@@ -1472,8 +1472,8 @@
                         "totalEpisodes": 8,
                         "watchedEpisodes": 0,
                         "mins": 240,
-                        "threshold": 630,
-                        "statusNote": "⏳ Held under Option B Relock (Threshold: +630 cumulative mins)",
+                        "threshold": 240,
+                        "statusNote": "Unlocks as soon as Net Buffer covers its 240m runtime",
                         "synopsis": "Hollywood actor Simon Williams auditions for a remake of a classic superhero film alongside Trevor Slattery while gaining ionic superpowers.",
                         "doomsdayLink": "Introduces Simon Williams (Wonder Man) to Earth-616.",
                         "loreNotes": "8 episodes (~30 mins avg). Placed in Act 4 as an Earth-616 character spotlight prior to Spider-Man: Brand New Day."
@@ -1487,8 +1487,8 @@
                         "totalEpisodes": 6,
                         "watchedEpisodes": 0,
                         "mins": 270,
-                        "threshold": 900,
-                        "statusNote": "⏳ Held under Option B Relock (Threshold: +900 cumulative mins)",
+                        "threshold": 270,
+                        "statusNote": "Unlocks as soon as Net Buffer covers its 270m runtime",
                         "synopsis": "Following the restoration of his memories in WandaVision, White Vision embarks on a journey to reconcile his identity, humanity, and Ultron’s legacy.",
                         "doomsdayLink": "Resolves White Vision’s whereabouts ahead of Avengers-level threats.",
                         "loreNotes": "6 episodes (~45 mins avg). Placed in Act 4 after Agatha All Along so Wiccan & Speed lore stays completely spoiler-free."
@@ -1502,8 +1502,8 @@
                         "totalEpisodes": 4,
                         "watchedEpisodes": 0,
                         "mins": 160,
-                        "threshold": 1060,
-                        "statusNote": "⏳ Held under Option B Relock (Threshold: +1,060 cumulative mins)",
+                        "threshold": 160,
+                        "statusNote": "Unlocks as soon as Net Buffer covers its 160m runtime",
                         "synopsis": "A new generation of heroes battles an ever-spreading zombie scourge across a brutal alternate timeline spun out of What If...?",
                         "doomsdayLink": "Alternate multiverse horror timeline.",
                         "loreNotes": "4 episodes (~40 mins avg). Placed in Act 3 directly after What If...? Season 3."
@@ -1517,8 +1517,8 @@
                         "totalEpisodes": 3,
                         "watchedEpisodes": 0,
                         "mins": 350,
-                        "threshold": 740,
-                        "statusNote": "Queued at +740 mins total buffer (Option B Relock)",
+                        "threshold": 350,
+                        "statusNote": "Unlocks when Net Buffer covers 350m runtime",
                         "synopsis": "Half-vampire daywalker Eric Brooks wages a relentless war against Deacon Frost, the Reaper strain, and Dracula.",
                         "doomsdayLink": "Wesley Snipes’s Void legacy variant origin.",
                         "loreNotes": "3 films: Blade (120m), Blade II (117m), Blade: Trinity (113m). Placed in Act 3 with pre-MCU legacy lore."
@@ -1532,7 +1532,7 @@
                         "totalEpisodes": 2,
                         "watchedEpisodes": 0,
                         "mins": 278,
-                        "threshold": 1200,
+                        "threshold": 278,
                         "statusNote": "Post-Doomsday Legacy Archive",
                         "synopsis": "Andrew Garfield’s Peter Parker uncovers Oscorp secrets and faces the Lizard, Electro, and Green Goblin.",
                         "doomsdayLink": "Peter-Three canon archive.",
@@ -1547,7 +1547,7 @@
                         "totalEpisodes": 3,
                         "watchedEpisodes": 0,
                         "mins": 298,
-                        "threshold": 1350,
+                        "threshold": 298,
                         "statusNote": "Post-Doomsday Legacy Archive",
                         "synopsis": "Previous theatrical adaptations of Marvel’s First Family, including Chris Evans’s Johnny Storm.",
                         "doomsdayLink": "Alternate universe Fantastic Four variants.",
@@ -1562,7 +1562,7 @@
                         "totalEpisodes": 3,
                         "watchedEpisodes": 0,
                         "mins": 330,
-                        "threshold": 1500,
+                        "threshold": 330,
                         "statusNote": "Post-Doomsday Legacy Archive",
                         "synopsis": "Sony’s standalone Spider-Man universe entries exploring Morbius, Cassandra Webb, and Knull’s symbiote invasion.",
                         "doomsdayLink": "SSU multiversal rift entries.",
@@ -1577,7 +1577,7 @@
                         "totalEpisodes": 56,
                         "watchedEpisodes": 0,
                         "mins": 2450,
-                        "threshold": 2000,
+                        "threshold": 2450,
                         "statusNote": "Completionist Mutant Television Vault",
                         "synopsis": "David Haller’s surreal Omega-level psychic journey in Legion and the Mutant Underground’s survival in The Gifted.",
                         "doomsdayLink": "Alternate Fox mutant television timelines."
@@ -1591,7 +1591,7 @@
                         "totalEpisodes": 71,
                         "watchedEpisodes": 0,
                         "mins": 2800,
-                        "threshold": 2500,
+                        "threshold": 2800,
                         "statusNote": "Completionist Marvel Television Vault",
                         "synopsis": "Teenage heroes in New Orleans and Los Angeles, the Inhuman Royal Family, and Daimon & Ana Helstrom.",
                         "doomsdayLink": "Extended Marvel Television archive."
@@ -1605,7 +1605,7 @@
                         "totalEpisodes": 178,
                         "watchedEpisodes": 0,
                         "mins": 4200,
-                        "threshold": 3000,
+                        "threshold": 4200,
                         "statusNote": "Modern & Anime Animation Archive",
                         "synopsis": "The Avengers: Earth’s Mightiest Heroes, X-Men: Evolution, Wolverine and the X-Men, and Madhouse’s 4 anime series.",
                         "doomsdayLink": "Beloved animated adaptations of classic Avengers & X-Men arcs."
@@ -1619,7 +1619,7 @@
                         "totalEpisodes": 180,
                         "watchedEpisodes": 0,
                         "mins": 5500,
-                        "threshold": 3500,
+                        "threshold": 5500,
                         "statusNote": "Vintage Multiverse Archive",
                         "synopsis": "90s Spider-Man: TAS, Fantastic Four: TAS, Silver Surfer, 1978 Incredible Hulk, Supaidāman, and 1990 Captain America.",
                         "doomsdayLink": "Deepest retro multiverse archive.",
@@ -1676,7 +1676,11 @@
                     if (Array.isArray(parsed.workbook3)) {
                         parsed.workbook3 = parsed.workbook3.map(savedItem => {
                             const masterItem = DEFAULT_DATA.workbook3.find(d => d.id === savedItem.id);
-                            return masterItem && masterItem.production ? { ...savedItem, production: masterItem.production } : savedItem;
+                            return {
+                                ...savedItem,
+                                threshold: savedItem.mins,
+                                production: (masterItem && masterItem.production) || savedItem.production
+                            };
                         });
                     }
                     return parsed;
@@ -1922,7 +1926,7 @@
                 act: placement.act,
                 actLabel: placement.actLabel,
                 queueOrder: placement.queueOrder,
-                threshold: Math.max(0, getEffectiveBuffer().netBuffer),
+                threshold: remainingItemMins,
                 statusNote: `Deferred from Queue (+${remainingItemMins}m freed in buffer)`,
                 synopsis: item.synopsis,
                 doomsdayLink: item.doomsdayLink,
@@ -2078,16 +2082,16 @@
                     ? 'text-base sm:text-lg font-bold text-rose-400'
                     : 'text-base sm:text-lg font-bold text-white';
 
-                const ironheart = appState.workbook3.find(i => i.id === 'ironheart');
-                if (ironheart) {
-                    const needed = ironheart.threshold - buf.netBuffer;
+                const nextVaultUnlock = [...appState.workbook3].sort((a, b) => a.mins - b.mins)[0];
+                if (nextVaultUnlock) {
+                    const needed = nextVaultUnlock.mins - buf.netBuffer;
                     if (needed <= 0) {
-                        vaultSubtextEl.innerHTML = `<span class="text-emerald-400 font-bold">✅ Threshold Cleared!</span> <span class="text-white font-semibold">Ironheart (Season 1)</span> (+390m) is ready to pull into your Queue (slots into Act 4 after Thunderbolts*).`;
+                        vaultSubtextEl.innerHTML = `<span class="text-emerald-400 font-bold">✅ Ready to Unlock:</span> <span class="text-white font-semibold">${nextVaultUnlock.title}</span> (${nextVaultUnlock.mins}m) fits right inside your live Net Buffer!`;
                     } else {
-                        vaultSubtextEl.innerHTML = `Next Unlock: <span class="text-amber-300 font-semibold">Ironheart (Season 1)</span> at +390 mins (<span class="text-white font-semibold">+${needed} mins</span> needed). Pulling items into the Queue automatically slots them into their ideal spoiler-free narrative order.`;
+                        vaultSubtextEl.innerHTML = `Closest Unlock: <span class="text-amber-300 font-semibold">${nextVaultUnlock.title}</span> (${nextVaultUnlock.mins}m runtime — only <span class="text-white font-semibold">+${needed} mins</span> more buffer needed).`;
                     }
                 } else {
-                    vaultSubtextEl.textContent = 'Pull any Vault title into your Essential Queue or defer Queue items back here—entries automatically slot into their ideal spoiler-free narrative order.';
+                    vaultSubtextEl.textContent = 'All Vault titles have been moved into your Essential Queue!';
                 }
             }
         }
@@ -2256,9 +2260,10 @@
                 );
 
                 items.forEach(item => {
-                    const isUnlocked = netBuffer >= item.threshold;
-                    const deficit = Math.max(0, item.threshold - netBuffer);
-                    const pct = item.threshold > 0 ? Math.min(100, Math.max(0, Math.round((netBuffer / item.threshold) * 100))) : 100;
+                    const requiredBuffer = item.mins;
+                    const isUnlocked = netBuffer >= requiredBuffer;
+                    const deficit = Math.max(0, requiredBuffer - netBuffer);
+                    const pct = requiredBuffer > 0 ? Math.min(100, Math.max(0, Math.round((netBuffer / requiredBuffer) * 100))) : 100;
                     const placement = getNarrativePlacement(item);
 
                     const card = document.createElement('div');
@@ -2268,20 +2273,20 @@
                             <div class="flex items-center justify-between gap-2 mb-2">
                                 <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-400">${item.tier}</span>
                                 <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${isUnlocked ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'bg-amber-500/15 text-amber-300 border border-amber-500/30'}">
-                                    ${isUnlocked ? '🔓 THRESHOLD MET' : `🔒 +${item.threshold}m THRESHOLD`}
+                                    ${isUnlocked ? '🔓 UNLOCKED' : `🔒 ${requiredBuffer}m RUNTIME`}
                                 </span>
                             </div>
                             <h3 class="text-base font-extrabold text-white mb-1">${item.title} <span class="text-xs font-normal text-slate-400">(${item.mins} mins)</span></h3>
                             <p class="text-[11px] font-semibold text-emerald-300/90 mb-1.5">🧭 Narrative Slot: ${placement.placementNote}</p>
                             <p class="text-xs ${isUnlocked ? 'text-emerald-300' : 'text-amber-300/90'} font-medium mb-2">
-                                ${isUnlocked ? 'Threshold cleared — ready to slot into Queue!' : `Need +${deficit} more buffer mins to clear threshold`}
+                                ${isUnlocked ? 'Buffer covers full runtime — ready to slot into Queue!' : `Need +${deficit} more buffer mins to cover ${requiredBuffer}m runtime`}
                             </p>
                             <p class="text-xs text-slate-400 line-clamp-2 mb-4">${item.synopsis}</p>
                         </div>
                         <div class="space-y-3 pt-3 border-t border-slate-800/80">
                             <div>
                                 <div class="flex justify-between text-[11px] text-slate-400 mb-1">
-                                    <span>Buffer Progress (${formatSignedMins(netBuffer)}m / +${item.threshold}m)</span>
+                                    <span>Buffer Progress (${formatSignedMins(netBuffer)}m / ${requiredBuffer}m)</span>
                                     <span>${pct}%</span>
                                 </div>
                                 <div class="w-full h-1.5 bg-doom-950 rounded-full overflow-hidden">
