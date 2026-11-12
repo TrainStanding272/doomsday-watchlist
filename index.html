@@ -169,11 +169,11 @@
                         <button onclick="exportMarkdown()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-300 text-xs font-semibold transition shrink-0">
                             Export MD
                         </button>
-                        <button onclick="exportStandaloneHTML()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 text-xs font-semibold transition shrink-0 flex items-center gap-1.5" title="Download ready-to-deploy HTML file with your current progress baked in">
+                        <button onclick="exportStandaloneHTML()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 text-xs font-semibold transition shrink-0 flex items-center gap-1.5" title="Download ready-to-deploy index.html for GitHub Pages with your current progress baked in">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                             </svg>
-                            <span>Download HTML</span>
+                            <span>Download index.html</span>
                         </button>
                     </div>
                 </div>
@@ -225,7 +225,7 @@
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">OPTION B RELOCK PROTOCOL</span>
                         <h2 class="text-base sm:text-lg font-bold text-white" id="vault-buffer-heading">Net Buffer: +339 Surplus Minutes (3,400m capacity − 3,067m queue • +6m overflow today)</h2>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="vault-buffer-subtext">Next Unlock: <span class="text-amber-300 font-semibold">Ironheart (Season 1)</span> at +390 mins (<span class="text-white font-semibold">+51 mins</span> needed). Pulling items into the Queue increases your Remaining Queue and reduces your buffer.</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="vault-buffer-subtext">Next Unlock: <span class="text-amber-300 font-semibold">Ironheart (Season 1)</span> at +390 mins (<span class="text-white font-semibold">+51 mins</span> needed). Pulling items into the Queue automatically slots them into their ideal spoiler-free narrative order.</p>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openLogMinutesModal()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-doom-950 text-xs font-bold transition shadow-lg shadow-cyan-500/20">
@@ -399,8 +399,57 @@
     <script>
         const PREMIERE_DATE = new Date('2026-12-16T00:00:00');
         const REFERENCE_TODAY = new Date('2026-11-12T00:00:00');
-        const STORAGE_KEY = 'doomsday_watchlist_v5_nov12';
+        const STORAGE_KEY = 'doomsday_watchlist_v6_nov12';
         const DEFAULT_DAILY_PACE = 100;
+
+        // Canonical Narrative & Spoiler-Free Placement Map for All Queue & Vault Titles
+        // Decimal queueOrder values slot Vault titles cleanly between core Queue entries without spoiling later twists
+        const NARRATIVE_PLACEMENT_MAP = {
+            // Act 1: Street-Level & Defenders Finale
+            'jj-s3':             { queueOrder: 1.0,  act: 'Act 1', actLabel: 'Act 1: Street-Level & Defenders Finale', placementNote: 'Act 1 (#1) — Concludes Netflix Defenders before Echo & Born Again' },
+            'echo':              { queueOrder: 2.0,  act: 'Act 1', actLabel: 'Act 1: Street-Level & Defenders Finale', placementNote: 'Act 1 (#2) — Sets up Kingpin’s mayoral run before Born Again' },
+            'dd-born-again':     { queueOrder: 3.0,  act: 'Act 1', actLabel: 'Act 1: Street-Level & Defenders Finale', placementNote: 'Act 1 (#3) — Establishes NYC martial law before Brand New Day' },
+
+            // Act 2: Mutant Precursors & Dark Magic
+            'xmen-apocalypse':   { queueOrder: 4.0,  act: 'Act 2', actLabel: 'Act 2: Mutant Precursors & Dark Magic', placementNote: 'Act 2 (#4) — 1983 Fox X-Men timeline before Dark Phoenix' },
+            'dark-phoenix':      { queueOrder: 5.0,  act: 'Act 2', actLabel: 'Act 2: Mutant Precursors & Dark Magic', placementNote: 'Act 2 (#5) — Direct sequel to X-Men: Apocalypse' },
+            'new-mutants':       { queueOrder: 6.0,  act: 'Act 2', actLabel: 'Act 2: Mutant Precursors & Dark Magic', placementNote: 'Act 2 (#6) — Closes the Fox mutant film era' },
+            'agatha':            { queueOrder: 7.0,  act: 'Act 2', actLabel: 'Act 2: Mutant Precursors & Dark Magic', placementNote: 'Act 2 (#7) — Introduces Wiccan & Death before VisionQuest' },
+
+            // Act 3: Multiversal Anthology, Legacy & Vault Unlocks (Placed chronologically & spoiler-free!)
+            'blade-trilogy':     { queueOrder: 7.5,  act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — Pre-MCU Void legacy daywalker origin' },
+            'ghost-rider-duology': { queueOrder: 8.0, act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — Pre-MCU Spirit of Vengeance & Mephisto lore' },
+            'tasm-duology':      { queueOrder: 8.2,  act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — Peter-Three canon archive' },
+            'legacy-f4':         { queueOrder: 8.4,  act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — Alternate F4 variants before First Steps' },
+            'sony-ssu':          { queueOrder: 8.6,  act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — SSU multiversal rift entries' },
+            'fox-tv-vault':      { queueOrder: 8.7,  act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — Alternate Fox mutant TV timelines' },
+            'marvel-tv-vault':   { queueOrder: 8.8,  act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — Extended Marvel Television archive' },
+            'anime-modern-anim': { queueOrder: 8.85, act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — Modern & Anime Marvel animation archive' },
+            'vintage-vault':     { queueOrder: 8.9,  act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — 1990s MAU & retro multiverse archive' },
+            'what-if-s3':        { queueOrder: 9.0,  act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — Watcher anthology; Ep 6 teases The Hood before Ironheart' },
+            'marvel-zombies':    { queueOrder: 9.3,  act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — Placed right after What If...? S3 multiverse branches' },
+            'eyes-of-wakanda':   { queueOrder: 10.0, act: 'Act 3', actLabel: 'Act 3: Multiversal Anthology & Vault Unlocks', placementNote: 'Act 3 — Historical Wakandan vibranium & Iron Fist lore' },
+
+            // Act 4: The Climax Road to Doomsday (Strict chronological & post-credits order)
+            'cap-bnw':           { queueOrder: 11.0, act: 'Act 4', actLabel: 'Act 4: The Climax Road to Doomsday', placementNote: 'Act 4 (#11) — Introduces Adamantium & Raft warning before Thunderbolts*' },
+            'thunderbolts':      { queueOrder: 12.0, act: 'Act 4', actLabel: 'Act 4: The Climax Road to Doomsday', placementNote: 'Act 4 (#12) — Placed after Cap: BNW; post-credits teases F4 spacecraft' },
+            'ironheart':         { queueOrder: 12.3, act: 'Act 4', actLabel: 'Act 4: The Climax Road to Doomsday', placementNote: 'Act 4 — Tech vs. Mephisto magic; watched after Cap: BNW & Thunderbolts*' },
+            'wonder-man':        { queueOrder: 12.6, act: 'Act 4', actLabel: 'Act 4: The Climax Road to Doomsday', placementNote: 'Act 4 — Earth-616 hero spotlight prior to Brand New Day' },
+            'visionquest':       { queueOrder: 12.8, act: 'Act 4', actLabel: 'Act 4: The Climax Road to Doomsday', placementNote: 'Act 4 — Placed after Agatha All Along & WandaVision to avoid Wiccan/Speed spoilers' },
+            'spiderman-bnd':     { queueOrder: 13.0, act: 'Act 4', actLabel: 'Act 4: The Climax Road to Doomsday', placementNote: 'Act 4 (#13) — Earth-616 street/multiverse checkpoint after Born Again' },
+            'f4-first-steps':    { queueOrder: 14.0, act: 'Act 4', actLabel: 'Act 4: The Climax Road to Doomsday', placementNote: 'Act 4 (#14) — Final climax & Doctor Doom post-credits directly into Doomsday' }
+        };
+
+        function getNarrativePlacement(item) {
+            const mapped = NARRATIVE_PLACEMENT_MAP[item.id];
+            if (mapped) return mapped;
+            return {
+                queueOrder: item.queueOrder || 9.5,
+                act: item.act || 'Act 3',
+                actLabel: item.actLabel || 'Act 3: Multiversal Anthology & Vault Unlocks',
+                placementNote: 'Act 3 — Chronological Multiverse Slot'
+            };
+        }
 
         function getTodayDateKey() {
             const now = new Date();
@@ -1404,94 +1453,129 @@
                         "tier": "Tier 1 Priority",
                         "title": "Ironheart (Season 1)",
                         "release": "2025",
+                        "type": "series",
+                        "totalEpisodes": 6,
+                        "watchedEpisodes": 0,
                         "mins": 270,
                         "threshold": 390,
                         "statusNote": "🟡 Next Unlock — Only +51 mins needed to clear +390m threshold!",
                         "synopsis": "Genius young inventor Riri Williams returns to Chicago after Black Panther: Wakanda Forever, pitting her advanced armored technology against Parker Robbins / The Hood’s dark magic.",
-                        "doomsdayLink": "Explores the collision of Stark-level armor tech and Mephisto-linked dark magic—a core theme mirrored by Doctor Doom."
+                        "doomsdayLink": "Explores the collision of Stark-level armor tech and Mephisto-linked dark magic—a core theme mirrored by Doctor Doom.",
+                        "loreNotes": "6 episodes (~45 mins avg). Ideal placement in Act 4 after Captain America: Brave New World and What If...? S3E06 (The Hood)."
                 },
                 {
                         "id": "wonder-man",
                         "tier": "Tier 1 Priority",
                         "title": "Wonder Man (Season 1)",
                         "release": "2025",
+                        "type": "series",
+                        "totalEpisodes": 8,
+                        "watchedEpisodes": 0,
                         "mins": 240,
                         "threshold": 630,
                         "statusNote": "⏳ Held under Option B Relock (Threshold: +630 cumulative mins)",
                         "synopsis": "Hollywood actor Simon Williams auditions for a remake of a classic superhero film alongside Trevor Slattery while gaining ionic superpowers.",
-                        "doomsdayLink": "Introduces Simon Williams (Wonder Man) to Earth-616."
+                        "doomsdayLink": "Introduces Simon Williams (Wonder Man) to Earth-616.",
+                        "loreNotes": "8 episodes (~30 mins avg). Placed in Act 4 as an Earth-616 character spotlight prior to Spider-Man: Brand New Day."
                 },
                 {
                         "id": "visionquest",
                         "tier": "Tier 1 Priority",
                         "title": "VisionQuest",
                         "release": "2026",
+                        "type": "series",
+                        "totalEpisodes": 6,
+                        "watchedEpisodes": 0,
                         "mins": 270,
                         "threshold": 900,
                         "statusNote": "⏳ Held under Option B Relock (Threshold: +900 cumulative mins)",
                         "synopsis": "Following the restoration of his memories in WandaVision, White Vision embarks on a journey to reconcile his identity, humanity, and Ultron’s legacy.",
-                        "doomsdayLink": "Resolves White Vision’s whereabouts ahead of Avengers-level threats."
+                        "doomsdayLink": "Resolves White Vision’s whereabouts ahead of Avengers-level threats.",
+                        "loreNotes": "6 episodes (~45 mins avg). Placed in Act 4 after Agatha All Along so Wiccan & Speed lore stays completely spoiler-free."
                 },
                 {
                         "id": "marvel-zombies",
                         "tier": "Tier 1 Priority",
                         "title": "Marvel Zombies",
                         "release": "2025",
+                        "type": "series",
+                        "totalEpisodes": 4,
+                        "watchedEpisodes": 0,
                         "mins": 160,
                         "threshold": 1060,
                         "statusNote": "⏳ Held under Option B Relock (Threshold: +1,060 cumulative mins)",
                         "synopsis": "A new generation of heroes battles an ever-spreading zombie scourge across a brutal alternate timeline spun out of What If...?",
-                        "doomsdayLink": "Alternate multiverse horror timeline."
+                        "doomsdayLink": "Alternate multiverse horror timeline.",
+                        "loreNotes": "4 episodes (~40 mins avg). Placed in Act 3 directly after What If...? Season 3."
                 },
                 {
                         "id": "blade-trilogy",
                         "tier": "Tier 2 Archive",
                         "title": "Blade Trilogy (1998–2004)",
                         "release": "1998–2004",
+                        "type": "series",
+                        "totalEpisodes": 3,
+                        "watchedEpisodes": 0,
                         "mins": 350,
                         "threshold": 740,
                         "statusNote": "Queued at +740 mins total buffer (Option B Relock)",
                         "synopsis": "Half-vampire daywalker Eric Brooks wages a relentless war against Deacon Frost, the Reaper strain, and Dracula.",
-                        "doomsdayLink": "Wesley Snipes’s Void legacy variant origin."
+                        "doomsdayLink": "Wesley Snipes’s Void legacy variant origin.",
+                        "loreNotes": "3 films: Blade (120m), Blade II (117m), Blade: Trinity (113m). Placed in Act 3 with pre-MCU legacy lore."
                 },
                 {
                         "id": "tasm-duology",
                         "tier": "Tier 2 Archive",
                         "title": "The Amazing Spider-Man 1 & 2",
                         "release": "2012–2014",
+                        "type": "series",
+                        "totalEpisodes": 2,
+                        "watchedEpisodes": 0,
                         "mins": 278,
                         "threshold": 1200,
                         "statusNote": "Post-Doomsday Legacy Archive",
                         "synopsis": "Andrew Garfield’s Peter Parker uncovers Oscorp secrets and faces the Lizard, Electro, and Green Goblin.",
-                        "doomsdayLink": "Peter-Three canon archive."
+                        "doomsdayLink": "Peter-Three canon archive.",
+                        "loreNotes": "2 films: The Amazing Spider-Man (136m) & The Amazing Spider-Man 2 (142m). Placed in Act 3 multiverse archive."
                 },
                 {
                         "id": "legacy-f4",
                         "tier": "Tier 2 Archive",
                         "title": "Fantastic Four (2005, 2007) & Fant4stic (2015)",
                         "release": "2005–2015",
+                        "type": "series",
+                        "totalEpisodes": 3,
+                        "watchedEpisodes": 0,
                         "mins": 298,
                         "threshold": 1350,
                         "statusNote": "Post-Doomsday Legacy Archive",
                         "synopsis": "Previous theatrical adaptations of Marvel’s First Family, including Chris Evans’s Johnny Storm.",
-                        "doomsdayLink": "Alternate universe Fantastic Four variants."
+                        "doomsdayLink": "Alternate universe Fantastic Four variants.",
+                        "loreNotes": "3 films placed in Act 3 prior to The Fantastic Four: First Steps."
                 },
                 {
                         "id": "sony-ssu",
                         "tier": "Tier 2 Archive",
                         "title": "Sony SSU Batch (Morbius, Madame Web, Venom: The Last Dance)",
                         "release": "2022–2024",
+                        "type": "series",
+                        "totalEpisodes": 3,
+                        "watchedEpisodes": 0,
                         "mins": 330,
                         "threshold": 1500,
                         "statusNote": "Post-Doomsday Legacy Archive",
                         "synopsis": "Sony’s standalone Spider-Man universe entries exploring Morbius, Cassandra Webb, and Knull’s symbiote invasion.",
-                        "doomsdayLink": "SSU multiversal rift entries."
+                        "doomsdayLink": "SSU multiversal rift entries.",
+                        "loreNotes": "3 films placed in Act 3 multiversal anthology."
                 },
                 {
                         "id": "fox-tv-vault",
                         "tier": "Tier 3 Vault",
                         "title": "Fox Mutant TV: Legion (S1–S3) & The Gifted (S1–S2)",
                         "release": "2017–2019",
+                        "type": "series",
+                        "totalEpisodes": 56,
+                        "watchedEpisodes": 0,
                         "mins": 2450,
                         "threshold": 2000,
                         "statusNote": "Completionist Mutant Television Vault",
@@ -1503,6 +1587,9 @@
                         "tier": "Tier 3 Vault",
                         "title": "Cloak & Dagger (S1–S2), Runaways (S1–S3), Inhumans & Helstrom",
                         "release": "2017–2020",
+                        "type": "series",
+                        "totalEpisodes": 71,
+                        "watchedEpisodes": 0,
                         "mins": 2800,
                         "threshold": 2500,
                         "statusNote": "Completionist Marvel Television Vault",
@@ -1514,6 +1601,9 @@
                         "tier": "Tier 3 Vault",
                         "title": "Madhouse Marvel Anime, X-Men: Evolution, Wolverine & EMH",
                         "release": "2000–2017",
+                        "type": "series",
+                        "totalEpisodes": 178,
+                        "watchedEpisodes": 0,
                         "mins": 4200,
                         "threshold": 3000,
                         "statusNote": "Modern & Anime Animation Archive",
@@ -1525,6 +1615,9 @@
                         "tier": "Tier 3 Vault",
                         "title": "1990s Animated Universe (MAU) & Pre-2000 Live-Action",
                         "release": "1978–2000",
+                        "type": "series",
+                        "totalEpisodes": 180,
+                        "watchedEpisodes": 0,
                         "mins": 5500,
                         "threshold": 3500,
                         "statusNote": "Vintage Multiverse Archive",
@@ -1556,21 +1649,23 @@
                             entries: []
                         };
                     }
-                    // Hydrate missing episode breakdowns and production notes from DEFAULT_DATA onto cached items
+                    // Hydrate missing episode breakdowns, production notes, and canonical narrative order
                     if (Array.isArray(parsed.workbook2)) {
                         parsed.workbook2 = parsed.workbook2.map(savedItem => {
                             const masterItem = DEFAULT_DATA.workbook2.find(d => d.id === savedItem.id);
-                            if (masterItem) {
-                                return {
-                                    ...savedItem,
-                                    production: masterItem.production || savedItem.production,
-                                    episodes: Array.isArray(masterItem.episodes)
-                                        ? JSON.parse(JSON.stringify(masterItem.episodes))
-                                        : savedItem.episodes
-                                };
-                            }
-                            return savedItem;
+                            const placement = getNarrativePlacement(savedItem);
+                            return {
+                                ...savedItem,
+                                queueOrder: placement.queueOrder,
+                                act: placement.act,
+                                actLabel: placement.actLabel,
+                                production: (masterItem && masterItem.production) || savedItem.production,
+                                episodes: (masterItem && Array.isArray(masterItem.episodes))
+                                    ? JSON.parse(JSON.stringify(masterItem.episodes))
+                                    : savedItem.episodes
+                            };
                         });
+                        parsed.workbook2.sort((a, b) => (a.queueOrder || 99) - (b.queueOrder || 99));
                     }
                     if (Array.isArray(parsed.workbook1)) {
                         parsed.workbook1 = parsed.workbook1.map(savedItem => {
@@ -1782,7 +1877,6 @@
                 renderTodayModalContent();
             }
             const buf = getEffectiveBuffer();
-            const todayStats = getTodayWatchStats();
             showToast(`Pace: ${appState.dailyPaceTarget}m/d (${buf.totalCapacityMins.toLocaleString()}m cap) • Net Buffer: ${formatSignedMins(buf.netBuffer)}m`);
         }
 
@@ -1811,6 +1905,7 @@
                 watchedItemMins = Math.round(item.watchedEpisodes * (item.totalMins / item.totalEpisodes));
             }
             const remainingItemMins = Math.max(0, item.totalMins - watchedItemMins);
+            const placement = getNarrativePlacement(item);
 
             appState.workbook2.splice(idx, 1);
 
@@ -1824,9 +1919,9 @@
                 totalEpisodes: item.totalEpisodes,
                 watchedEpisodes: item.watchedEpisodes,
                 type: item.type,
-                act: item.act,
-                actLabel: item.actLabel,
-                queueOrder: item.queueOrder || 99,
+                act: placement.act,
+                actLabel: placement.actLabel,
+                queueOrder: placement.queueOrder,
                 threshold: Math.max(0, getEffectiveBuffer().netBuffer),
                 statusNote: `Deferred from Queue (+${remainingItemMins}m freed in buffer)`,
                 synopsis: item.synopsis,
@@ -1848,33 +1943,36 @@
             appState.workbook3.splice(idx, 1);
 
             const masterItem = DEFAULT_DATA.workbook2.find(d => d.id === vaultItem.id);
+            const placement = getNarrativePlacement(vaultItem);
 
             const newQueueItem = {
                 id: vaultItem.id,
-                queueOrder: vaultItem.queueOrder || (appState.workbook2.length + 1),
-                act: vaultItem.act || 'Act 3',
-                actLabel: vaultItem.actLabel || 'Act 3: Multiversal Anthology & Vault Unlocks',
+                queueOrder: placement.queueOrder,
+                act: placement.act,
+                actLabel: placement.actLabel,
                 title: vaultItem.title,
                 release: vaultItem.release,
-                type: vaultItem.type || 'movie',
+                type: vaultItem.type || (vaultItem.totalEpisodes && vaultItem.totalEpisodes > 1 ? 'series' : 'movie'),
                 totalEpisodes: vaultItem.totalEpisodes || 1,
                 watchedEpisodes: vaultItem.watchedEpisodes || 0,
                 totalMins: vaultItem.totalMins || itemMins,
-                statusBadge: 'PULLED FROM VAULT',
+                statusBadge: 'UNLOCKED FROM VAULT',
                 synopsis: vaultItem.synopsis,
                 doomsdayLink: vaultItem.doomsdayLink,
-                loreNotes: vaultItem.loreNotes || `Pulled from Post-Doomsday Vault (-${itemMins}m buffer).`,
-                production: masterItem ? masterItem.production : vaultItem.production,
+                loreNotes: vaultItem.loreNotes || `${placement.placementNote}. Pulled from Vault (-${itemMins}m buffer).`,
+                production: (masterItem && masterItem.production) || vaultItem.production,
                 episodes: masterItem && masterItem.episodes ? JSON.parse(JSON.stringify(masterItem.episodes)) : undefined
             };
 
             appState.workbook2.push(newQueueItem);
             appState.workbook2.sort((a, b) => (a.queueOrder || 99) - (b.queueOrder || 99));
 
+            const slotPosition = appState.workbook2.findIndex(i => i.id === newQueueItem.id) + 1;
+
             saveState();
             renderCurrentTab();
             const net = getEffectiveBuffer().netBuffer;
-            showToast(`Added "${vaultItem.title}" to Queue (-${itemMins}m • Net Buffer: ${formatSignedMins(net)}m)`);
+            showToast(`Slotted "${vaultItem.title}" at #${slotPosition} in ${placement.act} (-${itemMins}m • Buffer: ${formatSignedMins(net)}m)`);
         }
 
         function updateDashboardMetrics() {
@@ -1984,12 +2082,12 @@
                 if (ironheart) {
                     const needed = ironheart.threshold - buf.netBuffer;
                     if (needed <= 0) {
-                        vaultSubtextEl.innerHTML = `<span class="text-emerald-400 font-bold">✅ Threshold Cleared!</span> <span class="text-white font-semibold">Ironheart (Season 1)</span> (+390m) is ready to pull into your Queue.`;
+                        vaultSubtextEl.innerHTML = `<span class="text-emerald-400 font-bold">✅ Threshold Cleared!</span> <span class="text-white font-semibold">Ironheart (Season 1)</span> (+390m) is ready to pull into your Queue (slots into Act 4 after Thunderbolts*).`;
                     } else {
-                        vaultSubtextEl.innerHTML = `Next Unlock: <span class="text-amber-300 font-semibold">Ironheart (Season 1)</span> at +390 mins (<span class="text-white font-semibold">+${needed} mins</span> needed). Pulling items into the Queue increases your Remaining Queue and reduces your buffer.`;
+                        vaultSubtextEl.innerHTML = `Next Unlock: <span class="text-amber-300 font-semibold">Ironheart (Season 1)</span> at +390 mins (<span class="text-white font-semibold">+${needed} mins</span> needed). Pulling items into the Queue automatically slots them into their ideal spoiler-free narrative order.`;
                     }
                 } else {
-                    vaultSubtextEl.textContent = 'Pull any Vault title into your Essential Queue or defer Queue items back here to dynamically rebalance your buffer.';
+                    vaultSubtextEl.textContent = 'Pull any Vault title into your Essential Queue or defer Queue items back here—entries automatically slot into their ideal spoiler-free narrative order.';
                 }
             }
         }
@@ -2029,6 +2127,9 @@
             grid.innerHTML = '';
 
             if (currentTab === 'workbook2') {
+                // Always enforce canonical narrative & spoiler-free order
+                appState.workbook2.sort((a, b) => (a.queueOrder || 99) - (b.queueOrder || 99));
+
                 const items = appState.workbook2.filter(item => {
                     const matchesAct = currentActFilter === 'all' || item.act === currentActFilter;
                     const matchesQuery = !query ||
@@ -2044,6 +2145,7 @@
                 }
 
                 items.forEach(item => {
+                    const overallPos = appState.workbook2.findIndex(q => q.id === item.id) + 1;
                     const isComplete = item.watchedEpisodes >= item.totalEpisodes;
                     const pct = Math.round((item.watchedEpisodes / item.totalEpisodes) * 100);
                     let watchedItemMins = 0;
@@ -2067,7 +2169,7 @@
                     card.innerHTML = `
                         <div>
                             <div class="flex items-start justify-between gap-2 mb-2.5">
-                                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">${item.actLabel}</span>
+                                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">#${overallPos} • ${item.actLabel}</span>
                                 <span class="px-2 py-0.5 rounded-full text-[10px] font-bold border ${badgeStyle} shrink-0">${isComplete ? 'COMPLETED' : item.statusBadge}</span>
                             </div>
 
@@ -2157,6 +2259,7 @@
                     const isUnlocked = netBuffer >= item.threshold;
                     const deficit = Math.max(0, item.threshold - netBuffer);
                     const pct = item.threshold > 0 ? Math.min(100, Math.max(0, Math.round((netBuffer / item.threshold) * 100))) : 100;
+                    const placement = getNarrativePlacement(item);
 
                     const card = document.createElement('div');
                     card.className = `glass-panel rounded-2xl p-4 sm:p-5 flex flex-col justify-between border ${isUnlocked ? 'border-emerald-500/40' : 'border-slate-800'}`;
@@ -2169,8 +2272,9 @@
                                 </span>
                             </div>
                             <h3 class="text-base font-extrabold text-white mb-1">${item.title} <span class="text-xs font-normal text-slate-400">(${item.mins} mins)</span></h3>
+                            <p class="text-[11px] font-semibold text-emerald-300/90 mb-1.5">🧭 Narrative Slot: ${placement.placementNote}</p>
                             <p class="text-xs ${isUnlocked ? 'text-emerald-300' : 'text-amber-300/90'} font-medium mb-2">
-                                ${isUnlocked ? 'Threshold cleared — ready to pull into Queue!' : `Need +${deficit} more buffer mins to clear threshold`}
+                                ${isUnlocked ? 'Threshold cleared — ready to slot into Queue!' : `Need +${deficit} more buffer mins to clear threshold`}
                             </p>
                             <p class="text-xs text-slate-400 line-clamp-2 mb-4">${item.synopsis}</p>
                         </div>
@@ -2188,8 +2292,8 @@
                                 <button onclick="openLoreModal('${item.id}', 'workbook3')" class="flex-1 px-3 py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-200 text-xs font-semibold transition">
                                     Synopsis & Lore
                                 </button>
-                                <button onclick="moveToQueue('${item.id}')" class="px-3 py-2 rounded-xl ${isUnlocked ? 'bg-emerald-500 hover:bg-emerald-400 text-doom-950 font-extrabold shadow-md shadow-emerald-500/20' : 'bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 font-bold'} text-xs transition" title="Pull into Essential Queue and deduct -${item.mins}m from buffer">
-                                    ← Move to Queue (-${item.mins}m)
+                                <button onclick="moveToQueue('${item.id}')" class="px-3 py-2 rounded-xl ${isUnlocked ? 'bg-emerald-500 hover:bg-emerald-400 text-doom-950 font-extrabold shadow-md shadow-emerald-500/20' : 'bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 font-bold'} text-xs transition" title="Insert into ${placement.act} in spoiler-free chronological order (-${item.mins}m from buffer)">
+                                    ← Slot in ${placement.act} (-${item.mins}m)
                                 </button>
                             </div>
                         </div>
@@ -2602,18 +2706,17 @@
                 const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
                 const link = document.createElement('a');
-                const dateStamp = new Date().toISOString().slice(0, 10);
                 link.href = url;
-                link.download = `doomsday-watchlist-${dateStamp}.html`;
+                link.download = 'index.html';
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
                 setTimeout(() => URL.revokeObjectURL(url), 1000);
 
-                showToast('⬇️ Standalone HTML downloaded! Ready for Netlify Drop.');
+                showToast('⬇️ Downloaded index.html! Ready to upload directly to GitHub Pages.');
             } catch (err) {
                 console.error('HTML export failed:', err);
-                showToast('⚠️ Could not generate HTML download.');
+                showToast('⚠️ Could not generate index.html download.');
             }
         }
 
