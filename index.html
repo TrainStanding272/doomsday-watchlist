@@ -154,7 +154,7 @@
                     </nav>
 
                     <div class="flex flex-wrap items-center gap-2">
-                        <div class="relative flex-1 sm:w-52">
+                        <div class="relative flex-1 sm:w-56">
                             <input type="text" id="search-input" oninput="renderCurrentTab()" placeholder="Filter titles, acts, thresholds..." class="w-full bg-doom-900 border border-slate-700/80 focus:border-emerald-500 rounded-xl pl-9 pr-3 py-1.5 sm:py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none transition">
                             <svg class="w-4 h-4 text-slate-500 absolute left-3 top-2 sm:top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -165,15 +165,6 @@
                         </button>
                         <button onclick="openLogMinutesModal()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 text-xs font-semibold transition shrink-0">
                             + Buffer
-                        </button>
-                        <button onclick="exportMarkdown()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-300 text-xs font-semibold transition shrink-0">
-                            Export MD
-                        </button>
-                        <button onclick="exportStandaloneHTML()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 text-xs font-semibold transition shrink-0 flex items-center gap-1.5" title="Download ready-to-deploy index.html for GitHub Pages with your current progress baked in">
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                            </svg>
-                            <span>Download index.html</span>
                         </button>
                     </div>
                 </div>
@@ -2650,79 +2641,6 @@
             saveState();
             renderCurrentTab();
             showToast('Reset to Nov 12, 2026 baseline snapshot');
-        }
-
-        function exportMarkdown() {
-            const stats = getQueueStats();
-            const buf = getEffectiveBuffer();
-            const todayStats = getTodayWatchStats();
-            const userPace = appState.dailyPaceTarget ?? DEFAULT_DAILY_PACE;
-            const lines = [
-                `# Marvel Doomsday Watchlist — Live Export`,
-                `- **Latest Completion:** ${appState.latestCompletion}`,
-                `- **Watched Today (${formatDisplayDate(todayStats.date)}):** ${todayStats.watchedTodayMins} / ${todayStats.targetMins} mins (${todayStats.isTargetMet ? `Pace Met • +${todayStats.overflowMins}m overflow logged to buffer` : `${todayStats.remainingToTarget}m remaining to meet pace`})`,
-                `- **Daily Pace Target:** ${userPace} mins/day (${buf.totalCapacityMins.toLocaleString()}m total capacity over ${stats.days} days)`,
-                `- **Workbook 2 Remaining:** ${stats.remainingMins} mins across ${appState.workbook2.length} entries (${stats.requiredDailyMins} mins/day required)`,
-                `- **Workbook 3 Net Buffer:** ${formatSignedMins(buf.netBuffer)} surplus minutes`,
-                ``,
-                `## Active Queue Progress`
-            ];
-            appState.workbook2.forEach((item, i) => {
-                lines.push(`${i + 1}. **${item.title}** — ${item.watchedEpisodes}/${item.totalEpisodes} (${item.totalMins} mins)`);
-            });
-
-            const text = lines.join('\n');
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            showToast('📋 Markdown status summary copied to clipboard!');
-        }
-
-        function exportStandaloneHTML() {
-            try {
-                // Ensure episode arrays are hydrated before exporting
-                appState.workbook2 = appState.workbook2.map(item => {
-                    const masterItem = DEFAULT_DATA.workbook2.find(d => d.id === item.id);
-                    if (masterItem && Array.isArray(masterItem.episodes) && (!Array.isArray(item.episodes) || item.episodes.length === 0)) {
-                        return { ...item, episodes: JSON.parse(JSON.stringify(masterItem.episodes)) };
-                    }
-                    return item;
-                });
-
-                const cloneDoc = document.documentElement.cloneNode(true);
-                ['#lore-modal', '#buffer-modal', '#today-modal'].forEach(selector => {
-                    const m = cloneDoc.querySelector(selector);
-                    if (m) {
-                        m.classList.add('hidden');
-                        m.classList.remove('flex');
-                    }
-                });
-
-                let htmlSource = '<!DOCTYPE html>\n' + cloneDoc.outerHTML;
-                const serializedState = JSON.stringify(appState, null, 8);
-                htmlSource = htmlSource.replace(
-                    /const DEFAULT_DATA = \{[\s\S]*?\n        \};/,
-                    `const DEFAULT_DATA = ${serializedState};`
-                );
-
-                const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = 'index.html';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-                showToast('⬇️ Downloaded index.html! Ready to upload directly to GitHub Pages.');
-            } catch (err) {
-                console.error('HTML export failed:', err);
-                showToast('⚠️ Could not generate index.html download.');
-            }
         }
 
         function showToast(msg) {
