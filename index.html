@@ -130,7 +130,7 @@
                         <div id="metric-remaining" class="text-sm sm:text-base font-extrabold text-white">3,012 mins</div>
                     </div>
 
-                    <div id="metric-bank-card" class="bg-doom-800/90 border border-cyan-500/30 rounded-xl px-3 py-2 cursor-pointer hover:border-cyan-400 transition" onclick="openLogMinutesModal()" title="Future Capacity − Remaining Queue (after today's quota is met) + Overflow">
+                    <div id="metric-bank-card" class="bg-doom-800/90 border border-cyan-500/30 rounded-xl px-3 py-2 cursor-pointer hover:border-cyan-400 transition" onclick="openLogMinutesModal()" title="Forward Runway Capacity (Future Days × Daily Pace) − Remaining Queue + Manual Adjustments">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Net Buffer</div>
                         <div id="metric-bank" class="text-sm sm:text-base font-extrabold text-cyan-400">+188 mins</div>
                     </div>
@@ -186,7 +186,7 @@
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">ACTIVE FOCUS</span>
                         <h2 class="text-base sm:text-lg font-bold text-white" id="active-focus-banner-title">Jessica Jones (Season 3) — Episode 3 of 13 (51m)</h2>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="pace-status-subtext">At <span class="text-emerald-400 font-semibold">100 mins/day</span> over 33 days (3,300m budget), you are <span class="text-cyan-400 font-semibold">+288 mins ahead</span> of your 3,012m queue!</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="pace-status-subtext">At <span class="text-emerald-400 font-semibold">100 mins/day</span> across 32 future days (3,200m forward capacity), you are <span class="text-cyan-400 font-semibold">+188 mins ahead</span> of your 3,012m queue!</p>
                 </div>
 
                 <!-- Act Filter Pills -->
@@ -1860,26 +1860,28 @@
             const stats = getQueueStats();
             const userPace = appState.dailyPaceTarget ?? DEFAULT_DAILY_PACE;
             const todayStats = getTodayWatchStats();
-            const totalCapacityMins = stats.days * userPace;
 
-            // Future days after today carry the forward baseline runway (32 days * 100m = 3,200m).
+            // Future days strictly after today carry the forward baseline runway (e.g. 32 future days × 100m = 3,200m).
+            // Because stats.remainingMins already reflects every minute logged today, forward surplus is simply:
+            // futureCapacityMins − stats.remainingMins (with no double-counting of today's quota).
             const futureDays = Math.max(0, stats.days - 1);
             const futureCapacityMins = futureDays * userPace;
+            const totalCapacityMins = futureCapacityMins + todayStats.remainingToTarget;
 
-            // Restore all minutes watched today to compute today's starting baseline surplus,
-            // then credit ONLY the overflow beyond today's daily target (1:1, zero double-counting).
-            const preTodayRemainingMins = stats.remainingMins + todayStats.watchedTodayMins;
-            const baseSurplusBeforeToday = futureCapacityMins - preTodayRemainingMins;
-
+            const runwaySurplusMins = futureCapacityMins - stats.remainingMins;
             const manualAdjustmentMins = appState.manualBufferAdjustment ?? 0;
             const autoOverflowContribution = appState.autoBankDailyOverflow ? todayStats.overflowMins : 0;
-            const netBuffer = baseSurplusBeforeToday + manualAdjustmentMins + autoOverflowContribution;
+
+            // If auto-banking daily overflow is paused, withhold today's overflow minutes from the active buffer.
+            const withheldOverflow = appState.autoBankDailyOverflow ? 0 : todayStats.overflowMins;
+            const netBuffer = runwaySurplusMins + manualAdjustmentMins - withheldOverflow;
 
             return {
                 netBuffer,
                 totalCapacityMins,
                 futureCapacityMins,
-                runwaySurplusMins: baseSurplusBeforeToday,
+                futureDays,
+                runwaySurplusMins,
                 manualAdjustmentMins,
                 autoOverflowContribution,
                 days: stats.days
@@ -2083,13 +2085,12 @@
                 focusTitleEl.textContent = '🎉 All Essential Queue Titles Completed!';
             }
 
-            const totalBudget = buf.totalCapacityMins;
-            const totalBudgetDiff = totalBudget - stats.remainingMins;
+            const forwardDiff = buf.netBuffer;
             const paceSubtextEl = document.getElementById('pace-status-subtext');
-            if (totalBudgetDiff >= 0) {
-                paceSubtextEl.innerHTML = `At <span class="text-emerald-400 font-semibold">${userPace} mins/day</span> over ${stats.days} days (${totalBudget.toLocaleString()}m budget), you are <span class="text-cyan-400 font-semibold">+${totalBudgetDiff.toLocaleString()} mins ahead</span> of your ${stats.remainingMins.toLocaleString()}m queue!`;
+            if (forwardDiff >= 0) {
+                paceSubtextEl.innerHTML = `At <span class="text-emerald-400 font-semibold">${userPace} mins/day</span> across ${buf.futureDays} future days (${buf.futureCapacityMins.toLocaleString()}m forward capacity), your net buffer is <span class="text-cyan-400 font-semibold">+${forwardDiff.toLocaleString()} mins ahead</span> of your ${stats.remainingMins.toLocaleString()}m queue!`;
             } else {
-                paceSubtextEl.innerHTML = `At <span class="text-amber-300 font-semibold">${userPace} mins/day</span> over ${stats.days} days (${totalBudget.toLocaleString()}m budget), you are <span class="text-rose-400 font-semibold">${totalBudgetDiff.toLocaleString()} mins behind</span> (need ${stats.requiredDailyMins} m/d).`;
+                paceSubtextEl.innerHTML = `At <span class="text-amber-300 font-semibold">${userPace} mins/day</span> across ${buf.futureDays} future days (${buf.futureCapacityMins.toLocaleString()}m forward capacity), you are <span class="text-rose-400 font-semibold">${forwardDiff.toLocaleString()} mins behind</span> (need ${stats.requiredDailyMins} m/d).`;
             }
 
             const pct = stats.totalInitialMins > 0 ? Math.min(100, Math.round((stats.watchedMins / stats.totalInitialMins) * 100)) : 100;
@@ -2099,9 +2100,9 @@
             const vaultHeadingEl = document.getElementById('vault-buffer-heading');
             const vaultSubtextEl = document.getElementById('vault-buffer-subtext');
             if (vaultHeadingEl && vaultSubtextEl) {
-                const parts = [`${formatSignedMins(buf.runwaySurplusMins)}m base surplus`];
-                if (buf.autoOverflowContribution > 0) parts.push(`+${buf.autoOverflowContribution}m overflow today`);
+                const parts = [`${buf.futureCapacityMins.toLocaleString()}m forward capacity − ${stats.remainingMins.toLocaleString()}m queue`];
                 if (buf.manualAdjustmentMins !== 0) parts.push(`${formatSignedMins(buf.manualAdjustmentMins)}m manual`);
+                if (!appState.autoBankDailyOverflow && todayStats.overflowMins > 0) parts.push(`-${todayStats.overflowMins}m overflow paused`);
                 const note = ` (${parts.join(' • ')})`;
                 vaultHeadingEl.textContent = `Net Buffer: ${formatSignedMins(buf.netBuffer)} Surplus Minutes${note}`;
                 vaultHeadingEl.className = buf.netBuffer < 0
@@ -2199,7 +2200,7 @@
                         <div>
                             <div class="flex items-start justify-between gap-2 mb-2.5">
                                 <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">#${overallPos} • ${item.actLabel}</span>
-                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold border ${badgeStyle} shrink-0">${isComplete ? 'COMPLETED' : item.statusBadge}</span>
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold border ${badgeStyle} shrink-0">${isComplete ? 'COMPLETED' : (isFocus ? `ACTIVE FOCUS — Ep ${item.watchedEpisodes + 1}` : item.statusBadge)}</span>
                             </div>
 
                             <div class="flex items-baseline justify-between gap-2 mb-1">
