@@ -71,10 +71,10 @@
                     <div class="min-w-0">
                         <div class="flex items-center gap-2">
                             <h1 class="text-sm sm:text-xl font-extrabold tracking-tight text-white truncate">DOOMSDAY PROTOCOL</h1>
-                            <span id="header-sync-badge" class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Synced Nov 12, 2026</span>
+                            <span id="header-sync-badge" class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Synced Nov 13, 2026</span>
                         </div>
-                        <p id="latest-completion-header" class="hidden sm:block text-xs text-slate-400 truncate">Latest: Jessica Jones (Season 3) (Ep 1/13) • Today: 106/100m (+6m buf)</p>
-                        <p id="collapsed-summary-strip" class="sm:hidden text-[11px] font-semibold text-emerald-400 truncate">34d • Today: 106/100m (+6m) • Buf: +339m</p>
+                        <p id="latest-completion-header" class="hidden sm:block text-xs text-slate-400 truncate">Latest: Jessica Jones (Season 3) (Ep 2/13) • Today: 0/100m</p>
+                        <p id="collapsed-summary-strip" class="sm:hidden text-[11px] font-semibold text-emerald-400 truncate">33d • Today: 0/100m • Buf: +188m</p>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
                     <div class="bg-doom-800/90 border border-emerald-500/20 rounded-xl px-3 py-2">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Premiere Countdown</div>
-                        <div id="metric-days" class="text-sm sm:text-base font-extrabold text-emerald-400">34 Days</div>
+                        <div id="metric-days" class="text-sm sm:text-base font-extrabold text-emerald-400">33 Days</div>
                     </div>
 
                     <div class="bg-doom-800/90 border border-emerald-500/30 rounded-xl px-3 py-2 flex items-center justify-between gap-2">
@@ -111,28 +111,28 @@
                     </div>
 
                     <!-- Today's Watch & Buffer Overflow Card -->
-                    <div id="metric-today-card" class="col-span-2 sm:col-span-1 bg-doom-800/90 border border-emerald-500/40 rounded-xl px-3 py-2 cursor-pointer hover:border-emerald-400 transition flex flex-col justify-between" onclick="openTodayLogModal()" title="Click to inspect or adjust today's watch log">
+                    <div id="metric-today-card" class="col-span-2 sm:col-span-1 bg-doom-800/90 border border-amber-500/40 rounded-xl px-3 py-2 cursor-pointer hover:border-amber-400 transition flex flex-col justify-between" onclick="openTodayLogModal()" title="Click to inspect or adjust today's watch log">
                         <div class="flex items-center justify-between gap-1">
                             <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Watched Today</span>
-                            <span id="metric-today-badge" class="px-1.5 py-0.2 rounded text-[9px] font-extrabold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">PACE MET</span>
+                            <span id="metric-today-badge" class="px-1.5 py-0.2 rounded text-[9px] font-extrabold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/40">100m LEFT</span>
                         </div>
                         <div class="flex items-baseline justify-between gap-1 mt-0.5">
-                            <div id="metric-today-mins" class="text-sm sm:text-base font-extrabold text-white">106 / 100m</div>
-                            <div id="metric-today-overflow" class="text-[11px] font-bold text-cyan-400">+6m → buf</div>
+                            <div id="metric-today-mins" class="text-sm sm:text-base font-extrabold text-white">0 / 100m</div>
+                            <div id="metric-today-overflow" class="text-[11px] font-bold text-slate-400">0m → buf</div>
                         </div>
                         <div class="w-full h-1.5 bg-doom-950 rounded-full overflow-hidden mt-1.5 border border-slate-800/80">
-                            <div id="metric-today-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-300" style="width: 100%"></div>
+                            <div id="metric-today-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-300" style="width: 0%"></div>
                         </div>
                     </div>
 
                     <div class="bg-doom-800/90 border border-emerald-500/20 rounded-xl px-3 py-2">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Remaining Queue</div>
-                        <div id="metric-remaining" class="text-sm sm:text-base font-extrabold text-white">3,067 mins</div>
+                        <div id="metric-remaining" class="text-sm sm:text-base font-extrabold text-white">3,012 mins</div>
                     </div>
 
-                    <div id="metric-bank-card" class="bg-doom-800/90 border border-cyan-500/30 rounded-xl px-3 py-2 cursor-pointer hover:border-cyan-400 transition" onclick="openLogMinutesModal()" title="Total Capacity (Days × Pace) − Remaining Queue + Today's Overflow">
+                    <div id="metric-bank-card" class="bg-doom-800/90 border border-cyan-500/30 rounded-xl px-3 py-2 cursor-pointer hover:border-cyan-400 transition" onclick="openLogMinutesModal()" title="Future Days Capacity − Remaining Queue + Today's Credited Minutes">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Net Buffer</div>
-                        <div id="metric-bank" class="text-sm sm:text-base font-extrabold text-cyan-400">+339 mins</div>
+                        <div id="metric-bank" class="text-sm sm:text-base font-extrabold text-cyan-400">+188 mins</div>
                     </div>
                 </div>
 
@@ -166,6 +166,9 @@
                         <button onclick="openLogMinutesModal()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 text-xs font-semibold transition shrink-0">
                             + Buffer
                         </button>
+                        <button onclick="openBackupModal()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-300 text-xs font-semibold transition shrink-0" title="Export or restore your watch progress snapshot">
+                            💾 Backup
+                        </button>
                     </div>
                 </div>
             </div>
@@ -181,9 +184,9 @@
                 <div>
                     <div class="flex flex-wrap items-center gap-2">
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">ACTIVE FOCUS</span>
-                        <h2 class="text-base sm:text-lg font-bold text-white" id="active-focus-banner-title">Jessica Jones (Season 3) — Episode 2 of 13 (55m)</h2>
+                        <h2 class="text-base sm:text-lg font-bold text-white" id="active-focus-banner-title">Jessica Jones (Season 3) — Episode 3 of 13 (51m)</h2>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="pace-status-subtext">At <span class="text-emerald-400 font-semibold">100 mins/day</span> over 34 days (3,400m budget), you are <span class="text-cyan-400 font-semibold">+333 mins ahead</span> of your 3,067m queue!</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="pace-status-subtext">At <span class="text-emerald-400 font-semibold">100 mins/day</span> over 33 days (3,300m budget), you are <span class="text-cyan-400 font-semibold">+288 mins ahead</span> of your 3,012m queue!</p>
                 </div>
 
                 <!-- Act Filter Pills -->
@@ -200,10 +203,10 @@
             <div class="mt-4">
                 <div class="flex justify-between text-xs text-slate-400 mb-1.5">
                     <span>Essential Queue Completion</span>
-                    <span id="runway-progress-text" class="font-semibold text-emerald-400">51 / 3,118 mins logged (2%)</span>
+                    <span id="runway-progress-text" class="font-semibold text-emerald-400">106 / 3,118 mins logged (3%)</span>
                 </div>
                 <div class="w-full h-2.5 bg-doom-950 rounded-full overflow-hidden border border-slate-800">
-                    <div id="runway-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-500" style="width: 2%;"></div>
+                    <div id="runway-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-500" style="width: 3%;"></div>
                 </div>
             </div>
         </div>
@@ -214,7 +217,7 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">DYNAMIC RUNTIME UNLOCK PROTOCOL</span>
-                        <h2 class="text-base sm:text-lg font-bold text-white" id="vault-buffer-heading">Net Buffer: +339 Surplus Minutes (3,400m capacity − 3,067m queue • +6m overflow today)</h2>
+                        <h2 class="text-base sm:text-lg font-bold text-white" id="vault-buffer-heading">Net Buffer: +188 Surplus Minutes</h2>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 mt-1" id="vault-buffer-subtext">Every Vault title unlocks as soon as your live Net Buffer covers its runtime! Pulling a title into your Queue automatically slots it into its ideal spoiler-free narrative order.</p>
                 </div>
@@ -223,7 +226,7 @@
                         + Log Surplus Minutes
                     </button>
                     <button onclick="resetProgress()" class="px-3 py-2 rounded-xl bg-doom-800 hover:bg-red-950/60 border border-slate-700 hover:border-red-500/40 text-slate-400 hover:text-red-300 text-xs font-semibold transition">
-                        Reset to Nov 12
+                        Reset to Nov 13
                     </button>
                 </div>
             </div>
@@ -252,14 +255,15 @@
                 <div id="modal-episode-tracker" class="bg-doom-950/90 border border-slate-800 rounded-xl p-4">
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Episode Progress &amp; Selector</span>
-                        <span id="modal-ep-status" class="text-xs font-semibold text-slate-300">Watched: 0 / 13</span>
+                        <span id="modal-ep-status" class="text-xs font-semibold text-slate-300">Watched: 2 / 13</span>
                     </div>
                     <!-- Individual Episode Selector Pills -->
                     <div id="modal-episode-pills" class="flex flex-wrap gap-1.5 mb-3"></div>
-                    <p id="modal-next-ep-note" class="text-xs text-amber-300 mb-3">Episode 1</p>
-                    <div class="flex items-center gap-2">
-                        <button onclick="adjustModalEpisode(-1)" class="px-3 py-1.5 rounded-lg bg-doom-800 hover:bg-doom-700 text-xs font-bold text-slate-300 border border-slate-700">-1 Watched</button>
-                        <button onclick="adjustModalEpisode(1)" class="flex-1 px-4 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition">+ Mark Next Episode Watched</button>
+                    <p id="modal-next-ep-note" class="text-xs text-amber-300 mb-3">Episode 3</p>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button onclick="adjustModalEpisode(-1, false)" class="px-3 py-1.5 rounded-lg bg-doom-800 hover:bg-doom-700 text-xs font-bold text-slate-300 border border-slate-700">-1 Watched</button>
+                        <button onclick="adjustModalEpisode(1, false)" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-600" title="Marks episode watched from a previous day without adding to today's watch total">✓ Already Seen (Prior Day)</button>
+                        <button onclick="adjustModalEpisode(1, true)" class="flex-1 px-4 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition">+ Watched Today</button>
                     </div>
                 </div>
 
@@ -301,7 +305,7 @@
             <div class="px-5 py-4 border-b border-slate-800 flex items-center justify-between bg-doom-900/90">
                 <div>
                     <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Daily Pacing &amp; Overflow Breakdown</span>
-                    <h3 id="today-modal-title" class="text-base sm:text-lg font-extrabold text-white">Today's Watch Log — Nov 12, 2026</h3>
+                    <h3 id="today-modal-title" class="text-base sm:text-lg font-extrabold text-white">Today's Watch Log — Nov 13, 2026</h3>
                 </div>
                 <button onclick="closeTodayLogModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -315,7 +319,7 @@
                 <div class="grid grid-cols-3 gap-2.5">
                     <div class="bg-doom-950 border border-slate-800 rounded-xl p-3">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Watched Today</div>
-                        <div id="today-modal-watched" class="text-base sm:text-lg font-extrabold text-white mt-0.5">106 mins</div>
+                        <div id="today-modal-watched" class="text-base sm:text-lg font-extrabold text-white mt-0.5">0 mins</div>
                     </div>
                     <div class="bg-doom-950 border border-slate-800 rounded-xl p-3">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Daily Target</div>
@@ -323,13 +327,13 @@
                     </div>
                     <div class="bg-doom-950 border border-cyan-500/30 rounded-xl p-3">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Extra → Buffer</div>
-                        <div id="today-modal-overflow" class="text-base sm:text-lg font-extrabold text-cyan-400 mt-0.5">+6 mins</div>
+                        <div id="today-modal-overflow" class="text-base sm:text-lg font-extrabold text-cyan-400 mt-0.5">+0 mins</div>
                     </div>
                 </div>
 
                 <!-- Status Banner -->
-                <div id="today-modal-status-banner" class="p-3.5 rounded-xl bg-emerald-950/35 border border-emerald-500/30 text-xs sm:text-sm text-emerald-100 leading-relaxed">
-                    Daily target met! Every extra minute you watch today automatically overflows into your Net Buffer.
+                <div id="today-modal-status-banner" class="p-3.5 rounded-xl bg-amber-950/30 border border-amber-500/30 text-xs sm:text-sm text-amber-100 leading-relaxed">
+                    100 mins remaining to hit today's daily pace target.
                 </div>
 
                 <!-- Auto-Credit Toggle -->
@@ -366,7 +370,7 @@
     <div id="buffer-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
         <div class="glass-panel border border-cyan-500/30 rounded-2xl max-w-md w-full p-5 shadow-2xl">
             <h3 class="text-lg font-extrabold text-white mb-1">Adjust Reserve Buffer</h3>
-            <p class="text-xs text-slate-400 mb-4">Your buffer automatically reflects <strong class="text-slate-200">(Days × Daily Pace) − Remaining Queue + Today's Overflow</strong>. Add any manual bonus or adjustment minutes here.</p>
+            <p class="text-xs text-slate-400 mb-4">Your buffer tracks <strong class="text-slate-200">(Future Days × Pace) − Remaining Queue + Today's Credited Watch</strong>, rising toward your full runway surplus (+288m) as you complete today's target and growing 1:1 on overflow. Add any manual adjustment here.</p>
             <div class="flex items-center gap-2 mb-4">
                 <input type="number" id="buffer-minutes-input" value="55" min="-1000" max="1000" class="flex-1 bg-doom-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:outline-none focus:border-cyan-400">
                 <button onclick="addBufferMinutes(55)" class="px-3 py-2.5 rounded-xl bg-doom-800 hover:bg-doom-700 text-xs font-semibold text-cyan-300 border border-slate-700">+55m</button>
@@ -375,6 +379,38 @@
             <div class="flex justify-end gap-2">
                 <button onclick="closeLogMinutesModal()" class="px-4 py-2 rounded-xl bg-doom-800 text-slate-300 text-xs font-semibold">Cancel</button>
                 <button onclick="submitBufferMinutes()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-doom-950 text-xs font-extrabold">Update Buffer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Backup & Restore Progress Modal -->
+    <div id="backup-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="glass-panel border border-emerald-500/30 rounded-2xl max-w-lg w-full p-5 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Progress Protection</span>
+                    <h3 class="text-lg font-extrabold text-white">Backup &amp; Restore Watch Progress</h3>
+                </div>
+                <button onclick="closeBackupModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+                Your progress automatically persists across code updates in this session. You can also copy your JSON snapshot below or paste a saved snapshot to restore it anytime.
+            </p>
+            <textarea id="backup-json-textarea" rows="6" class="w-full bg-doom-950 border border-slate-700 rounded-xl p-3 text-xs font-mono text-emerald-300 focus:outline-none focus:border-emerald-400" placeholder="Paste saved progress JSON here..."></textarea>
+            <div class="flex flex-wrap justify-between items-center gap-2">
+                <button onclick="copyBackupSnapshot()" class="px-3.5 py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-emerald-500/40 text-emerald-300 text-xs font-bold transition">
+                    📋 Copy Snapshot
+                </button>
+                <div class="flex gap-2">
+                    <button onclick="closeBackupModal()" class="px-3.5 py-2 rounded-xl bg-doom-800 text-slate-300 text-xs font-semibold">Close</button>
+                    <button onclick="restoreBackupSnapshot()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition">
+                        Restore Snapshot
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -389,8 +425,8 @@
 
     <script>
         const PREMIERE_DATE = new Date('2026-12-16T00:00:00');
-        const REFERENCE_TODAY = new Date('2026-11-12T00:00:00');
-        const STORAGE_KEY = 'doomsday_watchlist_v7_nov12';
+        const REFERENCE_TODAY = new Date('2026-11-13T00:00:00');
+        const STORAGE_KEY = 'doomsday_watchlist_v8_nov13';
         const DEFAULT_DAILY_PACE = 100;
 
         // Canonical Narrative & Spoiler-Free Placement Map for All Queue & Vault Titles
@@ -457,30 +493,15 @@
             return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
 
-        // Complete Watchlist Dataset (Synced Nov 12, 2026)
+        // Complete Watchlist Dataset (Synced Nov 13, 2026 — Ep 2 already watched prior to today, Today's Watch = 0m)
         const DEFAULT_DATA = {
         "manualBufferAdjustment": 0,
         "dailyPaceTarget": 100,
         "autoBankDailyOverflow": true,
-        "latestCompletion": "Jessica Jones (Season 3) (Ep 1/13)",
+        "latestCompletion": "Jessica Jones (Season 3) (Ep 2/13)",
         "dailyWatchLog": {
-                "date": "2026-11-12",
-                "entries": [
-                        {
-                                "id": "init-if-s2e10",
-                                "itemId": "wb1-iron-fist-s2",
-                                "title": "Iron Fist — S2E10 \"A Duel of Iron\"",
-                                "mins": 55,
-                                "timestamp": "Earlier today"
-                        },
-                        {
-                                "id": "init-jj-s3e1",
-                                "itemId": "jj-s3",
-                                "title": "Jessica Jones — S3E01 \"A.K.A. The Perfect Burger\"",
-                                "mins": 51,
-                                "timestamp": "Earlier today"
-                        }
-                ]
+                "date": "2026-11-13",
+                "entries": []
         },
         "workbook2": [
                 {
@@ -492,12 +513,12 @@
                         "release": "2019",
                         "type": "series",
                         "totalEpisodes": 13,
-                        "watchedEpisodes": 1,
+                        "watchedEpisodes": 2,
                         "totalMins": 656,
-                        "statusBadge": "ACTIVE FOCUS — Ep 1",
+                        "statusBadge": "ACTIVE FOCUS — Ep 3",
                         "synopsis": "Jessica Jones crosses paths with a calculating, highly intelligent serial killer named Gregory Sallinger while her adoptive sister Trish Walker embraces her newly acquired enhanced abilities as Hellcat—forcing a tragic collision between their competing definitions of justice.",
                         "doomsdayLink": "Concludes the Netflix Defenders saga after Iron Fist S2, resolving Jessica Jones and Trish Walker’s street-level arcs ahead of New York’s political upheaval under Mayor Wilson Fisk in Daredevil: Born Again.",
-                        "loreNotes": "Next up: S3E02 \"A.K.A. You're Welcome\" (~55 mins). Finishing this season completes your entire Netflix Defenders watch.",
+                        "loreNotes": "Next up: S3E03 \"A.K.A. I Have No Spleen\" (~51 mins). Finishing this season completes your entire Netflix Defenders watch.",
                         "production": "Showrunner Melissa Rosenberg’s final season for Netflix Marvel Television before moving to Warner Bros. Television, filmed in New York City from June to November 2018 with Krysten Ritter making her directorial debut.",
                         "episodes": [
                                 {
@@ -1619,65 +1640,111 @@
         ]
 };
 
-        function loadState() {
+        function readPersistedRawState() {
             try {
                 const raw = localStorage.getItem(STORAGE_KEY);
-                if (raw) {
-                    const parsed = JSON.parse(raw);
-                    if (typeof parsed.manualBufferAdjustment !== 'number') {
-                        parsed.manualBufferAdjustment = 0;
-                    }
-                    if (typeof parsed.dailyPaceTarget !== 'number') {
-                        parsed.dailyPaceTarget = DEFAULT_DATA.dailyPaceTarget;
-                    }
-                    if (typeof parsed.autoBankDailyOverflow !== 'boolean') {
-                        parsed.autoBankDailyOverflow = true;
-                    }
-                    const todayKey = getTodayDateKey();
-                    if (!parsed.dailyWatchLog || parsed.dailyWatchLog.date !== todayKey) {
-                        parsed.dailyWatchLog = {
-                            date: todayKey,
-                            entries: []
-                        };
-                    }
-                    // Hydrate missing episode breakdowns, production notes, and canonical narrative order
-                    if (Array.isArray(parsed.workbook2)) {
-                        parsed.workbook2 = parsed.workbook2.map(savedItem => {
-                            const masterItem = DEFAULT_DATA.workbook2.find(d => d.id === savedItem.id);
-                            const placement = getNarrativePlacement(savedItem);
-                            return {
-                                ...savedItem,
-                                queueOrder: placement.queueOrder,
-                                act: placement.act,
-                                actLabel: placement.actLabel,
-                                production: (masterItem && masterItem.production) || savedItem.production,
-                                episodes: (masterItem && Array.isArray(masterItem.episodes))
-                                    ? JSON.parse(JSON.stringify(masterItem.episodes))
-                                    : savedItem.episodes
-                            };
-                        });
-                        parsed.workbook2.sort((a, b) => (a.queueOrder || 99) - (b.queueOrder || 99));
-                    }
-                    if (Array.isArray(parsed.workbook1)) {
-                        parsed.workbook1 = parsed.workbook1.map(savedItem => {
-                            const masterItem = DEFAULT_DATA.workbook1.find(d => d.id === savedItem.id);
-                            return masterItem && masterItem.production ? { ...savedItem, production: masterItem.production } : savedItem;
-                        });
-                    }
-                    if (Array.isArray(parsed.workbook3)) {
-                        parsed.workbook3 = parsed.workbook3.map(savedItem => {
-                            const masterItem = DEFAULT_DATA.workbook3.find(d => d.id === savedItem.id);
-                            return {
-                                ...savedItem,
-                                threshold: savedItem.mins,
-                                production: (masterItem && masterItem.production) || savedItem.production
-                            };
-                        });
-                    }
-                    return parsed;
+                if (raw) return raw;
+            } catch (e) {
+                // Fallback when localStorage is sandboxed
+            }
+            try {
+                if (typeof window.name === 'string' && window.name.startsWith('DOOMSDAY_STATE::')) {
+                    return window.name.slice('DOOMSDAY_STATE::'.length);
                 }
             } catch (e) {
-                console.warn('LocalStorage unavailable, using default state.');
+                // Ignore window.name access errors
+            }
+            return null;
+        }
+
+        function writePersistedRawState(serialized) {
+            try {
+                localStorage.setItem(STORAGE_KEY, serialized);
+            } catch (e) {
+                // Fallback when localStorage is sandboxed
+            }
+            try {
+                window.name = 'DOOMSDAY_STATE::' + serialized;
+            } catch (e) {
+                // Ignore window.name access errors
+            }
+        }
+
+        function hydrateStateObject(parsed) {
+            if (!parsed || typeof parsed !== 'object') {
+                return JSON.parse(JSON.stringify(DEFAULT_DATA));
+            }
+            if (typeof parsed.manualBufferAdjustment !== 'number') {
+                parsed.manualBufferAdjustment = 0;
+            }
+            if (typeof parsed.dailyPaceTarget !== 'number') {
+                parsed.dailyPaceTarget = DEFAULT_DATA.dailyPaceTarget;
+            }
+            if (typeof parsed.autoBankDailyOverflow !== 'boolean') {
+                parsed.autoBankDailyOverflow = true;
+            }
+            const todayKey = getTodayDateKey();
+            if (!parsed.dailyWatchLog || parsed.dailyWatchLog.date !== todayKey) {
+                parsed.dailyWatchLog = {
+                    date: todayKey,
+                    entries: []
+                };
+            }
+            // Hydrate missing episode breakdowns, production notes, and canonical narrative order
+            // while strictly preserving watchedEpisodes!
+            if (Array.isArray(parsed.workbook2)) {
+                parsed.workbook2 = parsed.workbook2.map(savedItem => {
+                    const masterItem = DEFAULT_DATA.workbook2.find(d => d.id === savedItem.id);
+                    const placement = getNarrativePlacement(savedItem);
+                    return {
+                        ...savedItem,
+                        watchedEpisodes: typeof savedItem.watchedEpisodes === 'number' ? savedItem.watchedEpisodes : 0,
+                        queueOrder: placement.queueOrder,
+                        act: placement.act,
+                        actLabel: placement.actLabel,
+                        production: (masterItem && masterItem.production) || savedItem.production,
+                        episodes: (masterItem && Array.isArray(masterItem.episodes))
+                            ? JSON.parse(JSON.stringify(masterItem.episodes))
+                            : savedItem.episodes
+                    };
+                });
+                parsed.workbook2.sort((a, b) => (a.queueOrder || 99) - (b.queueOrder || 99));
+            } else {
+                parsed.workbook2 = JSON.parse(JSON.stringify(DEFAULT_DATA.workbook2));
+            }
+            if (Array.isArray(parsed.workbook1)) {
+                parsed.workbook1 = parsed.workbook1.map(savedItem => {
+                    const masterItem = DEFAULT_DATA.workbook1.find(d => d.id === savedItem.id);
+                    return masterItem && masterItem.production ? { ...savedItem, production: masterItem.production } : savedItem;
+                });
+            } else {
+                parsed.workbook1 = JSON.parse(JSON.stringify(DEFAULT_DATA.workbook1));
+            }
+            if (Array.isArray(parsed.workbook3)) {
+                parsed.workbook3 = parsed.workbook3.map(savedItem => {
+                    const masterItem = DEFAULT_DATA.workbook3.find(d => d.id === savedItem.id);
+                    return {
+                        ...savedItem,
+                        watchedEpisodes: typeof savedItem.watchedEpisodes === 'number' ? savedItem.watchedEpisodes : 0,
+                        threshold: savedItem.mins,
+                        production: (masterItem && masterItem.production) || savedItem.production
+                    };
+                });
+            } else {
+                parsed.workbook3 = JSON.parse(JSON.stringify(DEFAULT_DATA.workbook3));
+            }
+            return parsed;
+        }
+
+        function loadState() {
+            try {
+                const raw = readPersistedRawState();
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    return hydrateStateObject(parsed);
+                }
+            } catch (e) {
+                console.warn('Could not parse saved state, using default state.');
             }
             return JSON.parse(JSON.stringify(DEFAULT_DATA));
         }
@@ -1794,9 +1861,9 @@
 
         function saveState() {
             try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+                writePersistedRawState(JSON.stringify(appState));
             } catch (e) {
-                console.warn('Could not persist to localStorage');
+                console.warn('Could not persist state');
             }
             updateDashboardMetrics();
         }
@@ -1837,15 +1904,30 @@
         function getEffectiveBuffer() {
             const stats = getQueueStats();
             const userPace = appState.dailyPaceTarget ?? DEFAULT_DAILY_PACE;
+            const todayStats = getTodayWatchStats();
+
+            // Future days exclude today (e.g. 32 future days × 100m = 3,200m)
+            const futureDays = Math.max(0, stats.days - 1);
+            const futureCapacityMins = futureDays * userPace;
             const totalCapacityMins = stats.days * userPace;
             const runwaySurplusMins = totalCapacityMins - stats.remainingMins;
+
+            // At 0m watched today: 3,200m future capacity - 3,012m remaining = +188m.
+            // As you watch today's 100m target, remainingMins drops by 100m so buffer climbs to +288m.
+            // Past 100m today, every extra minute watched grows Net Buffer strictly 1:1 (+1m)!
+            const baselineSurplusMins = futureCapacityMins - stats.remainingMins;
             const manualAdjustmentMins = appState.manualBufferAdjustment ?? 0;
-            const todayStats = getTodayWatchStats();
+
+            // If auto-banking daily overflow is paused, withhold today's overflow from the buffer
             const autoOverflowContribution = appState.autoBankDailyOverflow ? todayStats.overflowMins : 0;
-            const netBuffer = runwaySurplusMins + manualAdjustmentMins + autoOverflowContribution;
+            const withheldOverflowMins = appState.autoBankDailyOverflow ? 0 : todayStats.overflowMins;
+            const netBuffer = baselineSurplusMins + manualAdjustmentMins - withheldOverflowMins;
+
             return {
                 netBuffer,
                 totalCapacityMins,
+                futureCapacityMins,
+                baselineSurplusMins,
                 runwaySurplusMins,
                 manualAdjustmentMins,
                 autoOverflowContribution,
@@ -2025,10 +2107,14 @@
                 bankCard.className = 'bg-doom-800/90 border border-cyan-500/30 rounded-xl px-3 py-2 cursor-pointer hover:border-cyan-400 transition';
             }
 
-            document.getElementById('latest-completion-header').textContent = `Latest: ${appState.latestCompletion} • Today: ${todayStats.watchedTodayMins}/${todayStats.targetMins}m (+${todayStats.overflowMins}m buf)`;
+            const todayHeaderSuffix = todayStats.isTargetMet
+                ? ` • Today: ${todayStats.watchedTodayMins}/${todayStats.targetMins}m (+${todayStats.overflowMins}m buf)`
+                : ` • Today: ${todayStats.watchedTodayMins}/${todayStats.targetMins}m`;
+            document.getElementById('latest-completion-header').textContent = `Latest: ${appState.latestCompletion}${todayHeaderSuffix}`;
+
             const compactStrip = document.getElementById('collapsed-summary-strip');
             if (compactStrip) {
-                compactStrip.textContent = `${stats.days}d • Today: ${todayStats.watchedTodayMins}/${todayStats.targetMins}m (+${todayStats.overflowMins}m) • Buf: ${formatSignedMins(buf.netBuffer)}m`;
+                compactStrip.textContent = `${stats.days}d • Today: ${todayStats.watchedTodayMins}/${todayStats.targetMins}m • Buf: ${formatSignedMins(buf.netBuffer)}m`;
             }
 
             document.getElementById('badge-wb2').textContent = appState.workbook2.length;
@@ -2064,8 +2150,13 @@
             const vaultHeadingEl = document.getElementById('vault-buffer-heading');
             const vaultSubtextEl = document.getElementById('vault-buffer-subtext');
             if (vaultHeadingEl && vaultSubtextEl) {
-                const parts = [`${buf.totalCapacityMins.toLocaleString()}m capacity − ${stats.remainingMins.toLocaleString()}m queue`];
-                if (buf.autoOverflowContribution > 0) parts.push(`+${buf.autoOverflowContribution}m overflow today`);
+                const baseBeforeTodayOverflow = buf.baselineSurplusMins - todayStats.overflowMins;
+                const parts = [`${buf.futureCapacityMins.toLocaleString()}m future cap − ${stats.remainingMins.toLocaleString()}m queue`];
+                if (buf.autoOverflowContribution > 0) {
+                    parts.push(`+${buf.autoOverflowContribution}m overflow today`);
+                } else if (!todayStats.isTargetMet) {
+                    parts.push(`${todayStats.remainingToTarget}m left to fill today's target`);
+                }
                 if (buf.manualAdjustmentMins !== 0) parts.push(`${formatSignedMins(buf.manualAdjustmentMins)}m manual`);
                 const note = ` (${parts.join(' • ')})`;
                 vaultHeadingEl.textContent = `Net Buffer: ${formatSignedMins(buf.netBuffer)} Surplus Minutes${note}`;
@@ -2197,8 +2288,10 @@
                                 </button>
                                 ${!isComplete ? (
                                     item.type === 'series'
-                                        ? `<button onclick="logEpisode('${item.id}')" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition shadow-md shadow-emerald-500/20">+1 Ep (${nextEpMins}m)</button>`
-                                        : `<button onclick="completeItem('${item.id}')" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition shadow-md shadow-emerald-500/20">Mark Seen (${item.totalMins}m)</button>`
+                                        ? `<button onclick="logEpisode('${item.id}', false)" class="px-2.5 py-2 rounded-xl bg-doom-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold transition" title="Already watched on a prior day — updates progress without counting toward Watched Today">✓ Already Seen</button>
+                                           <button onclick="logEpisode('${item.id}', true)" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition shadow-md shadow-emerald-500/20">+1 Ep (${nextEpMins}m)</button>`
+                                        : `<button onclick="completeItem('${item.id}', false)" class="px-2.5 py-2 rounded-xl bg-doom-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold transition" title="Already watched on a prior day — updates progress without counting toward Watched Today">✓ Already Seen</button>
+                                           <button onclick="completeItem('${item.id}', true)" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition shadow-md shadow-emerald-500/20">Watched Today (${item.totalMins}m)</button>`
                                 ) : (
                                     `<button onclick="archiveToWorkbook1('${item.id}')" class="px-3.5 py-2 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 text-xs font-bold transition">Move to WB1</button>`
                                 )}
@@ -2299,7 +2392,7 @@
             }
         }
 
-        function logEpisode(itemId) {
+        function logEpisode(itemId, countTowardToday = true) {
             const item = appState.workbook2.find(i => i.id === itemId);
             if (!item || item.watchedEpisodes >= item.totalEpisodes) return;
 
@@ -2307,13 +2400,20 @@
             const epMins = getEpisodeRuntime(item, newlyWatchedEp);
 
             item.watchedEpisodes = newlyWatchedEp;
-            recordTodayWatchEntry(item, newlyWatchedEp, epMins);
+            if (countTowardToday) {
+                recordTodayWatchEntry(item, newlyWatchedEp, epMins);
+            }
 
             const epLabel = item.type === 'series' ? `Ep ${item.watchedEpisodes}/${item.totalEpisodes}` : 'Completed';
             appState.latestCompletion = `${item.title} (${epLabel})`;
 
             saveState();
             renderCurrentTab();
+
+            if (!countTowardToday) {
+                showToast(`Marked ${item.title} ${epLabel} as Already Seen (0m added to Today)`);
+                return;
+            }
 
             const todayStats = getTodayWatchStats();
             const overflowNote = todayStats.isTargetMet
@@ -2322,7 +2422,7 @@
             showToast(`Logged ${item.title} ${epLabel} (+${epMins}m)${overflowNote}`);
         }
 
-        function completeItem(itemId) {
+        function completeItem(itemId, countTowardToday = true) {
             const item = appState.workbook2.find(i => i.id === itemId);
             if (!item) return;
 
@@ -2335,17 +2435,24 @@
             const remainingMinsToLog = Math.max(0, item.totalMins - alreadyWatchedMins);
 
             item.watchedEpisodes = item.totalEpisodes;
-            recordTodayWatchEntry(item, item.totalEpisodes, remainingMinsToLog);
+            if (countTowardToday) {
+                recordTodayWatchEntry(item, item.totalEpisodes, remainingMinsToLog);
+            }
             appState.latestCompletion = `${item.title} (Completed)`;
 
             saveState();
             renderCurrentTab();
 
+            if (!countTowardToday) {
+                showToast(`Marked "${item.title}" Already Seen (0m added to Today)`);
+                return;
+            }
+
             const todayStats = getTodayWatchStats();
             const overflowNote = todayStats.isTargetMet
                 ? ` • Today: ${todayStats.watchedTodayMins}/${todayStats.targetMins}m (+${todayStats.overflowMins}m → buf)`
                 : ` • Today: ${todayStats.watchedTodayMins}/${todayStats.targetMins}m (${todayStats.remainingToTarget}m to pace)`;
-            showToast(`Marked "${item.title}" Seen (+${remainingMinsToLog}m)${overflowNote}`);
+            showToast(`Marked "${item.title}" Watched Today (+${remainingMinsToLog}m)${overflowNote}`);
         }
 
         function archiveToWorkbook1(itemId) {
@@ -2404,7 +2511,7 @@
             const listEl = document.getElementById('today-entries-list');
             listEl.innerHTML = '';
             if (todayStats.entries.length === 0) {
-                listEl.innerHTML = `<div class="text-xs text-slate-400 bg-doom-950/70 border border-slate-800 rounded-xl p-4 text-center">No episodes or films logged yet today. Click <strong>+1 Ep</strong> or <strong>Mark Seen</strong> on any Queue card to log watch time automatically.</div>`;
+                listEl.innerHTML = `<div class="text-xs text-slate-400 bg-doom-950/70 border border-slate-800 rounded-xl p-4 text-center">No episodes or films logged yet today. Click <strong>+1 Ep</strong> or <strong>Watched Today</strong> on any Queue card to log watch time, or use <strong>✓ Already Seen</strong> for prior-day progress.</div>`;
                 return;
             }
 
@@ -2564,7 +2671,7 @@
             modal.classList.remove('flex');
         }
 
-        function adjustModalEpisode(delta) {
+        function adjustModalEpisode(delta, countTowardToday = true) {
             if (!activeModalItemId) return;
             const item = appState.workbook2.find(i => i.id === activeModalItemId);
             if (!item) return;
@@ -2574,9 +2681,11 @@
             if (nextVal === prevVal) return;
 
             if (nextVal > prevVal) {
-                for (let ep = prevVal + 1; ep <= nextVal; ep++) {
-                    const epMins = getEpisodeRuntime(item, ep);
-                    recordTodayWatchEntry(item, ep, epMins);
+                if (countTowardToday) {
+                    for (let ep = prevVal + 1; ep <= nextVal; ep++) {
+                        const epMins = getEpisodeRuntime(item, ep);
+                        recordTodayWatchEntry(item, ep, epMins);
+                    }
                 }
                 const epLabel = item.type === 'series' ? `Ep ${nextVal}/${item.totalEpisodes}` : 'Completed';
                 appState.latestCompletion = `${item.title} (${epLabel})`;
@@ -2590,7 +2699,11 @@
             saveState();
             renderCurrentTab();
             openLoreModal(activeModalItemId, 'workbook2');
-            showToast(`Updated ${item.title} to Ep ${item.watchedEpisodes}/${item.totalEpisodes}`);
+            if (nextVal > prevVal && !countTowardToday) {
+                showToast(`Marked ${item.title} Ep ${item.watchedEpisodes}/${item.totalEpisodes} Already Seen (0m added today)`);
+            } else {
+                showToast(`Updated ${item.title} to Ep ${item.watchedEpisodes}/${item.totalEpisodes}`);
+            }
         }
 
         function askLoreAssistant() {
@@ -2640,7 +2753,50 @@
             appState = JSON.parse(JSON.stringify(DEFAULT_DATA));
             saveState();
             renderCurrentTab();
-            showToast('Reset to Nov 12, 2026 baseline snapshot');
+            showToast('Reset to Nov 13, 2026 baseline snapshot');
+        }
+
+        function openBackupModal() {
+            const textarea = document.getElementById('backup-json-textarea');
+            if (textarea) {
+                textarea.value = JSON.stringify(appState, null, 2);
+            }
+            const modal = document.getElementById('backup-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeBackupModal() {
+            const modal = document.getElementById('backup-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function copyBackupSnapshot() {
+            const textarea = document.getElementById('backup-json-textarea');
+            if (!textarea) return;
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast('Copied watch progress JSON to clipboard!');
+            } catch (e) {
+                showToast('Select and copy the JSON text manually.');
+            }
+        }
+
+        function restoreBackupSnapshot() {
+            const textarea = document.getElementById('backup-json-textarea');
+            if (!textarea) return;
+            try {
+                const parsed = JSON.parse(textarea.value.trim());
+                appState = hydrateStateObject(parsed);
+                saveState();
+                renderCurrentTab();
+                closeBackupModal();
+                showToast('Watch progress snapshot restored!');
+            } catch (e) {
+                showToast('Invalid JSON snapshot — please check the pasted text.');
+            }
         }
 
         function showToast(msg) {
