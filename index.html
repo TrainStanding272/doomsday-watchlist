@@ -73,8 +73,8 @@
                             <h1 class="text-sm sm:text-xl font-extrabold tracking-tight text-white truncate">DOOMSDAY PROTOCOL</h1>
                             <span id="header-sync-badge" class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Synced Nov 13, 2026</span>
                         </div>
-                        <p id="latest-completion-header" class="hidden sm:block text-xs text-slate-400 truncate">Latest: Jessica Jones (Season 3) (Ep 2/13) • Today: 0/100m (100m left)</p>
-                        <p id="collapsed-summary-strip" class="sm:hidden text-[11px] font-semibold text-emerald-400 truncate">33d • Today: 0/100m • Buf: +188m</p>
+                        <p id="latest-completion-header" class="hidden sm:block text-xs text-slate-400 truncate">Latest: Jessica Jones (Season 3) (Ep 6/13) • Today: 202/100m (+102m buf)</p>
+                        <p id="collapsed-summary-strip" class="sm:hidden text-[11px] font-semibold text-emerald-400 truncate">33d • Today: 202/100m • Buf: +121m</p>
                     </div>
                 </div>
 
@@ -117,22 +117,22 @@
                             <span id="metric-today-badge" class="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/40">100m LEFT</span>
                         </div>
                         <div class="flex items-baseline justify-between gap-1 mt-0.5">
-                            <div id="metric-today-mins" class="text-sm sm:text-base font-extrabold text-white">0 / 100m</div>
-                            <div id="metric-today-overflow" class="text-[11px] font-semibold text-slate-400">0m → buf</div>
+                            <div id="metric-today-mins" class="text-sm sm:text-base font-extrabold text-white">202 / 100m</div>
+                            <div id="metric-today-overflow" class="text-[11px] font-semibold text-slate-400">+102m → buf</div>
                         </div>
                         <div class="w-full h-1.5 bg-doom-950 rounded-full overflow-hidden mt-1.5 border border-slate-800/80">
-                            <div id="metric-today-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-300" style="width: 0%"></div>
+                            <div id="metric-today-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-300" style="width: 100%"></div>
                         </div>
                     </div>
 
                     <div class="bg-doom-800/90 border border-emerald-500/20 rounded-xl px-3 py-2">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Remaining Queue</div>
-                        <div id="metric-remaining" class="text-sm sm:text-base font-extrabold text-white">3,012 mins</div>
+                        <div id="metric-remaining" class="text-sm sm:text-base font-extrabold text-white">3,079 mins</div>
                     </div>
 
                     <div id="metric-bank-card" class="bg-doom-800/90 border border-cyan-500/30 rounded-xl px-3 py-2 cursor-pointer hover:border-cyan-400 transition" onclick="openLogMinutesModal()" title="Forward Runway Capacity (Future Days × Daily Pace) − Remaining Queue + Manual Adjustments">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Net Buffer</div>
-                        <div id="metric-bank" class="text-sm sm:text-base font-extrabold text-cyan-400">+188 mins</div>
+                        <div id="metric-bank" class="text-sm sm:text-base font-extrabold text-cyan-400">+121 mins</div>
                     </div>
                 </div>
 
@@ -141,7 +141,7 @@
                     <nav class="flex flex-wrap gap-1.5" role="tablist">
                         <button onclick="switchTab('workbook2')" id="tab-workbook2" class="tab-btn px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 bg-emerald-500 text-doom-950 shadow-md shadow-emerald-500/20">
                             <span>🎯 Queue</span>
-                            <span id="badge-wb2" class="px-1.5 py-0.5 text-[11px] rounded-full bg-doom-950/20 font-bold">14</span>
+                            <span id="badge-wb2" class="px-1.5 py-0.5 text-[11px] rounded-full bg-doom-950/20 font-bold">15</span>
                         </button>
                         <button onclick="switchTab('workbook1')" id="tab-workbook1" class="tab-btn px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 bg-doom-800 text-slate-300 hover:bg-doom-700">
                             <span>🟢 Watched</span>
@@ -149,7 +149,7 @@
                         </button>
                         <button onclick="switchTab('workbook3')" id="tab-workbook3" class="tab-btn px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 bg-doom-800 text-slate-300 hover:bg-doom-700">
                             <span>📦 Vault</span>
-                            <span id="badge-wb3" class="px-1.5 py-0.5 text-[11px] rounded-full bg-slate-700 text-slate-200 font-bold">12</span>
+                            <span id="badge-wb3" class="px-1.5 py-0.5 text-[11px] rounded-full bg-slate-700 text-slate-200 font-bold">11</span>
                         </button>
                     </nav>
 
@@ -184,9 +184,9 @@
                 <div>
                     <div class="flex flex-wrap items-center gap-2">
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">ACTIVE FOCUS</span>
-                        <h2 class="text-base sm:text-lg font-bold text-white" id="active-focus-banner-title">Jessica Jones (Season 3) — Episode 3 of 13 (51m)</h2>
+                        <h2 class="text-base sm:text-lg font-bold text-white" id="active-focus-banner-title">Jessica Jones (Season 3) — Episode 7 of 13 (51m)</h2>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="pace-status-subtext">At <span class="text-emerald-400 font-semibold">100 mins/day</span> across 32 future days (3,200m forward capacity), you are <span class="text-cyan-400 font-semibold">+188 mins ahead</span> of your 3,012m queue!</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="pace-status-subtext">At <span class="text-emerald-400 font-semibold">100 mins/day</span> across 32 future days (3,200m forward capacity), your net buffer is <span class="text-cyan-400 font-semibold">+121 mins ahead</span> of your 3,079m queue!</p>
                 </div>
 
                 <!-- Act Filter Pills -->
@@ -203,10 +203,10 @@
             <div class="mt-4">
                 <div class="flex justify-between text-xs text-slate-400 mb-1.5">
                     <span>Essential Queue Completion</span>
-                    <span id="runway-progress-text" class="font-semibold text-emerald-400">106 / 3,118 mins logged (3%)</span>
+                    <span id="runway-progress-text" class="font-semibold text-emerald-400">308 / 3,388 mins logged (9%)</span>
                 </div>
                 <div class="w-full h-2.5 bg-doom-950 rounded-full overflow-hidden border border-slate-800">
-                    <div id="runway-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-500" style="width: 3%;"></div>
+                    <div id="runway-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-500" style="width: 9%;"></div>
                 </div>
             </div>
         </div>
@@ -217,7 +217,7 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">DYNAMIC RUNTIME UNLOCK PROTOCOL</span>
-                        <h2 class="text-base sm:text-lg font-bold text-white" id="vault-buffer-heading">Net Buffer: +188 Surplus Minutes</h2>
+                        <h2 class="text-base sm:text-lg font-bold text-white" id="vault-buffer-heading">Net Buffer: +121 Surplus Minutes</h2>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 mt-1" id="vault-buffer-subtext">Every Vault title unlocks as soon as your live Net Buffer covers its runtime! Pulling a title into your Queue automatically slots it into its ideal spoiler-free narrative order.</p>
                 </div>
@@ -474,15 +474,48 @@
             return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
 
-        // Complete Watchlist Dataset (Strictly Spoiler-Protected for All Unwatched Content)
+        // Complete Watchlist Dataset (Synced with your Nov 13 evening progress & Ironheart slotted into Act 4)
         const DEFAULT_DATA = {
             "manualBufferAdjustment": 0,
             "dailyPaceTarget": 100,
             "autoBankDailyOverflow": true,
-            "latestCompletion": "Jessica Jones (Season 3) (Ep 2/13)",
+            "latestCompletion": "Jessica Jones (Season 3) (Ep 6/13)",
             "dailyWatchLog": {
                 "date": "2026-11-13",
-                "entries": []
+                "entries": [
+                    {
+                        "id": "log-1794608495640-vegp",
+                        "itemId": "jj-s3",
+                        "epNum": 3,
+                        "title": "Jessica Jones (Season 3) — Ep 03 \"A.K.A. I Have No Spleen\"",
+                        "mins": 51,
+                        "timestamp": "22:21"
+                    },
+                    {
+                        "id": "log-1794608514467-rfml",
+                        "itemId": "jj-s3",
+                        "epNum": 4,
+                        "title": "Jessica Jones (Season 3) — Ep 04 \"A.K.A. Customer Service is Standing By\"",
+                        "mins": 48,
+                        "timestamp": "22:21"
+                    },
+                    {
+                        "id": "log-1794608531229-8agk",
+                        "itemId": "jj-s3",
+                        "epNum": 5,
+                        "title": "Jessica Jones (Season 3) — Ep 05 \"A.K.A. I Wish\"",
+                        "mins": 52,
+                        "timestamp": "22:22"
+                    },
+                    {
+                        "id": "log-1794608555674-s55o",
+                        "itemId": "jj-s3",
+                        "epNum": 6,
+                        "title": "Jessica Jones (Season 3) — Ep 06 \"A.K.A. Sorry Face\"",
+                        "mins": 51,
+                        "timestamp": "22:22"
+                    }
+                ]
             },
             "workbook2": [
                 {
@@ -494,12 +527,12 @@
                     "release": "2019",
                     "type": "series",
                     "totalEpisodes": 13,
-                    "watchedEpisodes": 2,
+                    "watchedEpisodes": 6,
                     "totalMins": 656,
-                    "statusBadge": "ACTIVE FOCUS — Ep 3",
+                    "statusBadge": "ACTIVE FOCUS — Ep 7",
                     "synopsis": "Following the traumatic events of Season 2, private investigator Jessica Jones attempts to rebuild Alias Investigations while estranged from Trish Walker, who has begun secretly testing newly acquired enhanced abilities on New York’s rooftops—putting both women on a collision course with a calculating, methodical adversary.",
                     "doomsdayLink": "Concludes the original Netflix Defenders saga after Iron Fist Season 2, closing the street-level Hell’s Kitchen chapter of Earth-616 before New York’s political landscape shifts in Echo and Daredevil: Born Again.",
-                    "loreNotes": "Next up: S3E03 \"A.K.A. I Have No Spleen\" (51 mins). Finishing this season completes your entire Netflix Defenders watch.",
+                    "loreNotes": "Next up: S3E07 \"A.K.A. The Double Half-Wappinger\" (51 mins). Finishing this season completes your entire Netflix Defenders watch.",
                     "production": "Showrunner Melissa Rosenberg’s final season for Marvel Television and Netflix before her move to Warner Bros. Television. Filmed across New York City from June to November 2018, the season also marked star Krysten Ritter’s behind-the-camera directorial debut.",
                     "episodes": [
                         {
@@ -1509,21 +1542,6 @@
             ],
             "workbook3": [
                 {
-                    "id": "ironheart",
-                    "tier": "Tier 1 Priority",
-                    "title": "Ironheart (Season 1)",
-                    "release": "2025",
-                    "type": "series",
-                    "totalEpisodes": 6,
-                    "watchedEpisodes": 0,
-                    "mins": 270,
-                    "threshold": 270,
-                    "statusNote": "Unlocks as soon as Net Buffer covers its 270m runtime",
-                    "synopsis": "Genius young inventor Riri Williams returns to Chicago after Black Panther: Wakanda Forever, pitting her advanced armored technology against Parker Robbins / The Hood’s dark magic.",
-                    "doomsdayLink": "Explores the collision of Stark-level armor tech and dark magic on Earth-616.",
-                    "loreNotes": "6 episodes (~45 mins avg). Ideal placement in Act 4 after Captain America: Brave New World."
-                },
-                {
                     "id": "wonder-man",
                     "tier": "Tier 1 Priority",
                     "title": "Wonder Man (Season 1)",
@@ -1768,16 +1786,20 @@
                 });
             }
             if (Array.isArray(parsed.workbook3)) {
-                parsed.workbook3 = parsed.workbook3.map(savedItem => {
-                    const masterItem = DEFAULT_DATA.workbook3.find(d => d.id === savedItem.id);
-                    return {
-                        ...savedItem,
-                        threshold: savedItem.mins,
-                        synopsis: (masterItem && masterItem.synopsis) || savedItem.synopsis,
-                        doomsdayLink: (masterItem && masterItem.doomsdayLink) || savedItem.doomsdayLink,
-                        production: (masterItem && masterItem.production) || savedItem.production
-                    };
-                });
+                const activeQueueIds = new Set((parsed.workbook2 || []).map(i => i.id));
+                const seenArchiveIds = new Set((parsed.workbook1 || []).map(i => i.id));
+                parsed.workbook3 = parsed.workbook3
+                    .filter(savedItem => !activeQueueIds.has(savedItem.id) && !seenArchiveIds.has(savedItem.id))
+                    .map(savedItem => {
+                        const masterItem = DEFAULT_DATA.workbook3.find(d => d.id === savedItem.id);
+                        return {
+                            ...savedItem,
+                            threshold: savedItem.mins,
+                            synopsis: (masterItem && masterItem.synopsis) || savedItem.synopsis,
+                            doomsdayLink: (masterItem && masterItem.doomsdayLink) || savedItem.doomsdayLink,
+                            production: (masterItem && masterItem.production) || savedItem.production
+                        };
+                    });
             }
             return parsed;
         }
@@ -2013,6 +2035,7 @@
             const placement = getNarrativePlacement(item);
 
             appState.workbook2.splice(idx, 1);
+            appState.workbook3 = appState.workbook3.filter(v => v.id !== item.id);
 
             appState.workbook3.unshift({
                 id: item.id,
@@ -2045,7 +2068,14 @@
             const vaultItem = appState.workbook3[idx];
 
             const itemMins = vaultItem.mins;
-            appState.workbook3.splice(idx, 1);
+            appState.workbook3 = appState.workbook3.filter(v => v.id !== itemId);
+
+            if (appState.workbook2.some(q => q.id === vaultItem.id)) {
+                saveState();
+                renderCurrentTab();
+                showToast(`"${vaultItem.title}" is already in your Queue`);
+                return;
+            }
 
             const masterItem = DEFAULT_DATA.workbook2.find(d => d.id === vaultItem.id);
             const placement = getNarrativePlacement(vaultItem);
@@ -2629,7 +2659,9 @@
                 if (hasEpisodesArray) {
                     item.episodes.forEach((epObj, idx) => {
                         const isWatched = isMovieBreakdown ? item.watchedEpisodes >= 1 : idx < item.watchedEpisodes;
-                        const isNextUp = !isMovieBreakdown && idx === item.watchedEpisodes;
+                        const isNextUp = isMovieBreakdown
+                            ? (item.watchedEpisodes < 1 && idx === 0)
+                            : (idx === item.watchedEpisodes);
                         const isSelected = idx === activeIdx;
                         const pill = document.createElement('button');
                         pill.type = 'button';
@@ -2644,7 +2676,7 @@
                                         : 'bg-doom-900 text-slate-400 border-slate-800 hover:border-slate-600'
                         }`;
                         pill.textContent = isMovieBreakdown
-                            ? `${isWatched ? '✓ ' : ''}Part ${epObj.ep}`
+                            ? `${isWatched ? '✓ ' : isNextUp ? '▶ ' : '🔒 '}Part ${epObj.ep}`
                             : `${isWatched ? '✓ ' : isNextUp ? '▶ ' : '🔒 '}Ep ${epObj.ep}`;
                         epPillsContainer.appendChild(pill);
                     });
@@ -2668,8 +2700,8 @@
                     } else {
                         document.getElementById('modal-next-ep-note').textContent = `🔒 ${labelPrefix}: "${epData.title}" — Spoiler Shield Active (Unwatched)`;
                         synopsisHeading.innerHTML = `<span>🛡️ Spoiler-Protected Overview</span>`;
-                        loreHeading.innerHTML = `<span>⚡ Series World-Building & Placement</span>`;
-                        document.getElementById('modal-synopsis').textContent = `Plot details for ${labelPrefix} ("${epData.title}") are shielded until you reach or log this episode. Series Premise: ${item.synopsis}`;
+                        loreHeading.innerHTML = `<span>⚡ Feature World-Building & Placement</span>`;
+                        document.getElementById('modal-synopsis').textContent = `Plot details for ${labelPrefix} ("${epData.title}") are shielded until you reach or log this ${isMovieBreakdown ? 'film' : 'episode'}. Premise: ${item.synopsis}`;
                         document.getElementById('modal-production').textContent = epData.production || item.production || 'Marvel Studios / Marvel Television production.';
                         document.getElementById('modal-doomsday-link').textContent = item.doomsdayLink;
                     }
@@ -2689,9 +2721,9 @@
                 epPillsContainer.innerHTML = '';
                 synopsisHeading.innerHTML = `<span>📖 Story Synopsis</span>`;
                 loreHeading.innerHTML = `<span>⚡ Wider MCU Background & World-Building</span>`;
-                if (item.totalMins) {
+                if (item.totalMins || item.mins) {
                     runtimePill.classList.remove('hidden');
-                    runtimePill.textContent = `${item.totalMins} mins`;
+                    runtimePill.textContent = `${item.totalMins || item.mins} mins`;
                 } else {
                     runtimePill.classList.add('hidden');
                 }
