@@ -75,13 +75,13 @@
                             <h1 class="text-sm sm:text-xl font-extrabold tracking-tight text-white truncate">DOOMSDAY PROTOCOL</h1>
                             <span id="header-sync-badge" class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Synced Nov 14, 2026</span>
                         </div>
-                        <p id="latest-completion-header" class="hidden sm:block text-xs text-slate-400 truncate">Latest: Jessica Jones (Season 3) (Ep 7/13) • Today: 51/100m (49m left)</p>
-                        <p id="collapsed-summary-strip" class="sm:hidden text-[11px] font-semibold text-emerald-400 truncate">32d • Today: 51/100m • Buf: +72m</p>
+                        <p id="latest-completion-header" class="hidden sm:block text-xs text-slate-400 truncate">Latest: Jessica Jones (Season 3) (Ep 8/13) • Today: 96/100m (4m left)</p>
+                        <p id="collapsed-summary-strip" class="sm:hidden text-[11px] font-semibold text-emerald-400 truncate">32d • Today: 96/100m • Buf: +72m</p>
                     </div>
                 </div>
 
                 <!-- Mobile/Desktop Collapse Dashboard Toggle -->
-                <button onclick="toggleDashboardCollapse()" id="collapse-header-btn" class="px-2.5 py-1.5 rounded-xl bg-doom-800 hover:bg-doom-700 border border-emerald-500/30 text-emerald-300 text-xs font-bold flex items-center gap-1.5 shrink-0 transition" aria-expanded="true" title="Collapse or expand dashboard controls">
+                <button type="button" onclick="toggleDashboardCollapse()" id="collapse-header-btn" class="px-2.5 py-1.5 rounded-xl bg-doom-800 hover:bg-doom-700 border border-emerald-500/30 text-emerald-300 text-xs font-bold flex items-center gap-1.5 shrink-0 transition" aria-expanded="true" title="Collapse or expand dashboard controls">
                     <span id="collapse-btn-label">Hide HUD</span>
                     <svg id="collapse-btn-icon" class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transform: rotate(0deg);">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
@@ -107,8 +107,8 @@
                             </div>
                         </div>
                         <div class="flex flex-col gap-0.5">
-                            <button onclick="adjustDailyPace(5)" class="px-1.5 py-0.5 rounded bg-doom-950 hover:bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-slate-700 leading-none" title="+5 mins/day">▲</button>
-                            <button onclick="adjustDailyPace(-5)" class="px-1.5 py-0.5 rounded bg-doom-950 hover:bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-slate-700 leading-none" title="-5 mins/day">▼</button>
+                            <button type="button" onclick="adjustDailyPace(5)" class="px-1.5 py-0.5 rounded bg-doom-950 hover:bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-slate-700 leading-none" title="+5 mins/day">▲</button>
+                            <button type="button" onclick="adjustDailyPace(-5)" class="px-1.5 py-0.5 rounded bg-doom-950 hover:bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-slate-700 leading-none" title="-5 mins/day">▼</button>
                         </div>
                     </div>
 
@@ -116,23 +116,23 @@
                     <div id="metric-today-card" class="col-span-2 sm:col-span-1 bg-doom-800/90 border border-amber-500/40 rounded-xl px-3 py-2 cursor-pointer hover:border-amber-400 transition flex flex-col justify-between" onclick="openTodayLogModal()" title="Click to inspect or adjust today's watch log">
                         <div class="flex items-center justify-between gap-1">
                             <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Watched Today</span>
-                            <span id="metric-today-badge" class="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/40">49m LEFT</span>
+                            <span id="metric-today-badge" class="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/40">4m LEFT</span>
                         </div>
                         <div class="flex items-baseline justify-between gap-1 mt-0.5">
-                            <div id="metric-today-mins" class="text-sm sm:text-base font-extrabold text-white">51 / 100m</div>
+                            <div id="metric-today-mins" class="text-sm sm:text-base font-extrabold text-white">96 / 100m</div>
                             <div id="metric-today-overflow" class="text-[11px] font-semibold text-slate-400">0m → buf</div>
                         </div>
                         <div class="w-full h-1.5 bg-doom-950 rounded-full overflow-hidden mt-1.5 border border-slate-800/80">
-                            <div id="metric-today-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-300" style="width: 51%"></div>
+                            <div id="metric-today-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-300" style="width: 96%"></div>
                         </div>
                     </div>
 
                     <div class="bg-doom-800/90 border border-emerald-500/20 rounded-xl px-3 py-2">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Remaining Queue</div>
-                        <div id="metric-remaining" class="text-sm sm:text-base font-extrabold text-white">3,028 mins</div>
+                        <div id="metric-remaining" class="text-sm sm:text-base font-extrabold text-white">2,983 mins</div>
                     </div>
 
-                    <div id="metric-bank-card" class="bg-doom-800/90 border border-cyan-500/30 rounded-xl px-3 py-2 cursor-pointer hover:border-cyan-400 transition" onclick="openLogMinutesModal()" title="Forward Runway Capacity (Future Days × Daily Pace) − Remaining Queue + Manual Adjustments">
+                    <div id="metric-bank-card" class="bg-doom-800/90 border border-cyan-500/30 rounded-xl px-3 py-2 cursor-pointer hover:border-cyan-400 transition" onclick="openLogMinutesModal()" title="Total Runway Capacity (Today's Remaining Quota + Future Days × Daily Pace) − Remaining Queue + Manual Adjustments">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Net Buffer</div>
                         <div id="metric-bank" class="text-sm sm:text-base font-extrabold text-cyan-400">+72 mins</div>
                     </div>
@@ -141,15 +141,15 @@
                 <!-- Navigation Tabs & Search -->
                 <div class="pt-3 border-t border-slate-800/80 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
                     <nav class="flex flex-wrap gap-1.5" role="tablist">
-                        <button onclick="switchTab('workbook2')" id="tab-workbook2" class="tab-btn px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 bg-emerald-500 text-doom-950 shadow-md shadow-emerald-500/20">
+                        <button type="button" onclick="switchTab('workbook2')" id="tab-workbook2" class="tab-btn px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 bg-emerald-500 text-doom-950 shadow-md shadow-emerald-500/20">
                             <span>🎯 Queue</span>
                             <span id="badge-wb2" class="px-1.5 py-0.5 text-[11px] rounded-full bg-doom-950/20 font-bold">15</span>
                         </button>
-                        <button onclick="switchTab('workbook1')" id="tab-workbook1" class="tab-btn px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 bg-doom-800 text-slate-300 hover:bg-doom-700">
+                        <button type="button" onclick="switchTab('workbook1')" id="tab-workbook1" class="tab-btn px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 bg-doom-800 text-slate-300 hover:bg-doom-700">
                             <span>🟢 Watched</span>
                             <span id="badge-wb1" class="px-1.5 py-0.5 text-[11px] rounded-full bg-slate-700 text-slate-200 font-bold">13</span>
                         </button>
-                        <button onclick="switchTab('workbook3')" id="tab-workbook3" class="tab-btn px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 bg-doom-800 text-slate-300 hover:bg-doom-700">
+                        <button type="button" onclick="switchTab('workbook3')" id="tab-workbook3" class="tab-btn px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 bg-doom-800 text-slate-300 hover:bg-doom-700">
                             <span>📦 Vault</span>
                             <span id="badge-wb3" class="px-1.5 py-0.5 text-[11px] rounded-full bg-slate-700 text-slate-200 font-bold">11</span>
                         </button>
@@ -162,13 +162,13 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </div>
-                        <button onclick="openTodayLogModal()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 text-xs font-semibold transition shrink-0">
+                        <button type="button" onclick="openTodayLogModal()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 text-xs font-semibold transition shrink-0">
                             📅 Today's Log
                         </button>
-                        <button onclick="openLogMinutesModal()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 text-xs font-semibold transition shrink-0">
+                        <button type="button" onclick="openLogMinutesModal()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 text-xs font-semibold transition shrink-0">
                             + Buffer
                         </button>
-                        <button onclick="openBackupModal()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-200 text-xs font-semibold transition shrink-0" title="Export or restore your JSON progress">
+                        <button type="button" onclick="openBackupModal()" class="px-3 py-1.5 sm:py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-200 text-xs font-semibold transition shrink-0" title="Export or restore your JSON progress">
                             💾 Backup
                         </button>
                     </div>
@@ -186,18 +186,18 @@
                 <div>
                     <div class="flex flex-wrap items-center gap-2">
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">ACTIVE FOCUS</span>
-                        <h2 class="text-base sm:text-lg font-bold text-white" id="active-focus-banner-title">Jessica Jones (Season 3) — Episode 8 of 13 (45m)</h2>
+                        <h2 class="text-base sm:text-lg font-bold text-white" id="active-focus-banner-title">Jessica Jones (Season 3) — Episode 9 of 13 (51m)</h2>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="pace-status-subtext">At <span class="text-emerald-400 font-semibold">100 mins/day</span> across 31 future days (3,100m forward capacity), your net buffer is <span class="text-cyan-400 font-semibold">+72 mins ahead</span> of your 3,028m queue!</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="pace-status-subtext">At <span class="text-emerald-400 font-semibold">100 mins/day</span> (4m left today + 3,100m across 31 future days = 3,104m capacity), your net buffer is <span class="text-cyan-400 font-semibold">+72 mins ahead</span> of your 2,983m queue!</p>
                 </div>
 
                 <!-- Act Filter Pills -->
                 <div class="flex flex-wrap items-center gap-1.5">
-                    <button onclick="setActFilter('all')" id="act-btn-all" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500 text-doom-950 transition">All Acts</button>
-                    <button onclick="setActFilter('Act 1')" id="act-btn-Act 1" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-doom-800 text-slate-300 hover:bg-doom-700 transition">Act 1: Defenders</button>
-                    <button onclick="setActFilter('Act 2')" id="act-btn-Act 2" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-doom-800 text-slate-300 hover:bg-doom-700 transition">Act 2: Mutants</button>
-                    <button onclick="setActFilter('Act 3')" id="act-btn-Act 3" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-doom-800 text-slate-300 hover:bg-doom-700 transition">Act 3: Multiverse</button>
-                    <button onclick="setActFilter('Act 4')" id="act-btn-Act 4" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-doom-800 text-slate-300 hover:bg-doom-700 transition">Act 4: Climax</button>
+                    <button type="button" onclick="setActFilter('all')" id="act-btn-all" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500 text-doom-950 transition">All Acts</button>
+                    <button type="button" onclick="setActFilter('Act 1')" id="act-btn-Act 1" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-doom-800 text-slate-300 hover:bg-doom-700 transition">Act 1: Defenders</button>
+                    <button type="button" onclick="setActFilter('Act 2')" id="act-btn-Act 2" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-doom-800 text-slate-300 hover:bg-doom-700 transition">Act 2: Mutants</button>
+                    <button type="button" onclick="setActFilter('Act 3')" id="act-btn-Act 3" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-doom-800 text-slate-300 hover:bg-doom-700 transition">Act 3: Multiverse</button>
+                    <button type="button" onclick="setActFilter('Act 4')" id="act-btn-Act 4" class="act-filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-doom-800 text-slate-300 hover:bg-doom-700 transition">Act 4: Climax</button>
                 </div>
             </div>
 
@@ -205,10 +205,10 @@
             <div class="mt-4">
                 <div class="flex justify-between text-xs text-slate-400 mb-1.5">
                     <span>Essential Queue Completion</span>
-                    <span id="runway-progress-text" class="font-semibold text-emerald-400">359 / 3,388 mins logged (11%)</span>
+                    <span id="runway-progress-text" class="font-semibold text-emerald-400">404 / 3,388 mins logged (12%)</span>
                 </div>
                 <div class="w-full h-2.5 bg-doom-950 rounded-full overflow-hidden border border-slate-800">
-                    <div id="runway-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-500" style="width: 11%;"></div>
+                    <div id="runway-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-500" style="width: 12%;"></div>
                 </div>
             </div>
         </div>
@@ -224,10 +224,10 @@
                     <p class="text-xs sm:text-sm text-slate-400 mt-1" id="vault-buffer-subtext">Every Vault title unlocks as soon as your live Net Buffer covers its runtime! Pulling a title into your Queue automatically slots it into its ideal spoiler-free narrative order.</p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="openLogMinutesModal()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-doom-950 text-xs font-bold transition shadow-lg shadow-cyan-500/20">
+                    <button type="button" onclick="openLogMinutesModal()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-doom-950 text-xs font-bold transition shadow-lg shadow-cyan-500/20">
                         + Log Surplus Minutes
                     </button>
-                    <button onclick="resetProgress()" class="px-3 py-2 rounded-xl bg-doom-800 hover:bg-red-950/60 border border-slate-700 hover:border-red-500/40 text-slate-400 hover:text-red-300 text-xs font-semibold transition">
+                    <button type="button" onclick="resetProgress()" class="px-3 py-2 rounded-xl bg-doom-800 hover:bg-red-950/60 border border-slate-700 hover:border-red-500/40 text-slate-400 hover:text-red-300 text-xs font-semibold transition">
                         Reset Baseline
                     </button>
                 </div>
@@ -246,7 +246,7 @@
                     <span id="modal-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shrink-0">Act 1</span>
                     <h3 id="modal-title" class="text-base sm:text-lg font-extrabold text-white truncate">Title</h3>
                 </div>
-                <button onclick="closeLoreModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                <button type="button" onclick="closeLoreModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -263,9 +263,9 @@
                     <div id="modal-episode-pills" class="flex flex-wrap gap-1.5 mb-3"></div>
                     <p id="modal-next-ep-note" class="text-xs text-amber-300 mb-3">Episode 1</p>
                     <div class="flex flex-wrap items-center gap-2">
-                        <button onclick="adjustModalEpisode(-1)" class="px-3 py-1.5 rounded-lg bg-doom-800 hover:bg-doom-700 text-xs font-bold text-slate-300 border border-slate-700">-1 Watched</button>
-                        <button onclick="adjustModalEpisode(1, false)" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-cyan-300 border border-cyan-500/30" title="Mark watched on a prior day without counting toward today's watch quota">✓ Already Seen (Prior Day)</button>
-                        <button onclick="adjustModalEpisode(1, true)" class="flex-1 px-4 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition">+ Watched Today</button>
+                        <button type="button" onclick="adjustModalEpisode(-1)" class="px-3 py-1.5 rounded-lg bg-doom-800 hover:bg-doom-700 text-xs font-bold text-slate-300 border border-slate-700">-1 Watched</button>
+                        <button type="button" onclick="adjustModalEpisode(1, false)" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-cyan-300 border border-cyan-500/30" title="Mark watched on a prior day without counting toward today's watch quota">✓ Already Seen (Prior Day)</button>
+                        <button type="button" onclick="adjustModalEpisode(1, true)" class="flex-1 px-4 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition">+ Watched Today</button>
                     </div>
                 </div>
 
@@ -310,7 +310,7 @@
                     <h4 class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">💬 Spoiler-Safe World-Building &amp; Context Lookup</h4>
                     <div class="flex gap-2">
                         <input type="text" id="lore-question-input" placeholder="Ask about comic origins, timeline placement, or world-building..." class="flex-1 bg-doom-950 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400" onkeydown="if(event.key==='Enter') askLoreAssistant()">
-                        <button onclick="askLoreAssistant()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-doom-950 text-xs font-bold transition shrink-0">Ask</button>
+                        <button type="button" onclick="askLoreAssistant()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-doom-950 text-xs font-bold transition shrink-0">Ask</button>
                     </div>
                     <div id="lore-answer-box" class="hidden mt-3 p-3.5 rounded-xl bg-doom-950 border border-cyan-500/30 text-xs sm:text-sm text-slate-200 leading-relaxed"></div>
                 </div>
@@ -326,7 +326,7 @@
                     <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Daily Pacing &amp; Overflow Breakdown</span>
                     <h3 id="today-modal-title" class="text-base sm:text-lg font-extrabold text-white">Today's Watch Log</h3>
                 </div>
-                <button onclick="closeTodayLogModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                <button type="button" onclick="closeTodayLogModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -364,17 +364,17 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Logged Sessions Today</h4>
-                        <button onclick="resetTodayLog()" class="text-[11px] font-semibold text-rose-400 hover:text-rose-300 transition">Clear Today's Log</button>
+                        <button type="button" onclick="resetTodayLog()" class="text-[11px] font-semibold text-rose-400 hover:text-rose-300 transition">Clear Today's Log</button>
                     </div>
                     <div id="today-entries-list" class="space-y-2"></div>
                 </div>
             </div>
 
             <div class="px-5 py-3.5 border-t border-slate-800 bg-doom-900/90 flex justify-between items-center gap-2">
-                <button onclick="closeTodayLogModal(); openLogMinutesModal();" class="px-3.5 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 text-xs font-bold transition">
+                <button type="button" onclick="closeTodayLogModal(); openLogMinutesModal();" class="px-3.5 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-cyan-300 text-xs font-bold transition">
                     + Manual Buffer Adjustment
                 </button>
-                <button onclick="closeTodayLogModal()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition">
+                <button type="button" onclick="closeTodayLogModal()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition">
                     Done
                 </button>
             </div>
@@ -388,12 +388,12 @@
             <p class="text-xs text-slate-400 mb-4">Your buffer holds steady while filling today's daily pace target, then grows <strong class="text-slate-200">+1m per overflow minute</strong> once today's target is complete. Add any manual adjustment minutes here.</p>
             <div class="flex items-center gap-2 mb-4">
                 <input type="number" id="buffer-minutes-input" value="55" min="-1000" max="1000" class="flex-1 bg-doom-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white font-bold focus:outline-none focus:border-cyan-400">
-                <button onclick="addBufferMinutes(55)" class="px-3 py-2.5 rounded-xl bg-doom-800 hover:bg-doom-700 text-xs font-semibold text-cyan-300 border border-slate-700">+55m</button>
-                <button onclick="addBufferMinutes(100)" class="px-3 py-2.5 rounded-xl bg-doom-800 hover:bg-doom-700 text-xs font-semibold text-cyan-300 border border-slate-700">+100m</button>
+                <button type="button" onclick="addBufferMinutes(55)" class="px-3 py-2.5 rounded-xl bg-doom-800 hover:bg-doom-700 text-xs font-semibold text-cyan-300 border border-slate-700">+55m</button>
+                <button type="button" onclick="addBufferMinutes(100)" class="px-3 py-2.5 rounded-xl bg-doom-800 hover:bg-doom-700 text-xs font-semibold text-cyan-300 border border-slate-700">+100m</button>
             </div>
             <div class="flex justify-end gap-2">
-                <button onclick="closeLogMinutesModal()" class="px-4 py-2 rounded-xl bg-doom-800 text-slate-300 text-xs font-semibold">Cancel</button>
-                <button onclick="submitBufferMinutes()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-doom-950 text-xs font-extrabold">Update Buffer</button>
+                <button type="button" onclick="closeLogMinutesModal()" class="px-4 py-2 rounded-xl bg-doom-800 text-slate-300 text-xs font-semibold">Cancel</button>
+                <button type="button" onclick="submitBufferMinutes()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-doom-950 text-xs font-extrabold">Update Buffer</button>
             </div>
         </div>
     </div>
@@ -403,7 +403,7 @@
         <div class="glass-panel border border-emerald-500/30 rounded-2xl max-w-lg w-full p-5 shadow-2xl flex flex-col gap-3">
             <div class="flex items-center justify-between">
                 <h3 class="text-base sm:text-lg font-extrabold text-white">💾 Export / Restore Progress Snapshot</h3>
-                <button onclick="closeBackupModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                <button type="button" onclick="closeBackupModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -412,12 +412,12 @@
             <p class="text-xs text-slate-400">Copy your current watchlist progress JSON to back it up, or paste a saved JSON snapshot below to restore it immediately.</p>
             <textarea id="backup-json-textarea" rows="8" class="w-full bg-doom-950 border border-slate-700 rounded-xl p-3 text-xs font-mono text-emerald-300 focus:outline-none focus:border-emerald-500"></textarea>
             <div class="flex flex-wrap justify-between items-center gap-2 pt-1">
-                <button onclick="copyBackupJson()" class="px-3.5 py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-xs font-bold text-cyan-300 transition">
+                <button type="button" onclick="copyBackupJson()" class="px-3.5 py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-xs font-bold text-cyan-300 transition">
                     📋 Copy JSON
                 </button>
                 <div class="flex items-center gap-2">
-                    <button onclick="closeBackupModal()" class="px-3.5 py-2 rounded-xl bg-doom-800 text-slate-300 text-xs font-semibold">Close</button>
-                    <button onclick="importBackupJson()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition">Restore JSON</button>
+                    <button type="button" onclick="closeBackupModal()" class="px-3.5 py-2 rounded-xl bg-doom-800 text-slate-300 text-xs font-semibold">Close</button>
+                    <button type="button" onclick="importBackupJson()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition">Restore JSON</button>
                 </div>
             </div>
         </div>
@@ -434,7 +434,7 @@
     <script>
         const PREMIERE_DATE = new Date('2026-12-16T00:00:00');
         const REFERENCE_TODAY = new Date('2026-11-14T00:00:00');
-        const STORAGE_KEY = 'doomsday_watchlist_v9_nov14';
+        const STORAGE_KEY = 'doomsday_watchlist_v10_nov14_ep8';
         const DEFAULT_DAILY_PACE = 100;
 
         // Canonical Narrative & Spoiler-Free Placement Map for All Queue & Vault Titles
@@ -493,12 +493,12 @@
             return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
 
-        // Complete Watchlist Dataset (Synced with Nov 14 snapshot + Timeline & Spoiler-Gated Comic Origins)
+        // Complete Watchlist Dataset (Synced with Nov 14 Ep 8 snapshot + Timeline & Spoiler-Gated Comic Origins)
         const DEFAULT_DATA = {
             "manualBufferAdjustment": 0,
             "dailyPaceTarget": 100,
             "autoBankDailyOverflow": true,
-            "latestCompletion": "Jessica Jones (Season 3) (Ep 7/13)",
+            "latestCompletion": "Jessica Jones (Season 3) (Ep 8/13)",
             "dailyWatchLog": {
                 "date": "2026-11-14",
                 "entries": [
@@ -509,6 +509,14 @@
                         "title": "Jessica Jones (Season 3) — Ep 07 \"A.K.A. The Double Half-Wappinger\"",
                         "mins": 51,
                         "timestamp": "08:35"
+                    },
+                    {
+                        "id": "log-1794650867009-b9e1",
+                        "itemId": "jj-s3",
+                        "epNum": 8,
+                        "title": "Jessica Jones (Season 3) — Ep 08 \"A.K.A. Camera Friendly\"",
+                        "mins": 45,
+                        "timestamp": "10:07"
                     }
                 ]
             },
@@ -522,14 +530,14 @@
                     "release": "2019",
                     "type": "series",
                     "totalEpisodes": 13,
-                    "watchedEpisodes": 7,
+                    "watchedEpisodes": 8,
                     "totalMins": 656,
-                    "statusBadge": "ACTIVE FOCUS — Ep 8",
+                    "statusBadge": "ACTIVE FOCUS — Ep 9",
                     "synopsis": "Following the traumatic events of Season 2, private investigator Jessica Jones attempts to rebuild Alias Investigations while estranged from Trish Walker, who has begun secretly testing newly acquired enhanced abilities on New York’s rooftops—putting both women on a collision course with a calculating, methodical adversary.",
                     "timelinePlacement": "Earth-616 (Sacred Timeline) • Late 2017 / Early 2018 — Pre-Snap street-level era, set shortly after Daredevil Season 3 and Iron Fist Season 2, a few months before Thanos's arrival in Avengers: Infinity War.",
                     "comicOrigins": "Jessica Jones debuted in Alias #1 (Nov 2001) by writer Brian Michael Bendis and artist Michael Gaydos under Marvel's mature-readers MAX imprint. Patsy Walker first appeared in Miss America Magazine #2 (Nov 1944) by Stuart Little and Ruth Atkinson before becoming a superhero in the 1970s.",
                     "doomsdayLink": "Concludes the original Netflix Defenders saga after Iron Fist Season 2, closing the street-level Hell’s Kitchen chapter of Earth-616 before New York’s political landscape shifts in Echo and Daredevil: Born Again.",
-                    "loreNotes": "Next up: S3E08 \"A.K.A. Camera Friendly\" (45 mins). Finishing this season completes your entire Netflix Defenders watch.",
+                    "loreNotes": "Next up: S3E09 \"A.K.A. I Did Something Today\" (51 mins). Finishing this season completes your entire Netflix Defenders watch.",
                     "production": "Showrunner Melissa Rosenberg’s final season for Marvel Television and Netflix before her move to Warner Bros. Television. Filmed across New York City from June to November 2018, the season also marked star Krysten Ritter’s behind-the-camera directorial debut.",
                     "episodes": [
                         {
@@ -1607,10 +1615,10 @@
                     "release": "2017–2018",
                     "note": "Latest Completion: S2E10 (\"A Duel of Iron\") — 55 mins (Nov 12, 2026)",
                     "synopsis": "Danny Rand defends New York alongside Colleen Wing as Davos steals the Iron Fist power, culminating in Colleen claiming the chi-charged katana and Danny journeying across Asia with Ward Meachum.",
-                    "timelinePlacement": "Earth-616 • 2017 (Pre-Snap). Set after The Defenders and before Daredevil Season 3.",
-                    "comicOrigins": "Iron Fist (Danny Rand) debuted in Marvel Premiere #15 (May 1974) by Roy Thomas and Gil Kane; Colleen Wing debuted in Marvel Premiere #19 (Nov 1974) by Doug Moench and Larry Hama.",
                     "doomsdayLink": "Completes Iron Fist’s Netflix arc and resolves the mystical K’un-Lun chi lineage.",
-                    "production": "Season 2 was revitalized under showrunner Raven Metzner and Black Panther stunt coordinator Clayton Barber, condensing the arc to 10 tighter episodes."
+                    "production": "Season 2 was revitalized under showrunner Raven Metzner and Black Panther stunt coordinator Clayton Barber, condensing the arc to 10 tighter episodes.",
+                    "timelinePlacement": "Earth-616 • 2017 (Pre-Snap). Set after The Defenders and before Daredevil Season 3.",
+                    "comicOrigins": "Iron Fist (Danny Rand) debuted in Marvel Premiere #15 (May 1974) by Roy Thomas and Gil Kane; Colleen Wing debuted in Marvel Premiere #19 (Nov 1974) by Doug Moench and Larry Hama."
                 },
                 {
                     "id": "wb1-daredevil",
@@ -1619,9 +1627,9 @@
                     "release": "2015–2018",
                     "note": "Complete 39 Episodes • Core Hell’s Kitchen Canon",
                     "synopsis": "Blind lawyer Matt Murdock fights crime by night as Daredevil while battling Wilson Fisk, the Hand, Elektra, and Bullseye.",
+                    "doomsdayLink": "Foundational backstory for Matt Murdock and Wilson Fisk ahead of Daredevil: Born Again.",
                     "timelinePlacement": "Earth-616 • 2015–2017 (Pre-Snap). Core Hell's Kitchen street-level foundation.",
-                    "comicOrigins": "Created by Stan Lee and Bill Everett in Daredevil #1 (April 1964), heavily influenced by Frank Miller's 1980s run.",
-                    "doomsdayLink": "Foundational backstory for Matt Murdock and Wilson Fisk ahead of Daredevil: Born Again."
+                    "comicOrigins": "Created by Stan Lee and Bill Everett in Daredevil #1 (April 1964), heavily influenced by Frank Miller's 1980s run."
                 },
                 {
                     "id": "wb1-jj-s1-s2",
@@ -1630,9 +1638,9 @@
                     "release": "2015–2018",
                     "note": "Completed S1 & S2 (26 Episodes)",
                     "synopsis": "Private investigator Jessica Jones confronts mind-controlling Kilgrave in Season 1 and uncovers the IGH origins of her powers in Season 2.",
+                    "doomsdayLink": "Leads directly into your active focus: Jessica Jones Season 3.",
                     "timelinePlacement": "Earth-616 • 2015–2017 (Pre-Snap). Precedes Jessica Jones Season 3.",
-                    "comicOrigins": "Adapted from Brian Michael Bendis and Michael Gaydos's Alias #1–28 (2001–2004).",
-                    "doomsdayLink": "Leads directly into your active focus: Jessica Jones Season 3."
+                    "comicOrigins": "Adapted from Brian Michael Bendis and Michael Gaydos's Alias #1–28 (2001–2004)."
                 },
                 {
                     "id": "wb1-luke-cage",
@@ -1641,9 +1649,9 @@
                     "release": "2016–2018",
                     "note": "Complete 26 Episodes • Harlem Canon",
                     "synopsis": "Unbreakable Harlem hero Luke Cage battles Cottonmouth, Diamondback, Mariah Dillard, and Bushmaster before taking over Harlem’s Paradise.",
+                    "doomsdayLink": "Completes Luke Cage’s Defenders era arc.",
                     "timelinePlacement": "Earth-616 • 2016–2017 (Pre-Snap). Harlem street-level canon.",
-                    "comicOrigins": "Luke Cage debuted in Luke Cage, Hero for Hire #1 (June 1972) by Archie Goodwin, George Tuska, Roy Thomas, and John Romita Sr.",
-                    "doomsdayLink": "Completes Luke Cage’s Defenders era arc."
+                    "comicOrigins": "Luke Cage debuted in Luke Cage, Hero for Hire #1 (June 1972) by Archie Goodwin, George Tuska, Roy Thomas, and John Romita Sr."
                 },
                 {
                     "id": "wb1-defenders-punisher",
@@ -1652,9 +1660,9 @@
                     "release": "2017–2019",
                     "note": "34 Episodes Total • Street-Level Vigilantes",
                     "synopsis": "Daredevil, Jessica Jones, Luke Cage, and Iron Fist unite against the Hand, while Frank Castle wages war against covert conspiracies and Jigsaw.",
+                    "doomsdayLink": "Establishes Frank Castle’s canon history prior to his return in Daredevil: Born Again.",
                     "timelinePlacement": "Earth-616 • 2016–2018 (Pre-Snap). Street-level crossover and Frank Castle's vigilante war.",
-                    "comicOrigins": "The Punisher debuted in The Amazing Spider-Man #129 (Feb 1974) by Gerry Conway and Ross Andru.",
-                    "doomsdayLink": "Establishes Frank Castle’s canon history prior to his return in Daredevil: Born Again."
+                    "comicOrigins": "The Punisher debuted in The Amazing Spider-Man #129 (Feb 1974) by Gerry Conway and Ross Andru."
                 },
                 {
                     "id": "wb1-infinity-saga",
@@ -1663,9 +1671,9 @@
                     "release": "2008–2019",
                     "note": "Iron Man through Spider-Man: Far From Home",
                     "synopsis": "The complete 23-film saga chronicling the formation of the Avengers, the Infinity Stones, Thanos’s Snap, and Tony Stark’s ultimate sacrifice.",
+                    "doomsdayLink": "Essential baseline for the modern MCU.",
                     "timelinePlacement": "Earth-616 • 1940s–2023 (Phases 1–3). Core Sacred Timeline foundation.",
-                    "comicOrigins": "Draws on classic 1960s Silver Age Avengers launches and Jim Starlin's 1991 The Infinity Gauntlet.",
-                    "doomsdayLink": "Essential baseline for the modern MCU."
+                    "comicOrigins": "Draws on classic 1960s Silver Age Avengers launches and Jim Starlin's 1991 The Infinity Gauntlet."
                 },
                 {
                     "id": "wb1-phase4-5-films",
@@ -1674,9 +1682,9 @@
                     "release": "2021–2024",
                     "note": "Includes No Way Home, Multiverse of Madness, Quantumania, The Marvels, Deadpool & Wolverine",
                     "synopsis": "Post-Blip global shifts, multiversal rifts, Kang’s Council, Monica Rambeau’s incursion into an X-Men reality, and Deadpool & Wolverine saving Earth-10005.",
+                    "doomsdayLink": "Directly sets up multiversal incursions, the TVA Void, and X-Men crossover threads.",
                     "timelinePlacement": "Earth-616, Earth-838 & Earth-10005 • 2023–2026 (Phases 4–5). Opens the Multiverse Saga.",
-                    "comicOrigins": "Incorporates J. Michael Straczynski's 'One More Day', Rick Remender's 'Kang Dynasty', and Rob Liefeld & Fabian Nicieza's Deadpool.",
-                    "doomsdayLink": "Directly sets up multiversal incursions, the TVA Void, and X-Men crossover threads."
+                    "comicOrigins": "Incorporates J. Michael Straczynski's 'One More Day', Rick Remender's 'Kang Dynasty', and Rob Liefeld & Fabian Nicieza's Deadpool."
                 },
                 {
                     "id": "wb1-disney-plus-p45",
@@ -1685,9 +1693,9 @@
                     "release": "2021–2023",
                     "note": "Includes Hawkeye, Moon Knight, Ms. Marvel, She-Hulk, Werewolf by Night, Secret Invasion, I Am Groot, WHiH & One-Shots",
                     "synopsis": "Loki’s transformation into the God of Stories holding the Multiverse Tree together, Wanda’s Darkhold corruption, and Kamala Khan’s Quantum Bands.",
+                    "doomsdayLink": "Loki’s Multiverse Tree and Ms. Marvel’s Quantum Bands are central pillars of the Multiverse Saga.",
                     "timelinePlacement": "Earth-616 & TVA / End of Time • 2023–2026 (Phases 4–5). Establishes Loki's Multiverse Tree.",
-                    "comicOrigins": "Adapts 'House of M', Mark Gruenwald's Time Variance Authority (Thor #372, 1986), and G. Willow Wilson's Ms. Marvel (2014).",
-                    "doomsdayLink": "Loki’s Multiverse Tree and Ms. Marvel’s Quantum Bands are central pillars of the Multiverse Saga."
+                    "comicOrigins": "Adapts 'House of M', Mark Gruenwald's Time Variance Authority (Thor #372, 1986), and G. Willow Wilson's Ms. Marvel (2014)."
                 },
                 {
                     "id": "wb1-xmen-animated",
@@ -1696,9 +1704,9 @@
                     "release": "1992–2026",
                     "note": "Complete Animated Mutant Saga",
                     "synopsis": "The iconic 1990s X-Men animated series and its direct continuation following the Fall of Genosha, Bastion, and time-displaced adventures.",
+                    "doomsdayLink": "Deepest characterization of Apocalypse, Magneto, Cyclops, and mutant geopolitics.",
                     "timelinePlacement": "Earth-92131 (Animated Mutant Reality) • 1990s. Classic animated mutant canon.",
-                    "comicOrigins": "Adapts Chris Claremont's landmark 1975–1991 Uncanny X-Men arcs.",
-                    "doomsdayLink": "Deepest characterization of Apocalypse, Magneto, Cyclops, and mutant geopolitics."
+                    "comicOrigins": "Adapts Chris Claremont's landmark 1975–1991 Uncanny X-Men arcs."
                 },
                 {
                     "id": "wb1-fox-xmen",
@@ -1707,9 +1715,9 @@
                     "release": "2000–2018",
                     "note": "X-Men, X2, Last Stand, Origins, First Class, The Wolverine, Days of Future Past, Deadpool 1–2, Logan",
                     "synopsis": "Two decades of Fox mutant cinema spanning Charles Xavier, Erik Lehnsherr, and Logan’s emotional finale.",
+                    "doomsdayLink": "Provides direct legacy character context for the Fox X-Men universe.",
                     "timelinePlacement": "Earth-10005 (Original & Revised Fox Timelines) • 1962–2029.",
-                    "comicOrigins": "Inspired by Stan Lee & Jack Kirby's 1963 X-Men #1, 'Days of Future Past' (1981), and Mark Millar's 'Old Man Logan' (2008).",
-                    "doomsdayLink": "Provides direct legacy character context for the Fox X-Men universe."
+                    "comicOrigins": "Inspired by Stan Lee & Jack Kirby's 1963 X-Men #1, 'Days of Future Past' (1981), and Mark Millar's 'Old Man Logan' (2008)."
                 },
                 {
                     "id": "wb1-raimi-venom",
@@ -1718,9 +1726,9 @@
                     "release": "2002–2021",
                     "note": "Spider-Man 1–3, Venom, Venom: Let There Be Carnage",
                     "synopsis": "Tobey Maguire’s Peter Parker trilogy and Eddie Brock’s symbiote adventures culminating in a multiversal jump to Earth-616.",
+                    "doomsdayLink": "Establishes Peter-Two and symbiote multiverse mechanics.",
                     "timelinePlacement": "Earth-96283 (Raimi Spider-Man) & Earth-688 (Sony Venom) • 2002–2021.",
-                    "comicOrigins": "Draws on Lee/Ditko/Romita Spider-Man classics and David Michelinie & Todd McFarlane's Venom (Amazing Spider-Man #300, 1988).",
-                    "doomsdayLink": "Establishes Peter-Two and symbiote multiverse mechanics."
+                    "comicOrigins": "Draws on Lee/Ditko/Romita Spider-Man classics and David Michelinie & Todd McFarlane's Venom (Amazing Spider-Man #300, 1988)."
                 },
                 {
                     "id": "wb1-aos-carter",
@@ -1729,9 +1737,9 @@
                     "release": "2013–2020",
                     "note": "Complete 154 Episodes",
                     "synopsis": "Phil Coulson’s S.H.I.E.L.D. team battles Hydra, Inhumans, the Framework, and Chronicom time-travelers, alongside Peggy Carter’s founding SSR missions.",
+                    "doomsdayLink": "Deep-cut Quantum Realm and timeline-branching mechanics.",
                     "timelinePlacement": "Earth-616 & Branched Timelines • 1946–2020. Early SSR and S.H.I.E.L.D. espionage.",
-                    "comicOrigins": "Peggy Carter debuted in Tales of Suspense #77 (May 1966); Phil Coulson transitioned from the MCU into Battle Scars #1 (2012).",
-                    "doomsdayLink": "Deep-cut Quantum Realm and timeline-branching mechanics."
+                    "comicOrigins": "Peggy Carter debuted in Tales of Suspense #77 (May 1966); Phil Coulson transitioned from the MCU into Battle Scars #1 (2012)."
                 },
                 {
                     "id": "wb1-early-2000s",
@@ -1740,9 +1748,9 @@
                     "release": "2003–2021",
                     "note": "Daredevil (2003), Elektra (2005), Hulk (2003), M.O.D.O.K.",
                     "synopsis": "Pre-MCU Marvel theatrical standalones and Hulu’s stop-motion A.I.M. comedy.",
+                    "doomsdayLink": "Includes Jennifer Garner’s Elektra prior to her Void appearance in Deadpool & Wolverine.",
                     "timelinePlacement": "Pre-MCU Legacy Standalones & Earth-1226 • 2003–2021.",
-                    "comicOrigins": "M.O.D.O.K. was created by Stan Lee and Jack Kirby in Tales of Suspense #93 (Sept 1967).",
-                    "doomsdayLink": "Includes Jennifer Garner’s Elektra prior to her Void appearance in Deadpool & Wolverine."
+                    "comicOrigins": "M.O.D.O.K. was created by Stan Lee and Jack Kirby in Tales of Suspense #93 (Sept 1967)."
                 }
             ],
             "workbook3": [
@@ -1758,10 +1766,10 @@
                     "threshold": 240,
                     "statusNote": "Unlocks as soon as Net Buffer covers its 240m runtime",
                     "synopsis": "Hollywood actor Simon Williams auditions for a remake of a classic superhero film alongside Trevor Slattery while gaining ionic superpowers.",
-                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Phase 6 — Set in Hollywood prior to Spider-Man: Brand New Day.",
-                    "comicOrigins": "Simon Williams (Wonder Man) was created by Stan Lee, Don Heck, and Jack Kirby in The Avengers #9 (Oct 1964).",
                     "doomsdayLink": "Introduces Simon Williams (Wonder Man) to Earth-616.",
-                    "loreNotes": "8 episodes (~30 mins avg). Placed in Act 4 as an Earth-616 character spotlight prior to Spider-Man: Brand New Day."
+                    "loreNotes": "8 episodes (~30 mins avg). Placed in Act 4 as an Earth-616 character spotlight prior to Spider-Man: Brand New Day.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Phase 6 — Set in Hollywood prior to Spider-Man: Brand New Day.",
+                    "comicOrigins": "Simon Williams (Wonder Man) was created by Stan Lee, Don Heck, and Jack Kirby in The Avengers #9 (Oct 1964)."
                 },
                 {
                     "id": "visionquest",
@@ -1775,10 +1783,10 @@
                     "threshold": 270,
                     "statusNote": "Unlocks as soon as Net Buffer covers its 270m runtime",
                     "synopsis": "Following the restoration of his memories in WandaVision, White Vision embarks on a journey to reconcile his identity, humanity, and Ultron’s legacy.",
-                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Phase 6 — Follows White Vision's departure from Westview in WandaVision (2023).",
-                    "comicOrigins": "The Vision debuted in The Avengers #57 (Oct 1968) by Roy Thomas and John Buscema; White Vision debuted in West Coast Avengers #45 (June 1989) by John Byrne.",
                     "doomsdayLink": "Resolves White Vision’s whereabouts ahead of Avengers-level threats.",
-                    "loreNotes": "6 episodes (~45 mins avg). Placed in Act 4 after Agatha All Along."
+                    "loreNotes": "6 episodes (~45 mins avg). Placed in Act 4 after Agatha All Along.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Phase 6 — Follows White Vision's departure from Westview in WandaVision (2023).",
+                    "comicOrigins": "The Vision debuted in The Avengers #57 (Oct 1968) by Roy Thomas and John Buscema; White Vision debuted in West Coast Avengers #45 (June 1989) by John Byrne."
                 },
                 {
                     "id": "marvel-zombies",
@@ -1792,10 +1800,10 @@
                     "threshold": 160,
                     "statusNote": "Unlocks as soon as Net Buffer covers its 160m runtime",
                     "synopsis": "A new generation of heroes battles an ever-spreading zombie scourge across a brutal alternate timeline spun out of What If...?",
-                    "timelinePlacement": "Branched Reality (Earth-89521) • Spin-off from What If...? Season 1 Episode 5.",
-                    "comicOrigins": "Inspired by Robert Kirkman and Sean Phillips's Marvel Zombies #1–5 (2005–2006).",
                     "doomsdayLink": "Alternate multiverse horror timeline.",
-                    "loreNotes": "4 episodes (~40 mins avg). Placed in Act 3 directly after What If...? Season 3."
+                    "loreNotes": "4 episodes (~40 mins avg). Placed in Act 3 directly after What If...? Season 3.",
+                    "timelinePlacement": "Branched Reality (Earth-89521) • Spin-off from What If...? Season 1 Episode 5.",
+                    "comicOrigins": "Inspired by Robert Kirkman and Sean Phillips's Marvel Zombies #1–5 (2005–2006)."
                 },
                 {
                     "id": "blade-trilogy",
@@ -1809,10 +1817,10 @@
                     "threshold": 350,
                     "statusNote": "Unlocks when Net Buffer covers 350m runtime",
                     "synopsis": "Half-vampire daywalker Eric Brooks wages a relentless war against Deacon Frost, the Reaper strain, and Dracula.",
-                    "timelinePlacement": "Pre-MCU Legacy Reality (Earth-26320) • 1998–2004.",
-                    "comicOrigins": "Blade (Eric Brooks) was created by Marv Wolfman and Gene Colan in The Tomb of Dracula #10 (July 1973).",
                     "doomsdayLink": "Wesley Snipes’s Void legacy variant origin.",
-                    "loreNotes": "3 films: Blade (120m), Blade II (117m), Blade: Trinity (113m). Placed in Act 3 with pre-MCU legacy lore."
+                    "loreNotes": "3 films: Blade (120m), Blade II (117m), Blade: Trinity (113m). Placed in Act 3 with pre-MCU legacy lore.",
+                    "timelinePlacement": "Pre-MCU Legacy Reality (Earth-26320) • 1998–2004.",
+                    "comicOrigins": "Blade (Eric Brooks) was created by Marv Wolfman and Gene Colan in The Tomb of Dracula #10 (July 1973)."
                 },
                 {
                     "id": "tasm-duology",
@@ -1826,10 +1834,10 @@
                     "threshold": 278,
                     "statusNote": "Post-Doomsday Legacy Archive",
                     "synopsis": "Andrew Garfield’s Peter Parker uncovers Oscorp secrets and faces the Lizard, Electro, and Green Goblin.",
-                    "timelinePlacement": "Earth-120703 (Webb Spider-Man Reality) • 2012–2014.",
-                    "comicOrigins": "Draws on Ultimate Spider-Man (2000) by Brian Michael Bendis & Mark Bagley and classic Lee/Romita Gwen Stacy stories.",
                     "doomsdayLink": "Peter-Three canon archive.",
-                    "loreNotes": "2 films: The Amazing Spider-Man (136m) & The Amazing Spider-Man 2 (142m). Placed in Act 3 multiverse archive."
+                    "loreNotes": "2 films: The Amazing Spider-Man (136m) & The Amazing Spider-Man 2 (142m). Placed in Act 3 multiverse archive.",
+                    "timelinePlacement": "Earth-120703 (Webb Spider-Man Reality) • 2012–2014.",
+                    "comicOrigins": "Draws on Ultimate Spider-Man (2000) by Brian Michael Bendis & Mark Bagley and classic Lee/Romita Gwen Stacy stories."
                 },
                 {
                     "id": "legacy-f4",
@@ -1843,10 +1851,10 @@
                     "threshold": 298,
                     "statusNote": "Post-Doomsday Legacy Archive",
                     "synopsis": "Previous theatrical adaptations of Marvel’s First Family, including Chris Evans’s Johnny Storm.",
-                    "timelinePlacement": "Earth-121698 (2005/2007) & Earth-15866 (2015) • Pre-MCU Fantastic Four realities.",
-                    "comicOrigins": "Adapted from Stan Lee & Jack Kirby's 1960s Fantastic Four and Brian Michael Bendis & Mark Millar's Ultimate Fantastic Four (2004).",
                     "doomsdayLink": "Alternate universe Fantastic Four variants.",
-                    "loreNotes": "3 films placed in Act 3 prior to The Fantastic Four: First Steps."
+                    "loreNotes": "3 films placed in Act 3 prior to The Fantastic Four: First Steps.",
+                    "timelinePlacement": "Earth-121698 (2005/2007) & Earth-15866 (2015) • Pre-MCU Fantastic Four realities.",
+                    "comicOrigins": "Adapted from Stan Lee & Jack Kirby's 1960s Fantastic Four and Brian Michael Bendis & Mark Millar's Ultimate Fantastic Four (2004)."
                 },
                 {
                     "id": "sony-ssu",
@@ -1860,10 +1868,10 @@
                     "threshold": 330,
                     "statusNote": "Post-Doomsday Legacy Archive",
                     "synopsis": "Sony’s standalone Spider-Man universe entries exploring Morbius, Cassandra Webb, and Knull’s symbiote invasion.",
-                    "timelinePlacement": "Earth-688 (Sony's Spider-Man Universe) • 2022–2024.",
-                    "comicOrigins": "Morbius debuted in Amazing Spider-Man #101 (Oct 1971); Madame Web debuted in Amazing Spider-Man #210 (Nov 1980).",
                     "doomsdayLink": "SSU multiversal rift entries.",
-                    "loreNotes": "3 films placed in Act 3 multiversal anthology."
+                    "loreNotes": "3 films placed in Act 3 multiversal anthology.",
+                    "timelinePlacement": "Earth-688 (Sony's Spider-Man Universe) • 2022–2024.",
+                    "comicOrigins": "Morbius debuted in Amazing Spider-Man #101 (Oct 1971); Madame Web debuted in Amazing Spider-Man #210 (Nov 1980)."
                 },
                 {
                     "id": "fox-tv-vault",
@@ -1877,9 +1885,9 @@
                     "threshold": 2450,
                     "statusNote": "Completionist Mutant Television Vault",
                     "synopsis": "David Haller’s surreal Omega-level psychic journey in Legion and the Mutant Underground’s survival in The Gifted.",
+                    "doomsdayLink": "Alternate Fox mutant television timelines.",
                     "timelinePlacement": "Alternate Fox Mutant Television Timelines • 2017–2019.",
-                    "comicOrigins": "Legion (David Haller) was created by Chris Claremont and Bill Sienkiewicz in New Mutants #25 (March 1985).",
-                    "doomsdayLink": "Alternate Fox mutant television timelines."
+                    "comicOrigins": "Legion (David Haller) was created by Chris Claremont and Bill Sienkiewicz in New Mutants #25 (March 1985)."
                 },
                 {
                     "id": "marvel-tv-vault",
@@ -1893,9 +1901,9 @@
                     "threshold": 2800,
                     "statusNote": "Completionist Marvel Television Vault",
                     "synopsis": "Teenage heroes in New Orleans and Los Angeles, the Inhuman Royal Family, and Daimon & Ana Helstrom.",
+                    "doomsdayLink": "Extended Marvel Television archive.",
                     "timelinePlacement": "Earth-616 Extended Marvel Television Corner • 2017–2020.",
-                    "comicOrigins": "Cloak & Dagger debuted in Peter Parker, the Spectacular Spider-Man #64 (1982); Runaways debuted in Runaways #1 (2003) by Brian K. Vaughan and Adrian Alphona.",
-                    "doomsdayLink": "Extended Marvel Television archive."
+                    "comicOrigins": "Cloak & Dagger debuted in Peter Parker, the Spectacular Spider-Man #64 (1982); Runaways debuted in Runaways #1 (2003) by Brian K. Vaughan and Adrian Alphona."
                 },
                 {
                     "id": "anime-modern-anim",
@@ -1909,9 +1917,9 @@
                     "threshold": 4200,
                     "statusNote": "Modern & Anime Animation Archive",
                     "synopsis": "The Avengers: Earth’s Mightiest Heroes, X-Men: Evolution, Wolverine and the X-Men, and Madhouse’s 4 anime series.",
+                    "doomsdayLink": "Beloved animated adaptations of classic Avengers & X-Men arcs.",
                     "timelinePlacement": "Animated Multiverse (Earth-8096, Earth-11052, Earth-101001) • 2000–2017.",
-                    "comicOrigins": "Adapts classic 1960s–2000s Avengers and X-Men runs in serialized animated form.",
-                    "doomsdayLink": "Beloved animated adaptations of classic Avengers & X-Men arcs."
+                    "comicOrigins": "Adapts classic 1960s–2000s Avengers and X-Men runs in serialized animated form."
                 },
                 {
                     "id": "vintage-vault",
@@ -1925,10 +1933,10 @@
                     "threshold": 5500,
                     "statusNote": "Vintage Multiverse Archive",
                     "synopsis": "90s Spider-Man: TAS, Fantastic Four: TAS, Silver Surfer, 1978 Incredible Hulk, Supaidāman, and 1990 Captain America.",
-                    "timelinePlacement": "1990s Marvel Animated Universe (Earth-92131) & Classic Live-Action Realities • 1978–2000.",
-                    "comicOrigins": "Includes Toei's 1978 Supaidāman, Bixby/Ferrigno's Incredible Hulk, and Saban's 1990s Saturday-morning animated universe.",
                     "doomsdayLink": "Deepest retro multiverse archive.",
-                    "production": "Produced across 1970s network TV, 1980s–90s genre films, and Saban/Marvel Films Animation’s Saturday-morning block."
+                    "production": "Produced across 1970s network TV, 1980s–90s genre films, and Saban/Marvel Films Animation’s Saturday-morning block.",
+                    "timelinePlacement": "1990s Marvel Animated Universe (Earth-92131) & Classic Live-Action Realities • 1978–2000.",
+                    "comicOrigins": "Includes Toei's 1978 Supaidāman, Bixby/Ferrigno's Incredible Hulk, and Saban's 1990s Saturday-morning animated universe."
                 }
             ]
         };
@@ -2199,7 +2207,9 @@
             const futureCapacityMins = futureDays * userPace;
             const totalCapacityMins = futureCapacityMins + todayStats.remainingToTarget;
 
-            const runwaySurplusMins = futureCapacityMins - stats.remainingMins;
+            // Runway surplus includes today's remaining pace quota so buffer holds steady
+            // until today's daily pace target is filled, then grows 1:1 on overflow minutes.
+            const runwaySurplusMins = totalCapacityMins - stats.remainingMins;
             const manualAdjustmentMins = appState.manualBufferAdjustment ?? 0;
             const autoOverflowContribution = appState.autoBankDailyOverflow ? todayStats.overflowMins : 0;
 
@@ -2429,10 +2439,13 @@
 
             const forwardDiff = buf.netBuffer;
             const paceSubtextEl = document.getElementById('pace-status-subtext');
+            const capacityBreakdown = todayStats.remainingToTarget > 0
+                ? `${todayStats.remainingToTarget}m left today + ${buf.futureCapacityMins.toLocaleString()}m across ${buf.futureDays} future days = ${buf.totalCapacityMins.toLocaleString()}m capacity`
+                : `${buf.futureDays} future days (${buf.futureCapacityMins.toLocaleString()}m forward capacity)`;
             if (forwardDiff >= 0) {
-                paceSubtextEl.innerHTML = `At <span class="text-emerald-400 font-semibold">${userPace} mins/day</span> across ${buf.futureDays} future days (${buf.futureCapacityMins.toLocaleString()}m forward capacity), your net buffer is <span class="text-cyan-400 font-semibold">+${forwardDiff.toLocaleString()} mins ahead</span> of your ${stats.remainingMins.toLocaleString()}m queue!`;
+                paceSubtextEl.innerHTML = `At <span class="text-emerald-400 font-semibold">${userPace} mins/day</span> (${capacityBreakdown}), your net buffer is <span class="text-cyan-400 font-semibold">+${forwardDiff.toLocaleString()} mins ahead</span> of your ${stats.remainingMins.toLocaleString()}m queue!`;
             } else {
-                paceSubtextEl.innerHTML = `At <span class="text-amber-300 font-semibold">${userPace} mins/day</span> across ${buf.futureDays} future days (${buf.futureCapacityMins.toLocaleString()}m forward capacity), you are <span class="text-rose-400 font-semibold">${forwardDiff.toLocaleString()} mins behind</span> (need ${stats.requiredDailyMins} m/d).`;
+                paceSubtextEl.innerHTML = `At <span class="text-amber-300 font-semibold">${userPace} mins/day</span> (${capacityBreakdown}), you are <span class="text-rose-400 font-semibold">${forwardDiff.toLocaleString()} mins behind</span> (need ${stats.requiredDailyMins} m/d).`;
             }
 
             const pct = stats.totalInitialMins > 0 ? Math.min(100, Math.round((stats.watchedMins / stats.totalInitialMins) * 100)) : 100;
@@ -2442,7 +2455,7 @@
             const vaultHeadingEl = document.getElementById('vault-buffer-heading');
             const vaultSubtextEl = document.getElementById('vault-buffer-subtext');
             if (vaultHeadingEl && vaultSubtextEl) {
-                const parts = [`${buf.futureCapacityMins.toLocaleString()}m forward capacity − ${stats.remainingMins.toLocaleString()}m queue`];
+                const parts = [`${buf.totalCapacityMins.toLocaleString()}m runway capacity − ${stats.remainingMins.toLocaleString()}m queue`];
                 if (buf.manualAdjustmentMins !== 0) parts.push(`${formatSignedMins(buf.manualAdjustmentMins)}m manual`);
                 if (!appState.autoBankDailyOverflow && todayStats.overflowMins > 0) parts.push(`-${todayStats.overflowMins}m overflow paused`);
                 const note = ` (${parts.join(' • ')})`;
@@ -2569,23 +2582,23 @@
                             </div>
 
                             <div class="flex flex-wrap items-center gap-1.5">
-                                <button onclick="openLoreModal('${item.id}', 'workbook2')" class="px-3 py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-200 text-xs font-semibold transition">
+                                <button type="button" onclick="openLoreModal('${item.id}', 'workbook2')" class="px-3 py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-200 text-xs font-semibold transition">
                                     Synopsis & Lore
                                 </button>
                                 ${!isComplete ? `
-                                    <button onclick="markAlreadySeen('${item.id}')" class="px-2.5 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-cyan-500/30 text-cyan-300 text-xs font-semibold transition" title="Already watched prior to today (removes from queue without counting toward today's watch quota)">
+                                    <button type="button" onclick="markAlreadySeen('${item.id}')" class="px-2.5 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-cyan-500/30 text-cyan-300 text-xs font-semibold transition" title="Already watched prior to today (removes from queue without counting toward today's watch quota)">
                                         ✓ Already Seen
                                     </button>
                                 ` : ''}
                                 ${!isComplete ? (
                                     item.type === 'series'
-                                        ? `<button onclick="logEpisode('${item.id}')" class="flex-1 px-3 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition shadow-md shadow-emerald-500/20">+1 Ep (${nextEpMins}m)</button>`
-                                        : `<button onclick="completeItem('${item.id}')" class="flex-1 px-3 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition shadow-md shadow-emerald-500/20">Watched Today (${item.totalMins}m)</button>`
+                                        ? `<button type="button" onclick="logEpisode('${item.id}')" class="flex-1 px-3 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition shadow-md shadow-emerald-500/20">+1 Ep (${nextEpMins}m)</button>`
+                                        : `<button type="button" onclick="completeItem('${item.id}')" class="flex-1 px-3 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-doom-950 text-xs font-extrabold transition shadow-md shadow-emerald-500/20">Watched Today (${item.totalMins}m)</button>`
                                 ) : (
-                                    `<button onclick="archiveToWorkbook1('${item.id}')" class="flex-1 px-3 py-2 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 text-xs font-bold transition">Move to WB1</button>`
+                                    `<button type="button" onclick="archiveToWorkbook1('${item.id}')" class="flex-1 px-3 py-2 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 text-xs font-bold transition">Move to WB1</button>`
                                 )}
                                 ${!isComplete ? `
-                                    <button onclick="moveToVault('${item.id}')" class="px-2.5 py-2 rounded-xl bg-doom-900 hover:bg-cyan-950/60 border border-slate-700 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-300 text-xs font-semibold transition" title="Defer to Vault and credit +${remMins}m to buffer">
+                                    <button type="button" onclick="moveToVault('${item.id}')" class="px-2.5 py-2 rounded-xl bg-doom-900 hover:bg-cyan-950/60 border border-slate-700 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-300 text-xs font-semibold transition" title="Defer to Vault and credit +${remMins}m to buffer">
                                         → Vault (+${remMins}m)
                                     </button>
                                 ` : ''}
@@ -2616,7 +2629,7 @@
                             <p class="text-xs text-slate-400 line-clamp-3 mb-4">${item.synopsis}</p>
                         </div>
                         <div class="pt-3 border-t border-slate-800/80">
-                            <button onclick="openLoreModal('${item.id}', 'workbook1')" class="w-full px-3 py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-200 text-xs font-semibold transition">
+                            <button type="button" onclick="openLoreModal('${item.id}', 'workbook1')" class="w-full px-3 py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-200 text-xs font-semibold transition">
                                 View Synopsis & Doomsday Link
                             </button>
                         </div>
@@ -2667,10 +2680,10 @@
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <button onclick="openLoreModal('${item.id}', 'workbook3')" class="flex-1 px-3 py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-200 text-xs font-semibold transition">
+                                <button type="button" onclick="openLoreModal('${item.id}', 'workbook3')" class="flex-1 px-3 py-2 rounded-xl bg-doom-800 hover:bg-doom-700 border border-slate-700 text-slate-200 text-xs font-semibold transition">
                                     Synopsis & Lore
                                 </button>
-                                <button onclick="moveToQueue('${item.id}')" class="px-3 py-2 rounded-xl ${isUnlocked ? 'bg-emerald-500 hover:bg-emerald-400 text-doom-950 font-extrabold shadow-md shadow-emerald-500/20' : 'bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 font-bold'} text-xs transition" title="Insert into ${placement.act} in spoiler-free chronological order (-${item.mins}m from buffer)">
+                                <button type="button" onclick="moveToQueue('${item.id}')" class="px-3 py-2 rounded-xl ${isUnlocked ? 'bg-emerald-500 hover:bg-emerald-400 text-doom-950 font-extrabold shadow-md shadow-emerald-500/20' : 'bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 font-bold'} text-xs transition" title="Insert into ${placement.act} in spoiler-free chronological order (-${item.mins}m from buffer)">
                                     ← Slot in ${placement.act} (-${item.mins}m)
                                 </button>
                             </div>
@@ -2822,7 +2835,7 @@
                     </div>
                     <div class="flex items-center gap-2 shrink-0">
                         <span class="px-2 py-0.5 rounded-full text-xs font-extrabold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">+${entry.mins}m</span>
-                        <button onclick="deleteTodayEntry('${entry.id}')" class="p-1 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-slate-800 transition" title="Remove entry from today's watch log">
+                        <button type="button" onclick="deleteTodayEntry('${entry.id}')" class="p-1 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-slate-800 transition" title="Remove entry from today's watch log">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                             </svg>
@@ -2878,7 +2891,6 @@
             const runtimePill = document.getElementById('modal-ep-runtime-pill');
             const synopsisHeading = document.getElementById('modal-synopsis-heading');
             const loreHeading = document.getElementById('modal-lore-heading');
-            const comicsGatePill = document.getElementById('modal-comics-gate-pill');
 
             const hasEpisodesArray = Array.isArray(item.episodes) && item.episodes.length > 0;
 
@@ -2928,6 +2940,7 @@
                     runtimePill.classList.remove('hidden');
                     runtimePill.textContent = `${epData.mins} mins`;
 
+                    const comicsGatePill = document.getElementById('modal-comics-gate-pill');
                     if (isCurrentOrWatched) {
                         document.getElementById('modal-next-ep-note').textContent = isEpWatched
                             ? `${labelPrefix}: "${epData.title}" (Watched)`
@@ -2958,6 +2971,7 @@
                         document.getElementById('modal-doomsday-link').textContent = item.doomsdayLink;
                     }
                 } else {
+                    const comicsGatePill = document.getElementById('modal-comics-gate-pill');
                     document.getElementById('modal-next-ep-note').textContent = item.watchedEpisodes < item.totalEpisodes
                         ? `Up Next: Episode ${item.watchedEpisodes + 1} (${item.loreNotes || ''})`
                         : 'Season Complete!';
@@ -2975,6 +2989,7 @@
                     document.getElementById('modal-doomsday-link').textContent = item.doomsdayLink;
                 }
             } else {
+                const comicsGatePill = document.getElementById('modal-comics-gate-pill');
                 epTracker.classList.add('hidden');
                 epPillsContainer.innerHTML = '';
                 synopsisHeading.innerHTML = `<span>📖 Story Synopsis</span>`;
@@ -3057,7 +3072,7 @@
                          appState.workbook3.find(i => i.id === activeModalItemId);
 
             answerBox.classList.remove('hidden');
-            answerBox.innerHTML = `<strong class="text-cyan-300">Spoiler-Safe Briefing on ${item.title}:</strong> ${item.loreNotes || item.doomsdayLink} <br><span class="text-slate-400 text-xs mt-1 block">Query logged: "${q}" — Unwatched episode twists, future comic transformations, and unreached post-credits scenes remain strictly shielded.</span>`;
+            answerBox.innerHTML = `<strong class="text-cyan-300">Spoiler-Safe Briefing on ${item.title}:</strong> ${item.loreNotes || item.doomsdayLink} <br><span class="text-slate-400 text-xs mt-1 block">Query logged: "${q}" — Unwatched episode twists and unreached post-credits scenes remain shielded.</span>`;
         }
 
         function openLogMinutesModal() {
