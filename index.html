@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="dark"><head>
+<html lang="en" class="dark">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marvel Doomsday Watchlist — Command Center</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -71,10 +73,10 @@
                     <div class="min-w-0">
                         <div class="flex items-center gap-2">
                             <h1 class="text-sm sm:text-xl font-extrabold tracking-tight text-white truncate">DOOMSDAY PROTOCOL</h1>
-                            <span id="header-sync-badge" class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Synced Nov 13, 2026</span>
+                            <span id="header-sync-badge" class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Synced Nov 14, 2026</span>
                         </div>
-                        <p id="latest-completion-header" class="hidden sm:block text-xs text-slate-400 truncate">Latest: Jessica Jones (Season 3) (Ep 6/13) • Today: 202/100m (+102m buf)</p>
-                        <p id="collapsed-summary-strip" class="sm:hidden text-[11px] font-semibold text-emerald-400 truncate">33d • Today: 202/100m • Buf: +121m</p>
+                        <p id="latest-completion-header" class="hidden sm:block text-xs text-slate-400 truncate">Latest: Jessica Jones (Season 3) (Ep 7/13) • Today: 51/100m (49m left)</p>
+                        <p id="collapsed-summary-strip" class="sm:hidden text-[11px] font-semibold text-emerald-400 truncate">32d • Today: 51/100m • Buf: +72m</p>
                     </div>
                 </div>
 
@@ -93,7 +95,7 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
                     <div class="bg-doom-800/90 border border-emerald-500/20 rounded-xl px-3 py-2">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Premiere Countdown</div>
-                        <div id="metric-days" class="text-sm sm:text-base font-extrabold text-emerald-400">33 Days</div>
+                        <div id="metric-days" class="text-sm sm:text-base font-extrabold text-emerald-400">32 Days</div>
                     </div>
 
                     <div class="bg-doom-800/90 border border-emerald-500/30 rounded-xl px-3 py-2 flex items-center justify-between gap-2">
@@ -114,25 +116,25 @@
                     <div id="metric-today-card" class="col-span-2 sm:col-span-1 bg-doom-800/90 border border-amber-500/40 rounded-xl px-3 py-2 cursor-pointer hover:border-amber-400 transition flex flex-col justify-between" onclick="openTodayLogModal()" title="Click to inspect or adjust today's watch log">
                         <div class="flex items-center justify-between gap-1">
                             <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Watched Today</span>
-                            <span id="metric-today-badge" class="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/40">100m LEFT</span>
+                            <span id="metric-today-badge" class="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/40">49m LEFT</span>
                         </div>
                         <div class="flex items-baseline justify-between gap-1 mt-0.5">
-                            <div id="metric-today-mins" class="text-sm sm:text-base font-extrabold text-white">202 / 100m</div>
-                            <div id="metric-today-overflow" class="text-[11px] font-semibold text-slate-400">+102m → buf</div>
+                            <div id="metric-today-mins" class="text-sm sm:text-base font-extrabold text-white">51 / 100m</div>
+                            <div id="metric-today-overflow" class="text-[11px] font-semibold text-slate-400">0m → buf</div>
                         </div>
                         <div class="w-full h-1.5 bg-doom-950 rounded-full overflow-hidden mt-1.5 border border-slate-800/80">
-                            <div id="metric-today-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-300" style="width: 100%"></div>
+                            <div id="metric-today-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-300" style="width: 51%"></div>
                         </div>
                     </div>
 
                     <div class="bg-doom-800/90 border border-emerald-500/20 rounded-xl px-3 py-2">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Remaining Queue</div>
-                        <div id="metric-remaining" class="text-sm sm:text-base font-extrabold text-white">3,079 mins</div>
+                        <div id="metric-remaining" class="text-sm sm:text-base font-extrabold text-white">3,028 mins</div>
                     </div>
 
                     <div id="metric-bank-card" class="bg-doom-800/90 border border-cyan-500/30 rounded-xl px-3 py-2 cursor-pointer hover:border-cyan-400 transition" onclick="openLogMinutesModal()" title="Forward Runway Capacity (Future Days × Daily Pace) − Remaining Queue + Manual Adjustments">
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Net Buffer</div>
-                        <div id="metric-bank" class="text-sm sm:text-base font-extrabold text-cyan-400">+121 mins</div>
+                        <div id="metric-bank" class="text-sm sm:text-base font-extrabold text-cyan-400">+72 mins</div>
                     </div>
                 </div>
 
@@ -184,9 +186,9 @@
                 <div>
                     <div class="flex flex-wrap items-center gap-2">
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">ACTIVE FOCUS</span>
-                        <h2 class="text-base sm:text-lg font-bold text-white" id="active-focus-banner-title">Jessica Jones (Season 3) — Episode 7 of 13 (51m)</h2>
+                        <h2 class="text-base sm:text-lg font-bold text-white" id="active-focus-banner-title">Jessica Jones (Season 3) — Episode 8 of 13 (45m)</h2>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="pace-status-subtext">At <span class="text-emerald-400 font-semibold">100 mins/day</span> across 32 future days (3,200m forward capacity), your net buffer is <span class="text-cyan-400 font-semibold">+121 mins ahead</span> of your 3,079m queue!</p>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1" id="pace-status-subtext">At <span class="text-emerald-400 font-semibold">100 mins/day</span> across 31 future days (3,100m forward capacity), your net buffer is <span class="text-cyan-400 font-semibold">+72 mins ahead</span> of your 3,028m queue!</p>
                 </div>
 
                 <!-- Act Filter Pills -->
@@ -203,10 +205,10 @@
             <div class="mt-4">
                 <div class="flex justify-between text-xs text-slate-400 mb-1.5">
                     <span>Essential Queue Completion</span>
-                    <span id="runway-progress-text" class="font-semibold text-emerald-400">308 / 3,388 mins logged (9%)</span>
+                    <span id="runway-progress-text" class="font-semibold text-emerald-400">359 / 3,388 mins logged (11%)</span>
                 </div>
                 <div class="w-full h-2.5 bg-doom-950 rounded-full overflow-hidden border border-slate-800">
-                    <div id="runway-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-500" style="width: 9%;"></div>
+                    <div id="runway-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-full transition-all duration-500" style="width: 11%;"></div>
                 </div>
             </div>
         </div>
@@ -217,7 +219,7 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">DYNAMIC RUNTIME UNLOCK PROTOCOL</span>
-                        <h2 class="text-base sm:text-lg font-bold text-white" id="vault-buffer-heading">Net Buffer: +121 Surplus Minutes</h2>
+                        <h2 class="text-base sm:text-lg font-bold text-white" id="vault-buffer-heading">Net Buffer: +72 Surplus Minutes</h2>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 mt-1" id="vault-buffer-subtext">Every Vault title unlocks as soon as your live Net Buffer covers its runtime! Pulling a title into your Queue automatically slots it into its ideal spoiler-free narrative order.</p>
                 </div>
@@ -273,6 +275,23 @@
                         <span id="modal-ep-runtime-pill" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-800 text-slate-300 border border-slate-700">51 mins</span>
                     </div>
                     <p id="modal-synopsis" class="text-sm text-slate-200 leading-relaxed bg-doom-900/60 p-3.5 rounded-xl border border-slate-800/80"></p>
+                </div>
+
+                <div>
+                    <h4 id="modal-timeline-heading" class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-1.5 flex items-center gap-1.5">
+                        <span>🧭 MCU Timeline &amp; Universe Placement</span>
+                    </h4>
+                    <p id="modal-timeline" class="text-sm text-sky-100/90 leading-relaxed bg-sky-950/25 p-3.5 rounded-xl border border-sky-500/25"></p>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-1.5">
+                        <h4 id="modal-comics-heading" class="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-1.5">
+                            <span>📚 Comic Book Origins (Spoiler-Gated)</span>
+                        </h4>
+                        <span id="modal-comics-gate-pill" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/15 text-purple-300 border border-purple-500/30">🛡️ SPOILER-GATED</span>
+                    </div>
+                    <p id="modal-comics" class="text-sm text-purple-100/90 leading-relaxed bg-purple-950/25 p-3.5 rounded-xl border border-purple-500/25"></p>
                 </div>
 
                 <div>
@@ -414,8 +433,8 @@
 
     <script>
         const PREMIERE_DATE = new Date('2026-12-16T00:00:00');
-        const REFERENCE_TODAY = new Date('2026-11-13T00:00:00');
-        const STORAGE_KEY = 'doomsday_watchlist_v8_nov13';
+        const REFERENCE_TODAY = new Date('2026-11-14T00:00:00');
+        const STORAGE_KEY = 'doomsday_watchlist_v9_nov14';
         const DEFAULT_DAILY_PACE = 100;
 
         // Canonical Narrative & Spoiler-Free Placement Map for All Queue & Vault Titles
@@ -474,46 +493,22 @@
             return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
 
-        // Complete Watchlist Dataset (Synced with your Nov 13 evening progress & Ironheart slotted into Act 4)
+        // Complete Watchlist Dataset (Synced with Nov 14 snapshot + Timeline & Spoiler-Gated Comic Origins)
         const DEFAULT_DATA = {
             "manualBufferAdjustment": 0,
             "dailyPaceTarget": 100,
             "autoBankDailyOverflow": true,
-            "latestCompletion": "Jessica Jones (Season 3) (Ep 6/13)",
+            "latestCompletion": "Jessica Jones (Season 3) (Ep 7/13)",
             "dailyWatchLog": {
-                "date": "2026-11-13",
+                "date": "2026-11-14",
                 "entries": [
                     {
-                        "id": "log-1794608495640-vegp",
+                        "id": "log-1794645316493-g9vk",
                         "itemId": "jj-s3",
-                        "epNum": 3,
-                        "title": "Jessica Jones (Season 3) — Ep 03 \"A.K.A. I Have No Spleen\"",
+                        "epNum": 7,
+                        "title": "Jessica Jones (Season 3) — Ep 07 \"A.K.A. The Double Half-Wappinger\"",
                         "mins": 51,
-                        "timestamp": "22:21"
-                    },
-                    {
-                        "id": "log-1794608514467-rfml",
-                        "itemId": "jj-s3",
-                        "epNum": 4,
-                        "title": "Jessica Jones (Season 3) — Ep 04 \"A.K.A. Customer Service is Standing By\"",
-                        "mins": 48,
-                        "timestamp": "22:21"
-                    },
-                    {
-                        "id": "log-1794608531229-8agk",
-                        "itemId": "jj-s3",
-                        "epNum": 5,
-                        "title": "Jessica Jones (Season 3) — Ep 05 \"A.K.A. I Wish\"",
-                        "mins": 52,
-                        "timestamp": "22:22"
-                    },
-                    {
-                        "id": "log-1794608555674-s55o",
-                        "itemId": "jj-s3",
-                        "epNum": 6,
-                        "title": "Jessica Jones (Season 3) — Ep 06 \"A.K.A. Sorry Face\"",
-                        "mins": 51,
-                        "timestamp": "22:22"
+                        "timestamp": "08:35"
                     }
                 ]
             },
@@ -527,12 +522,14 @@
                     "release": "2019",
                     "type": "series",
                     "totalEpisodes": 13,
-                    "watchedEpisodes": 6,
+                    "watchedEpisodes": 7,
                     "totalMins": 656,
-                    "statusBadge": "ACTIVE FOCUS — Ep 7",
+                    "statusBadge": "ACTIVE FOCUS — Ep 8",
                     "synopsis": "Following the traumatic events of Season 2, private investigator Jessica Jones attempts to rebuild Alias Investigations while estranged from Trish Walker, who has begun secretly testing newly acquired enhanced abilities on New York’s rooftops—putting both women on a collision course with a calculating, methodical adversary.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Late 2017 / Early 2018 — Pre-Snap street-level era, set shortly after Daredevil Season 3 and Iron Fist Season 2, a few months before Thanos's arrival in Avengers: Infinity War.",
+                    "comicOrigins": "Jessica Jones debuted in Alias #1 (Nov 2001) by writer Brian Michael Bendis and artist Michael Gaydos under Marvel's mature-readers MAX imprint. Patsy Walker first appeared in Miss America Magazine #2 (Nov 1944) by Stuart Little and Ruth Atkinson before becoming a superhero in the 1970s.",
                     "doomsdayLink": "Concludes the original Netflix Defenders saga after Iron Fist Season 2, closing the street-level Hell’s Kitchen chapter of Earth-616 before New York’s political landscape shifts in Echo and Daredevil: Born Again.",
-                    "loreNotes": "Next up: S3E07 \"A.K.A. The Double Half-Wappinger\" (51 mins). Finishing this season completes your entire Netflix Defenders watch.",
+                    "loreNotes": "Next up: S3E08 \"A.K.A. Camera Friendly\" (45 mins). Finishing this season completes your entire Netflix Defenders watch.",
                     "production": "Showrunner Melissa Rosenberg’s final season for Marvel Television and Netflix before her move to Warner Bros. Television. Filmed across New York City from June to November 2018, the season also marked star Krysten Ritter’s behind-the-camera directorial debut.",
                     "episodes": [
                         {
@@ -540,6 +537,8 @@
                             "title": "A.K.A. The Perfect Burger",
                             "mins": 51,
                             "synopsis": "Returning to Alias Investigations after surviving her mother’s death, Jessica takes on a custody-related missing-person case while keeping Trish Walker at arm’s length—unaware that Trish is secretly patrolling New York with enhanced agility and reflexes.",
+                            "timelinePlacement": "Earth-616 • Late 2017 / Early 2018 (Pre-Snap). Picks up directly after Jessica's confrontation with Alisa Jones in Season 2 and Matt Murdock's defeat of Wilson Fisk in Daredevil Season 3.",
+                            "comicOrigins": "Alias Investigations and Jessica's hardboiled detective framing draw directly from Brian Michael Bendis and Michael Gaydos's Alias (2001–2004), which grounded superhumans inside everyday New York legal and private-eye work.",
                             "production": "Written by showrunner Melissa Rosenberg and directed by Michael Lehmann. Designed as a grounded neo-noir reset emphasizing Jessica’s detective craft over spectacle.",
                             "lore": "Re-establishes Jessica’s post-Season 2 status quo in Hell’s Kitchen alongside Malcolm Ducasse’s corporate transition at Hogarth & Associates."
                         },
@@ -548,6 +547,8 @@
                             "title": "A.K.A. You're Welcome",
                             "mins": 55,
                             "synopsis": "Told from Trish Walker’s perspective in a parallel timeline, this episode chronicles how Trish discovered her cat-like balance, night vision, and acrobatic combat prowess after Karl Malus’s experiment—and why her attempts at street-level vigilantism fractured her bond with Jessica.",
+                            "timelinePlacement": "Earth-616 • Late 2017 / Early 2018 (Pre-Snap). Runs concurrently with Episode 1 from Trish Walker's perspective following Karl Malus's IGH procedure in Season 2.",
+                            "comicOrigins": "Patsy Walker first adopted a costumed identity in Avengers #144 (Feb 1976) by Steve Englehart and George Pérez, after spending three decades as the star of Marvel's 1940s–1960s teen-romance comics.",
                             "production": "Marks Krysten Ritter’s directorial debut, structured as a Rashomon-style counterpart to the season premiere to contrast Jessica’s cynicism with Trish’s longing to be a hero.",
                             "lore": "Adapts Patsy \"Trish\" Walker’s classic Marvel Comics transformation into Hellcat—a character created in 1944 (originally as teen romance icon Patsy Walker) before joining the Avengers and Defenders in the 1970s."
                         },
@@ -556,6 +557,8 @@
                             "title": "A.K.A. I Have No Spleen",
                             "mins": 51,
                             "synopsis": "After surviving a sudden ambush at her apartment door that leaves her hospitalized without a spleen, Jessica refuses to rest—tracking down her masked assailant’s trail and uncovering links to a disturbingly methodical killer.",
+                            "timelinePlacement": "Earth-616 • Late 2017 / Early 2018 (Pre-Snap). Continues the Hell's Kitchen street-level timeline prior to the Blip.",
+                            "comicOrigins": "Gregory Sallinger draws loose inspiration from Marvel's second Foolkiller, Greg Salinger, created by Steve Gerber and Mary Skrenes in Omega the Unknown #9 (July 1977)—reimagined here from a costumed vigilante into a non-powered forensic adversary.",
                             "production": "Written by Lisa Randolph and directed by Anton Cropper; introduces Jeremy Bobb as Gregory Sallinger, a grounded psychological foil inspired by Marvel Comics’ Foolkiller.",
                             "lore": "Explores the vulnerability of street-level enhanced individuals in Earth-616 when confronted by a non-powered antagonist who relies on forensic precision and legal loopholes."
                         },
@@ -564,6 +567,8 @@
                             "title": "A.K.A. Customer Service is Standing By",
                             "mins": 48,
                             "synopsis": "Jessica joins forces with Erik Gelden—an empath who suffers intense physical pain in the presence of evil—to trace Gregory Sallinger’s blackmail network and uncover what he hides behind a facade of academic respectability.",
+                            "timelinePlacement": "Earth-616 • Late 2017 / Early 2018 (Pre-Snap). Expands the street-level investigation across Manhattan's academic and legal circles.",
+                            "comicOrigins": "Erik Gelden is loosely inspired by Mind-Wave (Erik Gelden), an obscure telepathic character created by Bill Mantlo and Keith Giffen in Daredevil #133 (May 1976).",
                             "production": "Written by Jamie King and directed by Liesl Tommy; introduces Benjamin Walker as Erik Gelden, loosely inspired by Marvel Comics’ Mind-Wave.",
                             "lore": "Introduces empathic perception into the street-level corner of the MCU, underscoring the moral gray areas of New York’s vigilante ecosystem."
                         },
@@ -572,6 +577,8 @@
                             "title": "A.K.A. I Wish",
                             "mins": 52,
                             "synopsis": "Putting aside their rift, Jessica and Trish reluctantly team up to surveil Gregory Sallinger’s apartment, uncovering chilling evidence of his past crimes while Jeri Hogarth navigates a personal and legal crisis.",
+                            "timelinePlacement": "Earth-616 • Late 2017 / Early 2018 (Pre-Snap). Tracks parallel legal fallout at Hogarth & Associates alongside Jessica's Manhattan stakeout.",
+                            "comicOrigins": "Jeri Hogarth is adapted from Jeryn Hogarth, the corporate attorney for Heroes for Hire created by Chris Claremont and John Byrne in Iron Fist #6 (Aug 1976).",
                             "production": "Written by J. Holtham and directed by Mairzee Almas; filmed on location across Manhattan’s Lower East Side and Queens.",
                             "lore": "Highlights the uneasy partnership between Alias Investigations and masked street-level vigilantes operating outside NYPD oversight."
                         },
@@ -580,6 +587,8 @@
                             "title": "A.K.A. Sorry Face",
                             "mins": 51,
                             "synopsis": "When Sallinger targets Erik Gelden to draw Jessica into a psychological trap, Jessica and Trish race against the clock to rescue him—testing how far Trish is willing to go when confronting an unrepentant killer.",
+                            "timelinePlacement": "Earth-616 • Late 2017 / Early 2018 (Pre-Snap). Bridges the mid-season escalation in New York.",
+                            "comicOrigins": "Reflects the street-level moral tension between due process and street justice explored throughout Bendis's Alias and Daredevil runs.",
                             "production": "Written by Jesse Harris and directed by Tim Iacofano; leans into David Fincher-inspired procedural tension and tight interior staging.",
                             "lore": "Deepens the central thematic conflict of the Defenders era: whether enhanced individuals should uphold due process or act as judge and jury."
                         },
@@ -588,6 +597,8 @@
                             "title": "A.K.A. The Double Half-Wappinger",
                             "mins": 51,
                             "synopsis": "Jessica and Trish travel upstate to Sallinger’s hometown of Wappinger Falls to investigate an unsolved tragedy from his youth, searching for hard evidence that can put him behind bars legally.",
+                            "timelinePlacement": "Earth-616 • Late 2017 / Early 2018 (Pre-Snap). Shifts briefly from Manhattan to Wappinger Falls in New York's Hudson Valley.",
+                            "comicOrigins": "Builds on the psychological profiling of Greg Salinger's comic-book background, where his obsession with intellectual superiority and punishing 'fools' defined his early appearances.",
                             "production": "Written by Nancy Won and directed by Larry Teng; shot on location in New York’s Hudson Valley to contrast small-town Americana with Hell’s Kitchen noir.",
                             "lore": "Contrasts rural upstate New York with the dense, vigilante-patrolled boroughs of Manhattan where most street-level MCU stories unfold."
                         },
@@ -596,6 +607,8 @@
                             "title": "A.K.A. Camera Friendly",
                             "mins": 45,
                             "synopsis": "With Sallinger manipulating the press to paint himself as a victim of superhuman harassment, Jessica turns the public spotlight back on him during a high-stakes media confrontation.",
+                            "timelinePlacement": "Earth-616 • Late 2017 / Early 2018 (Pre-Snap). Set in New York City amid growing public debate over enhanced individuals after the Sokovia Accords.",
+                            "comicOrigins": "Public suspicion toward unmasked enhanced people mirrors the post-Sokovia Accords climate in Earth-616 and classic Marvel street-level press framing.",
                             "production": "Written by Scott Reynolds and directed by Stephen Surjik; examines how public relations and media framing shape street-level justice.",
                             "lore": "Illustrates how public skepticism toward enhanced vigilantes in New York builds cultural momentum around accountability and law-and-order politics."
                         },
@@ -604,6 +617,8 @@
                             "title": "A.K.A. I Did Something Today",
                             "mins": 51,
                             "synopsis": "A devastating escalation in Sallinger’s campaign pushes Trish past her breaking point, forcing Jessica into an impossible moral dilemma to protect someone she loves while keeping the truth from law enforcement.",
+                            "timelinePlacement": "Earth-616 • Early 2018 (Pre-Snap). Approaching the final pre-Infinity War stretch of the original Defenders timeline.",
+                            "comicOrigins": "Draws on the noir consequences of street-level vigilantism found in Brian Michael Bendis's Marvel Knights and MAX stories.",
                             "production": "Written by Lisa Randolph and directed by Jennifer Getzinger; Netflix announced the cancellation of Jessica Jones shortly before post-production wrapped.",
                             "lore": "Examines the collateral emotional cost of vigilantism on families and allies within New York’s hero community."
                         },
@@ -612,6 +627,8 @@
                             "title": "A.K.A. Hero Pants",
                             "mins": 50,
                             "synopsis": "As the police investigation tightens, Jessica works to shield Trish from suspicion while realizing that Trish’s definition of heroism has grown dangerously uncompromising.",
+                            "timelinePlacement": "Earth-616 • Early 2018 (Pre-Snap). Continues the NYPD investigation across Manhattan.",
+                            "comicOrigins": "Brett Mahoney and the NYPD street-level perspective echo classic Marvel Comics urban police foils like Brett Mahoney and Stan Carter.",
                             "production": "Written by Hilly Hicks Jr. & Jamie King and directed by Sanford Bookstaver; pivots the season’s psychological spotlight squarely onto Trish.",
                             "lore": "Explores the thin line separating a street-level protector from a reckless vigilante—a recurring motif across Marvel’s urban heroes."
                         },
@@ -620,6 +637,8 @@
                             "title": "A.K.A. Hellcat",
                             "mins": 48,
                             "synopsis": "Reframing recent events through Trish’s eyes, this chapter traces her internal justification for crossing lethal lines in pursuit of criminals she believes the legal system cannot stop.",
+                            "timelinePlacement": "Earth-616 • Early 2018 (Pre-Snap). Parallel perspective chapter leading into the season's final stretch.",
+                            "comicOrigins": "References Patsy Walker's silver-age and 1970s Defenders era (The Defenders #44–152), where she fought alongside Doctor Strange, Valkyrie, and Luke Cage.",
                             "production": "Written by Jane Espenson and directed by Jennifer Getzinger; weaves subtle visual nods to Patsy Walker’s comic-book Hellcat motif.",
                             "lore": "Deconstructs the classic superhero origin trope by showing how good intentions without restraint can turn self-destructive."
                         },
@@ -628,6 +647,8 @@
                             "title": "A.K.A. A Lotta Worms",
                             "mins": 50,
                             "synopsis": "Jessica orchestrates a meticulous sting designed to expose Sallinger’s crimes in court—only for Trish’s parallel pursuit to collide with Jessica’s plan.",
+                            "timelinePlacement": "Earth-616 • Early 2018 (Pre-Snap). Takes place in Lower Manhattan's courthouse district.",
+                            "comicOrigins": "Combines courtroom procedural tropes from Daredevil and Alias comics with street-level detective work.",
                             "production": "Written by Scott Reynolds and directed by Sarah Boyd; filmed inside New York’s historic Tweed Courthouse.",
                             "lore": "Brings the season’s twin ideological threads—legal accountability versus unilateral force—to a head."
                         },
@@ -636,6 +657,8 @@
                             "title": "A.K.A. Everything",
                             "mins": 53,
                             "synopsis": "In the aftermath of the showdown with Sallinger, Jessica faces the hardest choice of her career to stop Trish before finding renewed resolve to stay in New York and continue her work.",
+                            "timelinePlacement": "Earth-616 • Early 2018 (Pre-Snap). Chronologically the final chapter of Marvel Television's original Netflix Defenders saga before Thanos's Snap.",
+                            "comicOrigins": "Closes out the Alias Investigations era in the spirit of Alias #28 (2004), leaving Jessica rooted in Hell's Kitchen.",
                             "production": "Written and directed by Melissa Rosenberg as an intentional series and era finale for Marvel Television’s Netflix partnership.",
                             "lore": "Serves as the thematic closing chapter of the original Defenders saga, leaving Hell’s Kitchen and New York’s street-level world poised for its next chapter."
                         }
@@ -654,6 +677,8 @@
                     "totalMins": 215,
                     "statusBadge": "QUEUED",
                     "synopsis": "Pursued by Wilson Fisk’s criminal empire following the events of Hawkeye, Maya Lopez returns to her hometown in Oklahoma, where she must confront her past, reconnect with her Choctaw roots, and embrace the meaning of family and community.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • May 2025 — Post-Blip Phase 5, set five months after the December 2024 events of Hawkeye and roughly two years after Avengers: Endgame.",
+                    "comicOrigins": "Maya Lopez (Echo) was created by writer David Mack and artist Joe Quesada in Daredevil (Vol. 2) #9 (Dec 1999) as a deaf martial artist and concert pianist with photographic reflexes.",
                     "doomsdayLink": "Bridges Hawkeye directly into the modern Marvel Spotlight street-level era, exploring Wilson Fisk’s empire outside New York and setting the stage for Daredevil: Born Again.",
                     "loreNotes": "5 tight episodes (~43 mins each). First series released under the \"Marvel Spotlight\" banner.",
                     "production": "Developed by Marion Dayre and led by director Sydney Freeland, Echo launched Marvel Studios’ TV-MA \"Marvel Spotlight\" banner and was crafted in close cultural partnership with the Choctaw Nation of Oklahoma.",
@@ -663,6 +688,8 @@
                             "title": "Chafa",
                             "mins": 49,
                             "synopsis": "Tracing Maya Lopez’s Choctaw ancestry and her upbringing under Wilson Fisk after leaving Oklahoma, Maya flees New York following the events of Hawkeye and returns to her hometown of Tamaha.",
+                            "timelinePlacement": "Earth-616 • May 2025 (with flashbacks to 2007–2024). Picks up immediately after Maya's confrontation with Wilson Fisk in Hawkeye (Dec 2024).",
+                            "comicOrigins": "Adapts Maya Lopez's origin from David Mack's Daredevil 'Parts of a Hole' arc (1999–2000), while reimagining her heritage from Cheyenne in the comics to Choctaw in close collaboration with the Choctaw Nation.",
                             "production": "Directed by Sydney Freeland; opens with Choctaw creation mythology and features grounded, bone-crunching stunt choreography.",
                             "lore": "Connects Maya’s backstory from Hawkeye (2021) to her roots in Tamaha, Oklahoma, expanding the MCU’s street-level map beyond New York City."
                         },
@@ -671,6 +698,8 @@
                             "title": "Lowak",
                             "mins": 41,
                             "synopsis": "Determined to dismantle Fisk’s regional supply network, Maya enlists her cousin Biscuits and uncle Henry to target a shipment moving through Oklahoma—experiencing mysterious ancestral visions along the way.",
+                            "timelinePlacement": "Earth-616 • May 2025. Set in Tamaha, Oklahoma, expanding the MCU's post-Blip map beyond New York City.",
+                            "comicOrigins": "Introduces Maya's ancestral Choctaw lineage—an original MCU expansion crafted specifically for the series rather than drawn from existing comic issues.",
                             "production": "Directed by Sydney Freeland; filmed on an active freight rail line in Georgia with practical stunt work by Alaqua Cox.",
                             "lore": "Introduces the ancestral Choctaw lineage connected to Maya’s abilities, blending cultural heritage with street-level crime drama."
                         },
@@ -679,6 +708,8 @@
                             "title": "Tuklo",
                             "mins": 42,
                             "synopsis": "Fisk’s enforcers strike back in Tamaha, ambushing Maya and endangering her estranged family as the conflict over Fisk’s territory escalates.",
+                            "timelinePlacement": "Earth-616 • May 2025. Continues concurrently with Wilson Fisk's post-Hawkeye recovery.",
+                            "comicOrigins": "Features visual storytelling and ASL choreography inspired by David Mack's watercolor-and-collage visual layouts in Daredevil #9–15.",
                             "production": "Directed by Catriona McKenzie; incorporates subjective sound design and American Sign Language storytelling from Maya’s perspective.",
                             "lore": "Demonstrates how far Wilson Fisk’s criminal infrastructure reaches across North America even while he is recovering."
                         },
@@ -687,6 +718,8 @@
                             "title": "Taloa",
                             "mins": 40,
                             "synopsis": "A sudden arrival in Oklahoma forces Maya to confront the complicated bond she shares with the man who raised her, testing her loyalties between vengeance and family.",
+                            "timelinePlacement": "Earth-616 • May 2025. Bridges the five-month gap between Hawkeye and Maya's stand in Oklahoma.",
+                            "comicOrigins": "Explores Wilson Fisk's adoptive mentorship of Maya from Daredevil #10 (2000), where Fisk raised her after her father William Lopez's death.",
                             "production": "Directed by Sydney Freeland; highlights intimate two-hander dramatic scenes performed in ASL and spoken dialogue.",
                             "lore": "Deepens the psychological dynamic of Wilson Fisk’s manipulative mentorship—a defining trait of his comic-book and MCU characterization."
                         },
@@ -695,6 +728,8 @@
                             "title": "Maya",
                             "mins": 43,
                             "synopsis": "During the Choctaw Nation Powwow, Maya embraces her ancestral legacy and stands alongside her family to protect Tamaha when Fisk’s forces converge on the town.",
+                            "timelinePlacement": "Earth-616 • May 2025. Sets the street-level status quo in Earth-616 ahead of Daredevil: Born Again.",
+                            "comicOrigins": "Celebrates authentic Choctaw powwow traditions while establishing Maya as an independent street-level protector.",
                             "production": "Directed by Sydney Freeland; filmed with authentic Choctaw dancers, regalia artisans, and language consultants.",
                             "lore": "Concludes Maya’s Oklahoma arc and sets the street-level geopolitical stage heading into Daredevil: Born Again."
                         }
@@ -713,6 +748,8 @@
                     "totalMins": 426,
                     "statusBadge": "HIGH PRIORITY",
                     "synopsis": "Matt Murdock, a blind lawyer with heightened abilities, fights for justice through his bustling New York law firm while former crime boss Wilson Fisk pursues his own political ambitions in New York—putting their past identities on an inevitable collision course.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Late 2026 to Early 2027 — Phase 5 street-level era, set roughly a year and a half after Echo and several years after Daredevil Season 3.",
+                    "comicOrigins": "Created by Stan Lee and Bill Everett in Daredevil #1 (April 1964). Draws tonal and thematic inspiration from Frank Miller & David Mazzucchelli's 'Born Again' (1986), Brian Michael Bendis & Alex Maleev's run (2001–2006), and Charles Soule's 'Mayor Fisk' era (2017–2018).",
                     "doomsdayLink": "Re-establishes the street-level status quo of Earth-616 New York and the ideological clash between Matt Murdock and Wilson Fisk ahead of Spider-Man: Brand New Day and Doomsday.",
                     "loreNotes": "9 episodes (~47 mins avg). Direct continuation of the Hell’s Kitchen street-level saga.",
                     "production": "Overhauled mid-production under showrunner Dario Scardapane and directors Justin Benson & Aaron Moorhead to bridge the tone and continuity of the original Netflix series into Marvel Television’s revival.",
@@ -722,6 +759,8 @@
                             "title": "Heaven's Half Hour",
                             "mins": 58,
                             "synopsis": "A shocking crisis rocks Matt Murdock’s world and alters his approach to vigilantism just as Wilson Fisk launches an ambitious new chapter in New York City’s public life.",
+                            "timelinePlacement": "Earth-616 • Late 2026 / Early 2027. Reintroduces Matt Murdock and Wilson Fisk into the post-Blip New York landscape.",
+                            "comicOrigins": "Draws on Charles Soule and Ron Garney's Daredevil #595 (Nov 2017), in which Wilson Fisk shockingly runs for and wins the office of Mayor of New York City.",
                             "production": "Written by Dario Scardapane and directed by Justin Benson & Aaron Moorhead; newly crafted during the creative overhaul to anchor the season’s emotional stakes.",
                             "lore": "Reintroduces Hell’s Kitchen’s legal and vigilante ecosystem into the main Earth-616 narrative."
                         },
@@ -730,6 +769,8 @@
                             "title": "Optics",
                             "mins": 47,
                             "synopsis": "Navigating New York’s shifting political climate, Matt Murdock takes on a high-profile courtroom defense involving a masked protector while Fisk consolidates influence at City Hall.",
+                            "timelinePlacement": "Earth-616 • Early 2027. Unfolds across New York's criminal courts and City Hall.",
+                            "comicOrigins": "Features Hector Ayala (White Tiger), Marvel's first Puerto Rican superhero, created by Bill Mantlo and George Pérez in Deadly Hands of Kung Fu #19 (Dec 1975).",
                             "production": "Directed by Michael Cuesta; pays tribute to late actor Kamar de los Reyes in his memorable performance.",
                             "lore": "Draws on classic Marvel street-level themes of how New York’s institutions react to masked heroes."
                         },
@@ -738,6 +779,8 @@
                             "title": "The Hollow of His Hand",
                             "mins": 45,
                             "synopsis": "Inside the courtroom, Matt faces an agonizing strategic choice to save his client, sparking fierce public debate over vigilantism across the city.",
+                            "timelinePlacement": "Earth-616 • Early 2027. Continues the courtroom trial amid rising anti-vigilante sentiment in New York.",
+                            "comicOrigins": "Echoes the courtroom identity dilemmas of Brian Michael Bendis and Alex Maleev's Daredevil run (Vol. 2, #26–81).",
                             "production": "Directed by Michael Cuesta; inspired by Brian Michael Bendis and Alex Maleev’s acclaimed courtroom-heavy Daredevil run.",
                             "lore": "Highlights the growing friction between street-level vigilantes and elements within New York law enforcement."
                         },
@@ -746,6 +789,8 @@
                             "title": "Sic Semper Systema",
                             "mins": 46,
                             "synopsis": "As street-level tensions boil over, Matt seeks out a volatile former ally in New York’s underworld while Fisk faces mounting pressure on both personal and political fronts.",
+                            "timelinePlacement": "Earth-616 • Early 2027. Examines New York's street-level fracture in the post-Blip era.",
+                            "comicOrigins": "Contrasts Matt Murdock's Catholic legal ethics with the uncompromising street-justice philosophy introduced in Gerry Conway and Ross Andru's The Amazing Spider-Man #129 (Feb 1974).",
                             "production": "Directed by Jeffrey Nachmanoff; leans into gritty, dialogue-driven character confrontations.",
                             "lore": "Examines competing philosophies of justice among New York’s non-powered protectors."
                         },
@@ -754,6 +799,8 @@
                             "title": "With Interest",
                             "mins": 41,
                             "synopsis": "An ordinary errand turns into a tense hostage standoff inside a New York bank, forcing Matt to rely on his heightened senses and wits without drawing attention to his secret.",
+                            "timelinePlacement": "Earth-616 • Early 2027 (St. Patrick's Day). A single-day bottleneck crisis in Manhattan.",
+                            "comicOrigins": "Structured in the tradition of single-issue 'day-in-the-life' Daredevil stories by Mark Waid and Chris Samnee.",
                             "production": "Directed by Jeffrey Nachmanoff; structured as a self-contained homage to 1970s New York heist thrillers.",
                             "lore": "Weaves subtle wider-MCU neighborhood connections into a grounded street-level crisis."
                         },
@@ -762,6 +809,8 @@
                             "title": "Excessive Force",
                             "mins": 44,
                             "synopsis": "When a disturbing new predator begins terrorizing New York’s underground, both Matt Murdock and Wilson Fisk are forced to respond as the city’s unrest deepens.",
+                            "timelinePlacement": "Earth-616 • Spring 2027. Escalates the crisis beneath New York's streets.",
+                            "comicOrigins": "Introduces Muse, a disturbing serial-killer artist created by Charles Soule and Ron Garney in Daredevil (Vol. 5) #11 (Sept 2016).",
                             "production": "Directed by David Boyd; adapts modern Marvel Comics urban-horror thriller elements.",
                             "lore": "Pushes Matt Murdock to confront whether the law alone can protect New York when institutions are compromised."
                         },
@@ -770,6 +819,8 @@
                             "title": "Art for Art's Sake",
                             "mins": 45,
                             "synopsis": "The hunt for the killer reaches a breaking point, with City Hall seizing the narrative to justify aggressive new crackdowns across the five boroughs.",
+                            "timelinePlacement": "Earth-616 • Spring 2027. Parallel tracks between Matt Murdock's investigation and Mayor Fisk's City Hall.",
+                            "comicOrigins": "Adapts the political fallout of Mayor Fisk's anti-vigilante campaign from Charles Soule's 'Mayor Fisk' arc (Daredevil #595–600).",
                             "production": "Directed by David Boyd; emphasizes parallel editing between Matt’s street-level investigation and Fisk’s political machinery.",
                             "lore": "Illustrates how Wilson Fisk weaponizes public fear to reshape New York’s legal landscape."
                         },
@@ -778,6 +829,8 @@
                             "title": "Isle of Joy",
                             "mins": 48,
                             "synopsis": "Simmering betrayals come to the surface at a high-society New York gala, shattering fragile truces and setting up an explosive confrontation.",
+                            "timelinePlacement": "Earth-616 • Spring 2027. Converges New York's political and underworld factions.",
+                            "comicOrigins": "Pulls together high-society crime-boss intrigue reminiscent of Frank Miller and Klaus Janson's classic Daredevil run (#158–191).",
                             "production": "Written by Dario Scardapane and directed by Justin Benson & Aaron Moorhead; uses tilted angles and neon ballroom cinematography.",
                             "lore": "Pulls together the season’s political, criminal, and personal threads ahead of the finale."
                         },
@@ -786,6 +839,8 @@
                             "title": "Straight to Hell",
                             "mins": 52,
                             "synopsis": "New York City plunges into crisis as Fisk makes a decisive power play, forcing Matt Murdock to rally allies in the shadows to defend the city.",
+                            "timelinePlacement": "Earth-616 • Spring 2027. Establishes New York's street-level status quo entering Phase 6.",
+                            "comicOrigins": "Sets up an urban resistance dynamic inspired by Daredevil's 'Shadowland' and 'Devil's Reign' street-level crossovers.",
                             "production": "Written by Dario Scardapane and directed by Justin Benson & Aaron Moorhead; sets the stage for the next chapter of street-level resistance.",
                             "lore": "Establishes the dramatic new status quo of Earth-616 New York heading toward Spider-Man: Brand New Day."
                         }
@@ -804,6 +859,8 @@
                     "totalMins": 144,
                     "statusBadge": "QUEUED",
                     "synopsis": "En Sabah Nur, the world’s first and most powerful mutant, awakens in 1983 after thousands of years and recruits four Horsemen—including a disillusioned Magneto—to cleanse humanity, forcing Professor X and a young team of X-Men to unite.",
+                    "timelinePlacement": "Earth-10005 Revised Timeline (Fox X-Men Universe) • 1983 — Takes place ten years after the 1973 timeline reset in X-Men: Days of Future Past.",
+                    "comicOrigins": "Apocalypse (En Sabah Nur) was created by Louise Simonson and Jackson Guice in X-Factor #5 (May 1986). The Four Horsemen concept debuted in X-Factor #15 (April 1987).",
                     "doomsdayLink": "Establishes the revised 1980s Fox X-Men timeline and introduces younger incarnations of Cyclops, Jean Grey, Storm, and Nightcrawler within the wider mutant multiverse.",
                     "loreNotes": "144-minute theatrical feature. Follows X-Men: Days of Future Past’s timeline reset.",
                     "production": "Directed by Bryan Singer and written by Simon Kinberg, filmed in Montreal in 2015 to introduce a younger generation of core X-Men characters after Days of Future Past altered the Fox film timeline.",
@@ -813,6 +870,8 @@
                             "title": "Part I: Awakening in Cairo (1983)",
                             "mins": 48,
                             "synopsis": "In ancient Egypt (3600 B.C.), En Sabah Nur’s consciousness ritual is disrupted, entombing him until 1983 when Moira MacTaggert’s investigation awakens him in Cairo—just as a personal tragedy shatters Erik Lehnsherr’s peaceful life in Poland.",
+                            "timelinePlacement": "Fox Revised Timeline • 3600 B.C. & 1983. Picks up a decade after Mystique prevented Bolivar Trask's assassination in 1973.",
+                            "comicOrigins": "Adapts En Sabah Nur's ancient Egyptian origin from Rise of Apocalypse #1–4 (1996) by Terry Kavanagh and Adam Pollina.",
                             "production": "Oscar Isaac wore a 40-pound practical prosthetic suit equipped with an internal cooling system during summer filming in Montreal.",
                             "lore": "Introduces En Sabah Nur (Apocalypse), one of Marvel’s oldest mutant immortals, whose power-amplification abilities mirror his classic comic-book Horsemen mythology."
                         },
@@ -821,6 +880,8 @@
                             "title": "Part II: Weapon X & The Mansion Falls",
                             "mins": 48,
                             "synopsis": "As Apocalypse recruits Storm, Psylocke, Angel, and Magneto and abducts Charles Xavier, young recruits Scott Summers, Jean Grey, and Kurt Wagner must rescue their captured teammates from William Stryker’s Alkali Lake facility.",
+                            "timelinePlacement": "Fox Revised Timeline • 1983 (Westchester & Alkali Lake). Rewrites the Weapon X timeline following Days of Future Past.",
+                            "comicOrigins": "Draws on Barry Windsor-Smith's seminal 'Weapon X' storyline in Marvel Comics Presents #72–84 (1991).",
                             "production": "Evan Peters’s high-speed mansion evacuation sequence required over a month of shooting with Phantom cameras running at 3,100 frames per second.",
                             "lore": "Bridges the 1983 revised timeline with the Weapon X program at Alkali Lake and unites the classic Claremont-era X-Men roster."
                         },
@@ -829,6 +890,8 @@
                             "title": "Part III: Battle of Cairo",
                             "mins": 48,
                             "synopsis": "In Cairo, the young X-Men confront Apocalypse and his Four Horsemen to save Professor X and prevent global devastation, forging a new generation of X-Men at the rebuilt Xavier’s School.",
+                            "timelinePlacement": "Fox Revised Timeline • 1983 (Cairo). Establishes the revised 1980s X-Men roster leading into Dark Phoenix.",
+                            "comicOrigins": "Features the classic Claremont/Jim Lee 1991 X-Men #1 costume aesthetics in the Danger Room finale.",
                             "production": "Concludes with a Danger Room sequence debuting comic-accurate 1990s tactical X-Men suits.",
                             "lore": "Cements the revised Fox X-Men continuity leading into X-Men: Dark Phoenix."
                         }
@@ -847,6 +910,8 @@
                     "totalMins": 114,
                     "statusBadge": "UNLOCKED",
                     "synopsis": "During a 1992 space rescue mission, Jean Grey is struck by a mysterious cosmic force that amplifies her psychic powers to unstable levels, fracturing the X-Men as alien shape-shifters seek to claim the power for themselves.",
+                    "timelinePlacement": "Earth-10005 Revised Timeline (Fox X-Men Universe) • 1992 — Set nine years after X-Men: Apocalypse, showing the X-Men as celebrated public heroes in the early 1990s.",
+                    "comicOrigins": "Adapts elements of 'The Dark Phoenix Saga' by Chris Claremont and John Byrne (Uncanny X-Men #129–138, 1980).",
                     "doomsdayLink": "Closes the mainline Fox X-Men ensemble era and explores cosmic-level mutant power dynamics across the Fox universe.",
                     "loreNotes": "114-minute feature film scored by Hans Zimmer.",
                     "production": "Written and directed by longtime X-Men producer Simon Kinberg in his directorial debut, featuring an original score by Hans Zimmer and undergone third-act reshoots during Disney’s acquisition of 20th Century Fox.",
@@ -856,6 +921,8 @@
                             "title": "Part I: Endeavour Space Rescue (1992)",
                             "mins": 38,
                             "synopsis": "Celebrated as national heroes in 1992, the X-Men launch into orbit to rescue the stranded space shuttle Endeavour—where Jean Grey absorbs a cosmic solar flare that unlocks suppressed childhood memories.",
+                            "timelinePlacement": "Fox Revised Timeline • 1992 (Low Earth Orbit & Westchester). Nine years after the Battle of Cairo.",
+                            "comicOrigins": "Inspired by Uncanny X-Men #100–101 (1976), where Jean Grey pilots a damaged space shuttle through a solar radiation storm.",
                             "production": "Filmed on gimballed zero-gravity sets in Montreal, inspired by the opening of Chris Claremont and John Byrne’s 1980 Dark Phoenix Saga.",
                             "lore": "Depicts the Fox X-Men operating at peak public acceptance before internal fractures emerge."
                         },
@@ -864,6 +931,8 @@
                             "title": "Part II: Genosha & The Cosmic Entity",
                             "mins": 38,
                             "synopsis": "Struggling to control her escalating telepathic and telekinetic powers, Jean flees to Magneto’s mutant island sanctuary of Genosha while mysterious alien visitors seek to manipulate her.",
+                            "timelinePlacement": "Fox Revised Timeline • 1992 (Genosha & New York). Expands mutant geopolitics in the revised 1990s timeline.",
+                            "comicOrigins": "Introduces Magneto's mutant island sanctuary of Genosha (first introduced in Uncanny X-Men #235, 1988) and the D'Bari alien race (Avengers #4, 1964).",
                             "production": "Jessica Chastain’s antagonist Vuk was adapted from Marvel Comics’ D’Bari alien race.",
                             "lore": "Introduces Magneto’s island nation of Genosha in live action—a cornerstone location of X-Men world-building."
                         },
@@ -872,6 +941,8 @@
                             "title": "Part III: Containment Train Finale",
                             "mins": 38,
                             "synopsis": "Aboard a military containment train, the fractured X-Men and Magneto’s Brotherhood must unite against the alien threat as Jean confronts the true nature of the power inside her.",
+                            "timelinePlacement": "Fox Revised Timeline • 1992. Concludes the mainline Fox X-Men ensemble timeline.",
+                            "comicOrigins": "Reimagines the cosmic conflict of Uncanny X-Men #137 as a grounded confrontation between the X-Men and Magneto's faction.",
                             "production": "Reshot in late 2018 to replace a planned UN climax in Manhattan with a kinetic moving-train battle.",
                             "lore": "Concludes the mainline Fox X-Men ensemble film series."
                         }
@@ -890,6 +961,8 @@
                     "totalMins": 94,
                     "statusBadge": "UNLOCKED",
                     "synopsis": "Five young mutants discovering their abilities while held in a secret medical facility must fight to escape the manifestations of their darkest fears and their mysterious caretakers.",
+                    "timelinePlacement": "Fox X-Men Universe • Late 2010s / Modern Era — Standalone corner of the Fox mutant timeline, referencing the Essex Corporation.",
+                    "comicOrigins": "Created by Chris Claremont and Bob McLeod in Marvel Graphic Novel #4: The New Mutants (Sept 1982). Draws heavily on 'The Demon Bear Saga' by Claremont and Bill Sienkiewicz (New Mutants #18–20, 1984).",
                     "doomsdayLink": "Completes the Fox-era mutant cinema slate and introduces Illyana Rasputin (Magik) and Limbo magic to live action.",
                     "loreNotes": "Compact 94-minute psychological-horror mutant entry.",
                     "production": "Directed by Josh Boone and filmed on location at the historic Medfield State Hospital in Massachusetts in 2017; delayed over two years by the Disney–Fox merger before releasing as the final Fox-era X-Men film.",
@@ -899,6 +972,8 @@
                             "title": "Part I: Milbury Hospital",
                             "mins": 31,
                             "synopsis": "After surviving a devastating storm on her Cheyenne reservation, Dani Moonstar awakens inside Dr. Cecilia Reyes’s isolated hospital alongside Illyana Rasputin, Rahne Sinclair, Sam Guthrie, and Roberto da Costa.",
+                            "timelinePlacement": "Fox Mutant Timeline • Modern Era. Set in an isolated New England medical facility.",
+                            "comicOrigins": "Introduces Danielle Moonstar (Mirage), Rahne Sinclair (Wolfsbane), Sam Guthrie (Cannonball), Roberto da Costa (Sunspot), and Illyana Rasputin (Magik) from 1982's Marvel Graphic Novel #4.",
                             "production": "Shot inside the real abandoned Medfield State Hospital to give the superhero story a grounded YA psychological-horror atmosphere.",
                             "lore": "Adapts Chris Claremont and Bob McLeod’s 1982 New Mutants roster into the Fox mutant universe."
                         },
@@ -907,6 +982,8 @@
                             "title": "Part II: Nightmares Manifested",
                             "mins": 31,
                             "synopsis": "Unexplained manifestations of the teens’ deepest traumas begin haunting the facility’s corridors as the five young mutants uncover the true purpose of their confinement.",
+                            "timelinePlacement": "Fox Mutant Timeline • Modern Era. Explores trauma-manifested abilities inside Milbury Hospital.",
+                            "comicOrigins": "Illyana Rasputin's Soulsword and Limbo stepping discs originate from the Magik (Illyana and Storm) limited series (1983) by Chris Claremont and John Buscema.",
                             "production": "Draws directly from Bill Sienkiewicz’s surreal, expressionistic artwork in The New Mutants #18–20.",
                             "lore": "Showcases Illyana Rasputin’s Soulsword, eldritch armor, and Limbo teleportation portals."
                         },
@@ -915,6 +992,8 @@
                             "title": "Part III: Facing the Demon Bear",
                             "mins": 32,
                             "synopsis": "Trapped beneath an impenetrable barrier, Illyana, Rahne, Sam, and Roberto band together to help Dani confront the terrifying entity born from her own grief.",
+                            "timelinePlacement": "Fox Mutant Timeline • Modern Era. Final theatrical installment of 20th Century Fox's X-Men slate.",
+                            "comicOrigins": "Directly adapts the Demon Bear entity from New Mutants #18–20 (1984), one of the most acclaimed psychological-horror arcs in X-Men comics.",
                             "production": "Originally envisioned by Josh Boone as the first installment of a horror-mutant trilogy prior to the studio merger.",
                             "lore": "Marks the final theatrical release of the 20th Century Fox X-Men era."
                         }
@@ -933,6 +1012,8 @@
                     "totalMins": 379,
                     "statusBadge": "HIGH PRIORITY",
                     "synopsis": "Stripped of her powers after WandaVision, the infamous Agatha Harkness finds herself down and out until a suspicious goth Teen helps break her free from a distorted spell—inspiring her to form a desperate coven to walk the legendary Witches’ Road.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Late 2026 — Phase 5 supernatural corner, set three years after WandaVision (Nov 2023) and following Doctor Strange in the Multiverse of Madness.",
+                    "comicOrigins": "Agatha Harkness was created by Stan Lee and Jack Kirby in Fantastic Four #94 (Jan 1970) as Franklin Richards's governess before becoming Wanda Maximoff's witchcraft mentor in Avengers #128 (1974). The Witches' Road debuted in Scarlet Witch (Vol. 2) #3 (Feb 2016) by James Robinson.",
                     "doomsdayLink": "Expands the supernatural and cosmic-magic rules of Earth-616 following WandaVision and Doctor Strange in the Multiverse of Madness.",
                     "loreNotes": "9 episodes (~42 mins avg). Direct sequel to WandaVision.",
                     "production": "Created and showrun by WandaVision head writer Jac Schaeffer, emphasizing practical sets, in-camera puppetry, and original songs written by Kristen Anderson-Lopez and Robert Lopez over heavy green-screen CGI.",
@@ -942,6 +1023,8 @@
                             "title": "Seekest Thou the Road",
                             "mins": 41,
                             "synopsis": "Trapped inside a distorted Westview persona as detective \"Agnes O’Connor,\" Agatha Harkness begins breaking free with the help of a mysterious Teen and Rio Vidal as old enemies close in.",
+                            "timelinePlacement": "Earth-616 • Late 2026 (Westview, New Jersey). Three years after Wanda Maximoff's Westview Hex collapsed.",
+                            "comicOrigins": "References Agatha's centuries-old Salem witch history first explored in Fantastic Four #94 (1970) and Vision and the Scarlet Witch (1985).",
                             "production": "Written and directed by Jac Schaeffer; opens as an affectionate homage to prestige crime dramas like Mare of Easttown.",
                             "lore": "Picks up the Westview thread three years after WandaVision, exploring the lingering aftermath of Chaos Magic on Earth-616."
                         },
@@ -950,6 +1033,8 @@
                             "title": "Circle Sewn with Fate / Unlock Thy Hidden Gate",
                             "mins": 43,
                             "synopsis": "Powerless and hunted, Agatha reluctantly assembles an eclectic coven in Westview to conjure the door to the legendary Witches’ Road.",
+                            "timelinePlacement": "Earth-616 • Late 2026 (Westview). Assembles an analog witch coven outside Kamar-Taj's sorcerer tradition.",
+                            "comicOrigins": "Introduces Jennifer Kale (created by Steve Gerber in Fear #11, 1972) and Alice Wu-Gulliver (created by James Robinson in Scarlet Witch #3, 2016).",
                             "production": "Directed by Jac Schaeffer; recorded the cast performing \"The Ballad of the Witches’ Road\" live on set.",
                             "lore": "Introduces the concept of analog, coven-based witchcraft in the MCU as distinct from Kamar-Taj’s dimensional sorcery."
                         },
@@ -958,6 +1043,8 @@
                             "title": "Through Many Miles / Of Tricks and Trials",
                             "mins": 39,
                             "synopsis": "Stepping onto the Witches’ Road, Agatha’s newly formed coven faces their first perilous trial inside a coastal house where illusions and hidden truths test their trust.",
+                            "timelinePlacement": "Earth-616 • Late 2026 (The Witches' Road). Steps into a mystical pocket dimension beneath Westview.",
+                            "comicOrigins": "Adapts the metaphysical trial structure of the Witches' Road from James Robinson's 2015–2017 Scarlet Witch run.",
                             "production": "Directed by Rachel Goldberg; built as a full 360-degree practical beach-house soundstage in Atlanta.",
                             "lore": "Establishes the mystical laws of the Witches’ Road, where each witch’s craft is tested individually."
                         },
@@ -966,6 +1053,8 @@
                             "title": "If I Can't Reach You / Let My Song Teach You",
                             "mins": 41,
                             "synopsis": "A 1970s recording-studio trial forces the coven to confront generational curses through music while deepening the mystery surrounding Rio Vidal and Teen.",
+                            "timelinePlacement": "Earth-616 • Late 2026 (The Witches' Road). Delves into generational curses across Earth-616's magical history.",
+                            "comicOrigins": "Alice Wu-Gulliver's family curse adapts the Wu lineage storyline from Scarlet Witch (Vol. 2) #3–4 (2016).",
                             "production": "Directed by Rachel Goldberg; features a 1970s Fleetwood Mac-inspired rock arrangement of the Ballad.",
                             "lore": "Explores inherited magical curses and the history shared between ancient practitioners of Earth-616 magic."
                         },
@@ -974,6 +1063,8 @@
                             "title": "Darkest Hour / Wake Thy Power",
                             "mins": 36,
                             "synopsis": "During an 1980s sleepover trial, spirits from Agatha’s past surface and push the coven to the brink—triggering a shocking display of power from Teen.",
+                            "timelinePlacement": "Earth-616 • Late 2026 (The Witches' Road). Confronts spirits tied to Agatha's 17th-century past.",
+                            "comicOrigins": "Explores Agatha's maternal lineage—drawing on Nicholas Scratch, created by Len Wein and George Pérez in Fantastic Four #185 (Aug 1977).",
                             "production": "Directed by Rachel Goldberg; leans into practical 1980s horror-movie lighting and Ouija-board suspense.",
                             "lore": "Reveals deep-seated connections between Westview’s magical history and the coven’s journey."
                         },
@@ -982,6 +1073,8 @@
                             "title": "Familiar by Thy Side",
                             "mins": 49,
                             "synopsis": "Stepping outside the Witches’ Road, this episode traces Teen’s hidden origins back to the night Wanda’s Westview Hex fell and reveals what drove him to seek out Agatha.",
+                            "timelinePlacement": "Earth-616 • Nov 2023 to Late 2026. Bridges the night the Westview Hex fell directly into Agatha's present journey.",
+                            "comicOrigins": "Draws on the Young Avengers comic mythology created by Allan Heinberg and Jim Cheung in Young Avengers #1 (April 2005).",
                             "production": "Written by Jason Rostovsky and directed by Gandja Monteiro; bridges WandaVision’s finale directly into the present.",
                             "lore": "Fills in crucial Earth-616 continuity from the collapse of the Westview anomaly."
                         },
@@ -990,6 +1083,8 @@
                             "title": "Death's Hand in Mine",
                             "mins": 36,
                             "synopsis": "Experienced through Lilia Calderu’s non-linear perception of time, a Tarot-themed trial unlocks clarity about the coven’s fate and the true nature of their pursuers.",
+                            "timelinePlacement": "Earth-616 • Late 2026 (The Witches' Road). Non-linear perception chapter inside the Road's trials.",
+                            "comicOrigins": "Lilia Calderu was created by Stan Lee and John Buscema in Marvel Premiere #12 (Nov 1973) as a Romani witch linked to the Book of Cagliostro.",
                             "production": "Directed by Jac Schaeffer; acclaimed showcase for Patti LuPone structured around a classic Rider-Waite Tarot reading.",
                             "lore": "Expands the MCU’s metaphysical cosmology around fate, time-perception, and cosmic entities."
                         },
@@ -998,6 +1093,8 @@
                             "title": "Follow Me My Friend / To Glory at the End",
                             "mins": 47,
                             "synopsis": "As the surviving members reach the end of the Witches’ Road, Agatha and Teen face a final reckoning with the forces closing in on them.",
+                            "timelinePlacement": "Earth-616 • Late 2026. Reaches the final trial of the Witches' Road.",
+                            "comicOrigins": "Reflects the classic Marvel magic rule established in Stan Lee and Steve Ditko's Strange Tales: every spell carries an unavoidable cost.",
                             "production": "Directed by Gandja Monteiro; uses practical wirework and real soil-and-foliage sets.",
                             "lore": "Tests the true price of magical power in the MCU—echoing Doctor Strange’s warning that \"the bill comes due.\""
                         },
@@ -1006,6 +1103,8 @@
                             "title": "Maiden Mother Crone",
                             "mins": 47,
                             "synopsis": "Uncovering centuries-old secrets behind the Ballad of the Witches’ Road, Agatha makes a defining choice that reshapes her future in Earth-616’s magical underworld.",
+                            "timelinePlacement": "Earth-616 • 1750s to Late 2026. Closes the Westview witchcraft chapter of Phase 5.",
+                            "comicOrigins": "Reimagines Agatha Harkness's enduring comic role as a morally ambiguous supernatural mentor to younger Earth-616 magic users.",
                             "production": "Directed by Gandja Monteiro; ties together the triple-goddess motif running throughout the series.",
                             "lore": "Concludes Agatha’s Westview redemption/reckoning arc and launches a new chapter for MCU magic."
                         }
@@ -1024,6 +1123,8 @@
                     "totalMins": 205,
                     "statusBadge": "UNLOCKED",
                     "synopsis": "Stunt motorcyclist Johnny Blaze sells his soul to Mephistopheles to save his father, becoming the flaming-skulled Spirit of Vengeance—and later travels to Eastern Europe to protect a young boy from dark forces.",
+                    "timelinePlacement": "Pre-MCU Legacy Multiverse (Sony / Columbia Universe) • 2007 & 2011 — Standalone supernatural reality outside Earth-616.",
+                    "comicOrigins": "Johnny Blaze (Ghost Rider) was created by Roy Thomas, Gary Friedrich, and Mike Ploog in Marvel Spotlight #5 (Aug 1972).",
                     "doomsdayLink": "Pre-MCU legacy multiverse lore expanding Marvel’s supernatural Spirit of Vengeance mythology.",
                     "loreNotes": "2 films: Ghost Rider (110 mins) + Ghost Rider: Spirit of Vengeance (95 mins).",
                     "production": "Produced by Columbia Pictures and Marvel Entertainment; spanned Mark Steven Johnson’s operatic 2007 Western-noir adaptation and Neveldine & Taylor’s guerrilla-filmed 2011 sequel in Romania.",
@@ -1033,6 +1134,8 @@
                             "title": "Ghost Rider (2007)",
                             "mins": 110,
                             "synopsis": "Years after signing a contract with Mephistopheles to cure his father’s cancer, stunt rider Johnny Blaze transforms by night into the Ghost Rider to stop rogue demon Blackheart from claiming the Contract of San Venganza.",
+                            "timelinePlacement": "Legacy Sony/Marvel Reality • 2007 (Texas). Standalone pre-MCU supernatural timeline.",
+                            "comicOrigins": "Adapts Johnny Blaze's Faustian pact with Mephisto (Silver Surfer #3, 1968) and battles Blackheart, created by Ann Nocenti and John Romita Jr. in Daredevil #270 (1989).",
                             "production": "Written and directed by Mark Steven Johnson (Daredevil), starring lifelong Ghost Rider fan Nicolas Cage alongside Peter Fonda and Sam Elliott.",
                             "lore": "Introduces Johnny Blaze, Zarathos, and Marvel’s demon-lord Mephisto—a foundational figure in Marvel Comics’ supernatural corner."
                         },
@@ -1041,6 +1144,8 @@
                             "title": "Ghost Rider: Spirit of Vengeance (2011)",
                             "mins": 95,
                             "synopsis": "Hiding out in Eastern Europe, Johnny Blaze is recruited by a secret order of monks to rescue a young boy named Danny from Roarke before a winter solstice ritual.",
+                            "timelinePlacement": "Legacy Sony/Marvel Reality • 2011 (Eastern Europe). Set several years after the 2007 film.",
+                            "comicOrigins": "Draws on Zarathos's comic mythology as an ancient Spirit of Vengeance bound to Johnny Blaze (Marvel Spotlight #5, 1972).",
                             "production": "Directed by Mark Neveldine and Brian Taylor on location in Romania and Turkey, with Nicolas Cage performing his own physical Ghost Rider movement.",
                             "lore": "Expands the comic-book mythology of Zarathos as a corrupted Angel of Justice."
                         }
@@ -1059,6 +1164,8 @@
                     "totalMins": 254,
                     "statusBadge": "UNLOCKED",
                     "synopsis": "Uatu the Watcher observes radical new branches of the Multiverse—from gamma-irradiated Apex Hulks and Cold War espionage to the Fifth Dimension’s judgment on Watcher intervention.",
+                    "timelinePlacement": "The Multiverse (Outside Time & Branched Realities) • Post-Loki Season 2 — Set after Loki reshaped the Temporal Loom into the Multiverse Tree.",
+                    "comicOrigins": "Inspired by Marvel's 'What If...?' anthology comic series launched by Roy Thomas and Jim Craig in What If #1 (Feb 1977), narrated by Uatu the Watcher (Fantastic Four #13, 1963).",
                     "doomsdayLink": "Concludes the animated Multiverse Saga anthology and establishes high-tier Watcher rules governing branched timelines.",
                     "loreNotes": "8 episodes (~32 mins avg).",
                     "production": "Directed by Bryan Andrews and written under head writer Matthew Chauncey as the concluding season of Marvel Studios Animation’s cel-shaded anthology series, released over eight consecutive days in December 2024.",
@@ -1068,6 +1175,8 @@
                             "title": "What If... The Hulk Fought the Mech Avengers?",
                             "mins": 32,
                             "synopsis": "When Bruce Banner’s experiments unleash an army of gamma-irradiated Apex Hulks, Sam Wilson leads a new generation of Avengers piloting giant kaiju-fighting mechs.",
+                            "timelinePlacement": "Branched Reality • Alternate 2010s/2020s where Bruce Banner's gamma experiments spawned Apex Hulks.",
+                            "comicOrigins": "Inspired by giant-mecha Avengers variants and Stan Lee & Jack Kirby's gamma-monster tales from Tales to Astonish.",
                             "production": "Directed by Stephan Franck; crafted as an anime-inspired mecha homage to Pacific Rim and Gundam.",
                             "lore": "Showcases Sam Wilson stepping into Avengers leadership across branched timelines."
                         },
@@ -1076,6 +1185,8 @@
                             "title": "What If... Agatha Went to Hollywood?",
                             "mins": 32,
                             "synopsis": "In Golden Age Hollywood, Agatha Harkness teams up with Kingo in an elaborate plan to siphon the Celestial power of Tiamut from inside the Earth.",
+                            "timelinePlacement": "Branched Reality • Alternate 1930s Golden Age Hollywood where Agatha Harkness targets Tiamut's Celestial energy.",
+                            "comicOrigins": "Blends Jack Kirby's Celestials (The Eternals #1, 1976) with Agatha Harkness's classic magic.",
                             "production": "Directed by Bryan Andrews; stages a full 1930s Busby Berkeley musical production number.",
                             "lore": "Playfully blends Eternals’ Celestial Tiamut lore with Agatha Harkness’s magic."
                         },
@@ -1084,6 +1195,8 @@
                             "title": "What If... The Red Guardian Stopped the Winter Soldier?",
                             "mins": 31,
                             "synopsis": "In 1991, Alexei Shostakov intervenes during the Winter Soldier’s mission to intercept Howard Stark’s Super Soldier Serum, sparking a chaotic cross-country road trip.",
+                            "timelinePlacement": "Branched Reality • Alternate December 1991 diverging from Captain America: Civil War's Howard Stark flashback.",
+                            "comicOrigins": "Pairs Red Guardian (created by Roy Thomas and John Buscema in Avengers #43, 1967) with the Winter Soldier (Captain America #1, 2005).",
                             "production": "Directed by Bryan Andrews; recorded with David Harbour and Sebastian Stan.",
                             "lore": "Explores an alternate 1991 Cold War branch connecting Red Room and Hydra supersoldier programs."
                         },
@@ -1092,6 +1205,8 @@
                             "title": "What If... Howard the Duck Got Hitched?",
                             "mins": 31,
                             "synopsis": "Howard the Duck and Darcy Lewis’s cosmic honeymoon turns into an intergalactic chase when rival cosmic factions pursue their unhatched egg.",
+                            "timelinePlacement": "Branched Reality • Alternate Cosmic MCU timeline following Howard the Duck and Darcy Lewis.",
+                            "comicOrigins": "Howard the Duck was created by Steve Gerber and Val Mayerik in Adventure into Fear #19 (Dec 1973).",
                             "production": "Directed by Stephan Franck; brings back an ensemble of MCU cosmic voice talent.",
                             "lore": "Tour of the MCU’s cosmic eccentricities across branched realities."
                         },
@@ -1100,6 +1215,8 @@
                             "title": "What If... The Emergence Destroyed the Earth?",
                             "mins": 32,
                             "synopsis": "In a shattered wasteland where Tiamut’s Emergence cracked the planet apart, Riri Williams leads a desperate rebellion against Quentin Beck’s iron-fisted regime.",
+                            "timelinePlacement": "Branched Reality • Alternate 2020s where the Eternals failed to stop Tiamut's Emergence.",
+                            "comicOrigins": "Explores a post-apocalyptic Celestial Emergence scenario inspired by Neil Gaiman and John Romita Jr.'s Eternals (2006).",
                             "production": "Directed by Stephan Franck; explores the darkest \"What If\" consequence of Eternals’ Celestial Emergence.",
                             "lore": "Highlights Riri Williams’s engineering resilience in an alternate timeline where the Eternals failed to stop the Emergence."
                         },
@@ -1108,6 +1225,8 @@
                             "title": "What If... 1872?",
                             "mins": 32,
                             "synopsis": "In an Old West alternate universe, Shang-Chi and Kate Bishop ride across the frontier to rescue kidnapped immigrants from a mysterious outlaw known as the Hood.",
+                            "timelinePlacement": "Branched Reality • Alternate 1872 American Frontier.",
+                            "comicOrigins": "Directly inspired by Gerry Duggan and Nik Virella's 1872 #1–4 (2015), a Marvel Secret Wars tie-in reimagining Marvel heroes in the Old West.",
                             "production": "Directed by Stephan Franck and Bryan Andrews; inspired by Marvel’s 1872 Secret Wars tie-in comic.",
                             "lore": "Adapts Marvel’s 1872 Western multiverse concept while introducing the Hood’s dark-magic archetype."
                         },
@@ -1116,6 +1235,8 @@
                             "title": "What If... The Watcher Disappeared?",
                             "mins": 32,
                             "synopsis": "Uatu faces judgment from the Fifth Dimension’s supreme Watchers—the Eminence, Incarnate, and Executioner—for repeatedly interfering in mortal timelines.",
+                            "timelinePlacement": "The Fifth Dimension • Outside standard linear time, examining Uatu's oath of non-interference.",
+                            "comicOrigins": "Introduces the Watcher tribunal (the Eminence, Incarnate, and Executioner), echoing Uatu's comic trials in Fantastic Four and Captain Marvel.",
                             "production": "Directed by Stephan Franck; delves into the cosmic hierarchy of the Watchers from classic Stan Lee & Jack Kirby comics.",
                             "lore": "Establishes the Fifth Dimension’s Watcher council and the cosmic stakes of interfering with branched realities."
                         },
@@ -1124,6 +1245,8 @@
                             "title": "What If... What If?",
                             "mins": 32,
                             "synopsis": "Multiversal guardians assemble in the Fifth Dimension to stand beside Uatu and defend the Multiverse Tree from erasure.",
+                            "timelinePlacement": "The Fifth Dimension & Multiverse Tree • Concludes the three-season animated Watcher chronicle.",
+                            "comicOrigins": "Celebrates infinite alternate-reality variants in the tradition of What If (Vol. 1) #1–47 and What If (Vol. 2) #1–114.",
                             "production": "Directed by Bryan Andrews; concludes the three-season animated anthology.",
                             "lore": "Closes out Uatu’s animated Multiverse Saga arc."
                         }
@@ -1142,6 +1265,8 @@
                     "totalMins": 125,
                     "statusBadge": "UNLOCKED NOV 10",
                     "synopsis": "Throughout Wakandan history, brave Hatut Zeraze warriors travel across the globe to retrieve dangerous vibranium artifacts that have fallen into enemy hands.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • 1260 B.C. to Late 19th Century — Historical anthology spanning over 3,000 years of Wakandan covert history prior to Black Panther.",
+                    "comicOrigins": "Wakanda and T'Challa debuted in Fantastic Four #52 (July 1966) by Stan Lee and Jack Kirby. The Hatut Zeraze (Dogs of War) were created by Christopher Priest and Mark Texeira in Black Panther (Vol. 3) #4 (Feb 1999).",
                     "doomsdayLink": "Expands global vibranium history and Wakanda’s secret espionage footprint across centuries of Earth-616.",
                     "loreNotes": "4 concise episodes (~31 mins each), unlocked Nov 10.",
                     "production": "Created and directed by Black Panther storyboard artist Todd Harris and executive-produced by Ryan Coogler’s Proximity Media, utilizing a bespoke hand-painted 3D animation style inspired by contemporary African American illustrators.",
@@ -1151,6 +1276,8 @@
                             "title": "Chapter I: Into the Lion's Den",
                             "mins": 32,
                             "synopsis": "In 1260 B.C., disgraced Dora Milaje warrior Noni is dispatched by the Hatut Zeraze to infiltrate a rogue warlord’s fortress in Minoan Crete and recover stolen vibranium weaponry.",
+                            "timelinePlacement": "Earth-616 • 1260 B.C. (Late Bronze Age Minoan Crete). Over three millennia before the modern Avengers.",
+                            "comicOrigins": "Adapts the Hatut Zeraze (Wakanda's secret intelligence service) from Christopher Priest's landmark 1998–2003 Black Panther run.",
                             "production": "Directed by Todd Harris; showcases Bronze Age Mediterranean architecture blended with early Wakandan stealth tech.",
                             "lore": "Establishes the ancient origins of Wakanda’s secret intelligence agency, the War Dogs (Hatut Zeraze)."
                         },
@@ -1159,6 +1286,8 @@
                             "title": "Chapter II: Legends and Lies",
                             "mins": 31,
                             "synopsis": "During the Trojan War, an undercover Wakandan agent embedded among Greek warriors must retrieve a vibranium-forged spear before it alters Mediterranean history.",
+                            "timelinePlacement": "Earth-616 • Circa 12th Century B.C. (The Trojan War). Shows Wakanda operating invisibly behind ancient Mediterranean history.",
+                            "comicOrigins": "Draws on Wakanda's millennia-long secrecy surrounding Vibranium, first established in Fantastic Four #52–53 (1966).",
                             "production": "Directed by Todd Harris; reinterprets Homeric legend through Wakanda’s secret global operations.",
                             "lore": "Shows how Wakanda kept vibranium technology concealed from ancient empires across Earth-616."
                         },
@@ -1167,6 +1296,8 @@
                             "title": "Chapter III: Lost and Found",
                             "mins": 31,
                             "synopsis": "In 1400 A.D. Ming Dynasty China, a Hatut Zeraze operative crosses paths with a guardian of K’un-Lun while tracking a stolen vibranium relic.",
+                            "timelinePlacement": "Earth-616 • 1400 A.D. (Ming Dynasty China). Connects Wakandan espionage with the mystical city of K'un-Lun.",
+                            "comicOrigins": "Bridges Wakandan lore with K'un-Lun and the Iron Fist mythology created by Roy Thomas and Gil Kane in Marvel Premiere #15 (May 1974).",
                             "production": "Directed by Todd Harris; developed with martial-arts choreography consultants to bridge Wakandan spear combat with K’un-Lun kung fu.",
                             "lore": "Bridges K’un-Lun’s Iron Fist mythology with Wakanda’s ancient global espionage network."
                         },
@@ -1175,6 +1306,8 @@
                             "title": "Chapter IV: The Last Panther",
                             "mins": 31,
                             "synopsis": "In late-19th-century Ethiopia, a young Wakandan operative and a future Black Panther confront a colonizing expedition attempting to breach Wakanda’s borders.",
+                            "timelinePlacement": "Earth-616 • Late 1800s (Ethiopia / East Africa). Bridges 19th-century anti-colonial defense into the modern Black Panther dynasty.",
+                            "comicOrigins": "Reflects the historical isolationist policy of Wakanda's monarchy explored by Ta-Nehisi Coates and Brian Stelfreeze in Black Panther (2016).",
                             "production": "Directed by Todd Harris; ties historical African anti-colonial resistance directly into the lineage of Wakanda’s monarchy.",
                             "lore": "Connects Wakanda’s historical policy of strict isolationism directly to the modern Black Panther lineage."
                         }
@@ -1193,6 +1326,8 @@
                     "totalMins": 118,
                     "statusBadge": "DIRECT LEAD-IN",
                     "synopsis": "After meeting with newly elected U.S. President Thaddeus Ross, Sam Wilson finds himself in the middle of an international incident and must discover the reason behind a nefarious global plot before the true mastermind has the entire world seeing red.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Spring 2027 — Phase 5 geopolitical thriller, set after The Falcon and the Winter Soldier (2024) and Eternals.",
+                    "comicOrigins": "Sam Wilson debuted as the Falcon in Captain America #117 (Sept 1969) by Stan Lee and Gene Colan, and took up the Captain America shield in Captain America #25 (Oct 2014) by Rick Remender and Carlos Pacheco.",
                     "doomsdayLink": "Introduces Celestial Island’s Adamantium treaty to Earth-616 geopolitics and positions Sam Wilson’s Captain America at the center of global defense.",
                     "loreNotes": "118-minute theatrical feature. Follows The Falcon and the Winter Soldier.",
                     "production": "Directed by Julius Onah and starring Anthony Mackie in his first solo theatrical outing as Captain America, with Harrison Ford stepping into the role of Thaddeus Ross following the passing of William Hurt.",
@@ -1202,6 +1337,8 @@
                             "title": "Part I: White House Summit & Celestial Island",
                             "mins": 39,
                             "synopsis": "Following a mission in Oaxaca, Sam Wilson and Joaquin Torres attend a White House summit where President Thaddeus Ross unveils an international treaty over Celestial Island’s newly discovered resource—before a sudden assassination attempt throws the summit into chaos.",
+                            "timelinePlacement": "Earth-616 • Spring 2027 (Oaxaca & Washington D.C.). Follows Thaddeus Ross's election as President of the United States.",
+                            "comicOrigins": "Introduces Adamantium into Earth-616—a metal first introduced in Avengers #66 (July 1969) by Roy Thomas and Barry Windsor-Smith.",
                             "production": "Shot on practical White House East Room sets in Atlanta to evoke 1970s political paranoia thrillers.",
                             "lore": "Introduces Adamantium—harvested from the Celestial Tiamut in the Indian Ocean—into Earth-616 geopolitics."
                         },
@@ -1210,6 +1347,8 @@
                             "title": "Part II: Conspiracy & The Indian Ocean Flashpoint",
                             "mins": 40,
                             "synopsis": "Investigating who triggered the White House attack, Sam and Joaquin uncover a covert manipulation scheme aimed at sparking an international naval clash over Celestial Island.",
+                            "timelinePlacement": "Earth-616 • Spring 2027 (Washington D.C. & Indian Ocean). Directly reconnects Phase 1's The Incredible Hulk (2008) to Phase 5.",
+                            "comicOrigins": "Joaquin Torres first appeared in Captain America: Sam Wilson #1 (Oct 2015) by Nick Spencer and Daniel Acuña as Sam's high-flying partner.",
                             "production": "Revisits long-standing gamma-science threads from Phase 1’s The Incredible Hulk (2008).",
                             "lore": "Connects Phase 1 gamma-radiation history with modern geopolitical tensions over Celestial Island."
                         },
@@ -1218,6 +1357,8 @@
                             "title": "Part III: Reckoning in Washington",
                             "mins": 39,
                             "synopsis": "As the conspiracy reaches its breaking point in Washington D.C., Sam Wilson must rely on his vibranium wings, shield, and moral resolve to prevent catastrophe and restore stability.",
+                            "timelinePlacement": "Earth-616 • Spring 2027. Establishes Sam Wilson's leadership role on Earth-616 entering Phase 6.",
+                            "comicOrigins": "Draws on Nick Spencer's Captain America: Sam Wilson run (2015–2017), emphasizing Sam's non-super-soldier aerial shield combat.",
                             "production": "Emphasizes Sam Wilson’s distinct fighting style as a non-super-soldier Captain America.",
                             "lore": "Establishes Sam Wilson’s leadership mandate on Earth-616 heading into the climax of Phase 5 and 6."
                         }
@@ -1236,6 +1377,8 @@
                     "totalMins": 127,
                     "statusBadge": "DIRECT LEAD-IN",
                     "synopsis": "Ensnared in a death trap set by Valentina Allegra de Fontaine, a disillusioned cast of covert operatives—including Yelena Belova, Bucky Barnes, Red Guardian, Ghost, Taskmaster, and U.S. Agent—must embark on a dangerous mission that forces them to confront the darkest corners of their pasts.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Late 2027 — Phase 5 finale, set after Captain America: Brave New World and Black Widow / Hawkeye / Falcon and the Winter Soldier.",
+                    "comicOrigins": "The Thunderbolts were created by Kurt Busiek and Mark Bagley in The Incredible Hulk #449 (Jan 1997). Valentina Allegra de Fontaine debuted in Strange Tales #159 (Aug 1967) by Jim Steranko.",
                     "doomsdayLink": "Assembles Earth-616’s unconventional team in a post-Avengers landscape and introduces high-tier power dynamics entering Phase 6.",
                     "loreNotes": "127-minute theatrical feature closing Phase 5.",
                     "production": "Directed by Jake Schreier (Beef) with cinematography by Andrew Droz Palermo and score by Son Lux, emphasizing practical stunts—including Florence Pugh’s real jump off Malaysia’s Merdeka 118 skyscraper.",
@@ -1245,6 +1388,8 @@
                             "title": "Part I: The O.X.E. Vault Trap",
                             "mins": 42,
                             "synopsis": "Facing congressional scrutiny over her covert O.X.E. operations, CIA Director Valentina Allegra de Fontaine lures several black-ops operatives into a remote facility—where they discover an enigmatic survivor named Bob.",
+                            "timelinePlacement": "Earth-616 • Late 2027. Brings together former black-ops operatives in a post-Avengers landscape.",
+                            "comicOrigins": "Features Yelena Belova (Inhumans #5, 1999), John Walker / U.S. Agent (Captain America #323, 1986), Ghost (Iron Man #219, 1987), and Red Guardian (Avengers #43, 1967).",
                             "production": "Filmed inside a massive multi-level subterranean silo set constructed in Atlanta with minimal green screen.",
                             "lore": "Brings together loose threads from Black Widow, The Falcon and the Winter Soldier, and Ant-Man and the Wasp."
                         },
@@ -1253,6 +1398,8 @@
                             "title": "Part II: Fractured Operatives & New York Crisis",
                             "mins": 43,
                             "synopsis": "Joined by Bucky Barnes and Alexei Shostakov, the reluctant allies converge on New York as Valentina’s secret O.X.E. project spirals out of control.",
+                            "timelinePlacement": "Earth-616 • Late 2027 (New York City). Escalates Valentina's covert O.X.E. program in Manhattan.",
+                            "comicOrigins": "Draws psychological inspiration from Paul Jenkins and Jae Lee's acclaimed 2000 Marvel Knights limited series.",
                             "production": "Grounded in character-driven ensemble chemistry exploring trauma, isolation, and redemption.",
                             "lore": "Adapts Paul Jenkins and Jae Lee’s acclaimed 2000 Marvel Knights psychological-superhero concepts into the MCU."
                         },
@@ -1261,6 +1408,8 @@
                             "title": "Part III: Watchtower & A New Team",
                             "mins": 42,
                             "synopsis": "Forced to confront their deepest regrets together, the operatives band together to stop a city-wide crisis and step into an unexpected new public role.",
+                            "timelinePlacement": "Earth-616 • Late 2027. Closes Phase 5 and establishes Earth-616's active team lineup heading into Phase 6.",
+                            "comicOrigins": "Echoes classic Thunderbolts themes of morally compromised operatives seeking redemption when traditional heroes are absent.",
                             "production": "Closes out Phase 5 of the Marvel Cinematic Universe.",
                             "lore": "Reshapes Earth-616’s active hero lineup at Watchtower (the former Avengers Tower) ahead of Phase 6."
                         }
@@ -1279,6 +1428,8 @@
                     "totalMins": 270,
                     "statusBadge": "UNLOCKED FROM VAULT",
                     "synopsis": "Following the events of Black Panther: Wakanda Forever, young genius inventor Riri Williams returns home to Chicago—where her unique take on building iron suits collides with the enigmatic Parker Robbins, a.k.a. The Hood, pitting technology against magic.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Post-Wakanda Forever (2025/2026) — Phase 5 tech-vs-magic series set in Chicago after Riri Williams leaves MIT.",
+                    "comicOrigins": "Riri Williams (Ironheart) was created by Brian Michael Bendis and Mike Deodato in Invincible Iron Man (Vol. 2) #7 (May 2016). Parker Robbins (The Hood) was created by Brian K. Vaughan and Kyle Hotz in The Hood #1 (July 2002).",
                     "doomsdayLink": "Explores the collision between Stark-inspired armor engineering and dark mystical artifacts on Earth-616—a central duality of the wider Marvel universe.",
                     "loreNotes": "6 episodes (~45 mins avg). Slotted in Act 4 after Captain America: Brave New World and Thunderbolts*.",
                     "production": "Created by head writer Chinaka Hodge, directed by Sam Bailey and Angela Barnes, and executive-produced by Ryan Coogler’s Proximity Media. Filmed in Chicago and Atlanta to ground Riri Williams’s engineering in her hometown community.",
@@ -1288,6 +1439,8 @@
                             "title": "Take Me Home",
                             "mins": 45,
                             "synopsis": "Returning from MIT to her hometown of Chicago with a prototype armored suit, Riri Williams strives to fund her ambitious engineering vision while processing lingering grief over her best friend Natalie and stepfather Gary.",
+                            "timelinePlacement": "Earth-616 • Post-Wakanda Forever (Chicago). Picks up after Riri's experience in Wakanda and MIT.",
+                            "comicOrigins": "Adapts Riri Williams's homemade garage-built armor origin from Invincible Iron Man #7–9 (2016), grounded in her South Side Chicago roots.",
                             "production": "Written by head writer Chinaka Hodge and directed by Sam Bailey; establishes Chicago’s South Side workshop aesthetic.",
                             "lore": "Picks up Riri Williams’s journey after Wakanda Forever, contrasting independent street-level inventing with Stark Industries’ vast resources."
                         },
@@ -1296,6 +1449,8 @@
                             "title": "Will the Real Natalie Please Stand Up?",
                             "mins": 45,
                             "synopsis": "Navigating an unexpected AI breakthrough in her lab, Riri is drawn into the orbit of Parker Robbins’s Chicago crew—witnessing firsthand the eerie, bullet-bending power of Parker’s crimson cloak.",
+                            "timelinePlacement": "Earth-616 • Chicago. Introduces Chicago's underground heist crew into the post-Blip MCU.",
+                            "comicOrigins": "Parker Robbins (The Hood) debuted in The Hood #1 (2002) as a small-time New York criminal who acquires a mystical crimson cloak and boots.",
                             "production": "Written by Malarie Howard and directed by Sam Bailey; introduces Alden Ehrenreich alongside Anthony Ramos’s Parker Robbins.",
                             "lore": "Introduces Parker Robbins (The Hood), created by Brian K. Vaughan in 2002 as a street-level criminal empowered by mystical artifacts."
                         },
@@ -1304,6 +1459,8 @@
                             "title": "We in Danger, Girl",
                             "mins": 45,
                             "synopsis": "As the crew executes a daring heist targeting a powerful Chicago corporation, Riri grows increasingly wary of the dark toll Parker’s cloak is taking on him.",
+                            "timelinePlacement": "Earth-616 • Chicago. Explores the intersection of Stark-inspired engineering and occult artifacts.",
+                            "comicOrigins": "Reflects Eve Ewing and Kevin Libranda's Ironheart (2018–2019) comic run, which paired Riri's scientific pragmatism against supernatural threats.",
                             "production": "Written by Francesca Gailes & Jacqueline J. Gailes and directed by Sam Bailey; blends armored flight action with heist suspense.",
                             "lore": "Highlights the thematic clash between rational science and unexplainable dark magic—two forces that rarely intersect in Earth-616’s street-level world."
                         },
@@ -1312,6 +1469,8 @@
                             "title": "Bad Magic",
                             "mins": 45,
                             "synopsis": "Tensions fracture Riri’s alliances as investigations close in on her tech and Parker’s paranoia escalates, forcing Riri to look beyond pure engineering for answers.",
+                            "timelinePlacement": "Earth-616 • Chicago. Deepens the occult-tech friction in Earth-616's street-level world.",
+                            "comicOrigins": "Draws on the corrupting influence of dark magical artifacts seen throughout Brian K. Vaughan's The Hood and Brian Michael Bendis's New Avengers.",
                             "production": "Written by Amir Sulaiman and directed by Angela Barnes; pivots the series toward occult-tech friction.",
                             "lore": "Connects Chicago’s mystical underground to the wider arcane lore established in Doctor Strange."
                         },
@@ -1320,6 +1479,8 @@
                             "title": "Karma's a Glitch",
                             "mins": 45,
                             "synopsis": "With her armor compromised and allies scattered, Riri seeks out arcane insight in Chicago while facing a dangerous confrontation with a technologically enhanced rival.",
+                            "timelinePlacement": "Earth-616 • Chicago. Connects Chicago's arcane underground with wider Earth-616 sorcery.",
+                            "comicOrigins": "Incorporates Marvel Comics' Stanton family mystical shop lore from Eve Ewing's Ironheart series.",
                             "production": "Written by Cristian Martinez and directed by Angela Barnes; introduces comic-inspired mystical and technological legacy nods.",
                             "lore": "Draws on Marvel Comics’ Stanton family mystical shop lore, bridging street-level sorcery with next-generation armor design."
                         },
@@ -1328,6 +1489,8 @@
                             "title": "The Past Is the Past",
                             "mins": 45,
                             "synopsis": "In a climactic confrontation between armored ingenuity and dark sorcery, Riri is forced to weigh the true cost of shortcuts against the legacy she wants to build.",
+                            "timelinePlacement": "Earth-616 • Chicago. Establishes Riri Williams as an independent armored hero in Earth-616.",
+                            "comicOrigins": "Concludes Riri's transition into a self-reliant armored inventor in the spirit of Ironheart #12 (2019).",
                             "production": "Written by Chinaka Hodge and directed by Angela Barnes; concludes the six-episode season.",
                             "lore": "Cements Riri Williams’s place as a self-made armored hero in Earth-616’s technological landscape."
                         }
@@ -1346,6 +1509,8 @@
                     "totalMins": 145,
                     "statusBadge": "DIRECT LEAD-IN",
                     "synopsis": "Living anonymously in New York after Doctor Strange’s spell erased Peter Parker from the world’s memory, Spider-Man confronts a new wave of street-level and wider threats.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Phase 6 — Set after Spider-Man: No Way Home's global memory spell and Daredevil: Born Again's New York upheaval.",
+                    "comicOrigins": "Takes its title from Marvel's 'Brand New Day' soft-reboot era launched in The Amazing Spider-Man #546 (Jan 2008) by Dan Slott, Steve McNiven, and the Spider-Man 'Brain Trust.'",
                     "doomsdayLink": "Positions Peter Parker on Earth-616 immediately prior to the multiversal collision of Avengers: Doomsday.",
                     "loreNotes": "145-minute theatrical feature.",
                     "production": "Directed by Destin Daniel Cretton (Shang-Chi) and written by Chris McKenna & Erik Sommers, taking its title from Marvel’s 2008 comic soft-reboot era for Peter Parker.",
@@ -1355,6 +1520,8 @@
                             "title": "Part I: Back to Basics in New York",
                             "mins": 48,
                             "synopsis": "Starting fresh in New York without Stark technology or his old support network, Peter Parker balances everyday life with street-level Spider-Man patrols.",
+                            "timelinePlacement": "Earth-616 • Phase 6 (New York City). Re-establishes Peter Parker as an anonymous street-level hero.",
+                            "comicOrigins": "Mirrors Amazing Spider-Man #546 (2008), which stripped Peter Parker back to his classic Queens apartment, freelance photography, and neighborhood patrols.",
                             "production": "Designed as a grounded reset following the global memory spell of Spider-Man: No Way Home.",
                             "lore": "Echoes Marvel Comics’ 2008 \"Brand New Day\" era, returning Peter Parker to his neighborhood roots."
                         },
@@ -1363,6 +1530,8 @@
                             "title": "Part II: Escalating Threats",
                             "mins": 49,
                             "synopsis": "Caught in a dangerous escalation across New York, Spider-Man must navigate shifting alliances while protecting a city that no longer knows who is behind the mask.",
+                            "timelinePlacement": "Earth-616 • Phase 6 (New York City). Connects street-level New York tensions to broader Phase 6 stakes.",
+                            "comicOrigins": "Draws on the grounded, back-to-basics urban storytelling of the 2008–2010 'Brand New Day' era.",
                             "production": "Blends kinetic practical web-swinging action with Peter’s isolated double life.",
                             "lore": "Connects Earth-616’s street-level New York landscape to looming wider-world stakes."
                         },
@@ -1371,6 +1540,8 @@
                             "title": "Part III: Eve of Doomsday",
                             "mins": 48,
                             "synopsis": "Choosing responsibility even when forgotten by everyone he loves, Spider-Man stands ready as larger forces gather on the horizon.",
+                            "timelinePlacement": "Earth-616 • Phase 6. Positions Spider-Man on Earth-616 immediately prior to Avengers: Doomsday.",
+                            "comicOrigins": "Embodies Peter Parker's defining ethos from Amazing Fantasy #15 (Aug 1962) by Stan Lee and Steve Ditko: 'With great power there must also come great responsibility.'",
                             "production": "Positioned as a key theatrical milestone leading into Avengers: Doomsday.",
                             "lore": "Establishes Spider-Man’s status on Earth-616 entering Phase 6’s main event."
                         }
@@ -1389,6 +1560,8 @@
                     "totalMins": 115,
                     "statusBadge": "CRITICAL PRECURSOR",
                     "synopsis": "Set against the vibrant backdrop of a 1960s-inspired retro-futuristic world, Marvel’s First Family—Reed Richards, Sue Storm, Johnny Storm, and Ben Grimm—face their most daunting challenge yet as they defend Earth from a ravenous space god called Galactus and his enigmatic Herald, the Silver Surfer.",
+                    "timelinePlacement": "Earth-828 (Alternate 1960s Retro-Futuristic Reality) • Phase 6 Launchpad — Set four years into the Fantastic Four's career on Earth-828 directly ahead of Avengers: Doomsday.",
+                    "comicOrigins": "The Fantastic Four debuted in The Fantastic Four #1 (Nov 1961) by Stan Lee and Jack Kirby. Adapts 'The Galactus Trilogy' from Fantastic Four #48–50 (March–May 1966).",
                     "doomsdayLink": "Introduces Marvel’s First Family, their 1960s retro-futuristic world (Earth-828), and cosmic-scale threats directly ahead of Avengers: Doomsday.",
                     "loreNotes": "115-minute theatrical feature. Final climax of your Workbook 2 runway!",
                     "production": "Directed by Matt Shakman (WandaVision) with an orchestral score by Michael Giacchino, filmed at Pinewood Studios using vintage 1960s lenses, practical Baxter Building sets, and Syd Mead-inspired retro-futurism.",
@@ -1398,6 +1571,8 @@
                             "title": "Part I: Earth-828 & The Herald’s Arrival",
                             "mins": 38,
                             "synopsis": "Four years after cosmic rays transformed Reed Richards, Sue Storm, Johnny Storm, and Ben Grimm into their world’s beloved protectors, the Silver Surfer arrives from deep space to herald the coming of Galactus.",
+                            "timelinePlacement": "Earth-828 • 1960s Retro-Futuristic Timeline. Establishes an alternate Earth where the Fantastic Four are the world's premier heroes.",
+                            "comicOrigins": "Introduces Galactus and the Silver Surfer, created by Stan Lee and Jack Kirby in Fantastic Four #48 (March 1966).",
                             "production": "Earth-828’s designation is a direct tribute to Fantastic Four co-creator Jack Kirby’s birthday (August 28).",
                             "lore": "Establishes a distinct 1960s retro-futuristic alternate universe (Earth-828) where the Fantastic Four are the premier heroes and scientific pioneers."
                         },
@@ -1406,6 +1581,8 @@
                             "title": "Part II: Confronting Galactus",
                             "mins": 39,
                             "synopsis": "Forced to balance their roles as heroes with the strength of their family bond, the Fantastic Four launch a daring mission into deep space to confront Galactus and negotiate for their planet’s survival.",
+                            "timelinePlacement": "Earth-828 • Deep Space. Escalates the cosmic stakes of Phase 6.",
+                            "comicOrigins": "Adapts the cosmic diplomacy and spacefaring exploration of Fantastic Four #49 (April 1966).",
                             "production": "Ralph Ineson performed Galactus in a towering practical costume scaled against miniature sets rather than pure CGI.",
                             "lore": "Brings Stan Lee and Jack Kirby’s 1966 \"Galactus Trilogy\" (Fantastic Four #48–50)—one of the most influential cosmic stories in Marvel history—to the big screen."
                         },
@@ -1414,6 +1591,8 @@
                             "title": "Part III: Defending Earth-828",
                             "mins": 38,
                             "synopsis": "When Galactus descends upon New York, Reed, Sue, Johnny, and Ben unite their scientific ingenuity and powers to protect their home and family.",
+                            "timelinePlacement": "Earth-828 • New York City. Final theatrical milestone leading directly into Avengers: Doomsday.",
+                            "comicOrigins": "Echoes Fantastic Four #50 (May 1966), celebrating the family's scientific ingenuity and unbreakable bond.",
                             "production": "Marks the launchpad of Phase 6 of the Marvel Cinematic Universe.",
                             "lore": "Completes the theatrical runway leading straight into Avengers: Doomsday."
                         }
@@ -1428,6 +1607,8 @@
                     "release": "2017–2018",
                     "note": "Latest Completion: S2E10 (\"A Duel of Iron\") — 55 mins (Nov 12, 2026)",
                     "synopsis": "Danny Rand defends New York alongside Colleen Wing as Davos steals the Iron Fist power, culminating in Colleen claiming the chi-charged katana and Danny journeying across Asia with Ward Meachum.",
+                    "timelinePlacement": "Earth-616 • 2017 (Pre-Snap). Set after The Defenders and before Daredevil Season 3.",
+                    "comicOrigins": "Iron Fist (Danny Rand) debuted in Marvel Premiere #15 (May 1974) by Roy Thomas and Gil Kane; Colleen Wing debuted in Marvel Premiere #19 (Nov 1974) by Doug Moench and Larry Hama.",
                     "doomsdayLink": "Completes Iron Fist’s Netflix arc and resolves the mystical K’un-Lun chi lineage.",
                     "production": "Season 2 was revitalized under showrunner Raven Metzner and Black Panther stunt coordinator Clayton Barber, condensing the arc to 10 tighter episodes."
                 },
@@ -1438,6 +1619,8 @@
                     "release": "2015–2018",
                     "note": "Complete 39 Episodes • Core Hell’s Kitchen Canon",
                     "synopsis": "Blind lawyer Matt Murdock fights crime by night as Daredevil while battling Wilson Fisk, the Hand, Elektra, and Bullseye.",
+                    "timelinePlacement": "Earth-616 • 2015–2017 (Pre-Snap). Core Hell's Kitchen street-level foundation.",
+                    "comicOrigins": "Created by Stan Lee and Bill Everett in Daredevil #1 (April 1964), heavily influenced by Frank Miller's 1980s run.",
                     "doomsdayLink": "Foundational backstory for Matt Murdock and Wilson Fisk ahead of Daredevil: Born Again."
                 },
                 {
@@ -1447,6 +1630,8 @@
                     "release": "2015–2018",
                     "note": "Completed S1 & S2 (26 Episodes)",
                     "synopsis": "Private investigator Jessica Jones confronts mind-controlling Kilgrave in Season 1 and uncovers the IGH origins of her powers in Season 2.",
+                    "timelinePlacement": "Earth-616 • 2015–2017 (Pre-Snap). Precedes Jessica Jones Season 3.",
+                    "comicOrigins": "Adapted from Brian Michael Bendis and Michael Gaydos's Alias #1–28 (2001–2004).",
                     "doomsdayLink": "Leads directly into your active focus: Jessica Jones Season 3."
                 },
                 {
@@ -1456,6 +1641,8 @@
                     "release": "2016–2018",
                     "note": "Complete 26 Episodes • Harlem Canon",
                     "synopsis": "Unbreakable Harlem hero Luke Cage battles Cottonmouth, Diamondback, Mariah Dillard, and Bushmaster before taking over Harlem’s Paradise.",
+                    "timelinePlacement": "Earth-616 • 2016–2017 (Pre-Snap). Harlem street-level canon.",
+                    "comicOrigins": "Luke Cage debuted in Luke Cage, Hero for Hire #1 (June 1972) by Archie Goodwin, George Tuska, Roy Thomas, and John Romita Sr.",
                     "doomsdayLink": "Completes Luke Cage’s Defenders era arc."
                 },
                 {
@@ -1465,6 +1652,8 @@
                     "release": "2017–2019",
                     "note": "34 Episodes Total • Street-Level Vigilantes",
                     "synopsis": "Daredevil, Jessica Jones, Luke Cage, and Iron Fist unite against the Hand, while Frank Castle wages war against covert conspiracies and Jigsaw.",
+                    "timelinePlacement": "Earth-616 • 2016–2018 (Pre-Snap). Street-level crossover and Frank Castle's vigilante war.",
+                    "comicOrigins": "The Punisher debuted in The Amazing Spider-Man #129 (Feb 1974) by Gerry Conway and Ross Andru.",
                     "doomsdayLink": "Establishes Frank Castle’s canon history prior to his return in Daredevil: Born Again."
                 },
                 {
@@ -1474,6 +1663,8 @@
                     "release": "2008–2019",
                     "note": "Iron Man through Spider-Man: Far From Home",
                     "synopsis": "The complete 23-film saga chronicling the formation of the Avengers, the Infinity Stones, Thanos’s Snap, and Tony Stark’s ultimate sacrifice.",
+                    "timelinePlacement": "Earth-616 • 1940s–2023 (Phases 1–3). Core Sacred Timeline foundation.",
+                    "comicOrigins": "Draws on classic 1960s Silver Age Avengers launches and Jim Starlin's 1991 The Infinity Gauntlet.",
                     "doomsdayLink": "Essential baseline for the modern MCU."
                 },
                 {
@@ -1483,6 +1674,8 @@
                     "release": "2021–2024",
                     "note": "Includes No Way Home, Multiverse of Madness, Quantumania, The Marvels, Deadpool & Wolverine",
                     "synopsis": "Post-Blip global shifts, multiversal rifts, Kang’s Council, Monica Rambeau’s incursion into an X-Men reality, and Deadpool & Wolverine saving Earth-10005.",
+                    "timelinePlacement": "Earth-616, Earth-838 & Earth-10005 • 2023–2026 (Phases 4–5). Opens the Multiverse Saga.",
+                    "comicOrigins": "Incorporates J. Michael Straczynski's 'One More Day', Rick Remender's 'Kang Dynasty', and Rob Liefeld & Fabian Nicieza's Deadpool.",
                     "doomsdayLink": "Directly sets up multiversal incursions, the TVA Void, and X-Men crossover threads."
                 },
                 {
@@ -1492,6 +1685,8 @@
                     "release": "2021–2023",
                     "note": "Includes Hawkeye, Moon Knight, Ms. Marvel, She-Hulk, Werewolf by Night, Secret Invasion, I Am Groot, WHiH & One-Shots",
                     "synopsis": "Loki’s transformation into the God of Stories holding the Multiverse Tree together, Wanda’s Darkhold corruption, and Kamala Khan’s Quantum Bands.",
+                    "timelinePlacement": "Earth-616 & TVA / End of Time • 2023–2026 (Phases 4–5). Establishes Loki's Multiverse Tree.",
+                    "comicOrigins": "Adapts 'House of M', Mark Gruenwald's Time Variance Authority (Thor #372, 1986), and G. Willow Wilson's Ms. Marvel (2014).",
                     "doomsdayLink": "Loki’s Multiverse Tree and Ms. Marvel’s Quantum Bands are central pillars of the Multiverse Saga."
                 },
                 {
@@ -1501,6 +1696,8 @@
                     "release": "1992–2026",
                     "note": "Complete Animated Mutant Saga",
                     "synopsis": "The iconic 1990s X-Men animated series and its direct continuation following the Fall of Genosha, Bastion, and time-displaced adventures.",
+                    "timelinePlacement": "Earth-92131 (Animated Mutant Reality) • 1990s. Classic animated mutant canon.",
+                    "comicOrigins": "Adapts Chris Claremont's landmark 1975–1991 Uncanny X-Men arcs.",
                     "doomsdayLink": "Deepest characterization of Apocalypse, Magneto, Cyclops, and mutant geopolitics."
                 },
                 {
@@ -1510,6 +1707,8 @@
                     "release": "2000–2018",
                     "note": "X-Men, X2, Last Stand, Origins, First Class, The Wolverine, Days of Future Past, Deadpool 1–2, Logan",
                     "synopsis": "Two decades of Fox mutant cinema spanning Charles Xavier, Erik Lehnsherr, and Logan’s emotional finale.",
+                    "timelinePlacement": "Earth-10005 (Original & Revised Fox Timelines) • 1962–2029.",
+                    "comicOrigins": "Inspired by Stan Lee & Jack Kirby's 1963 X-Men #1, 'Days of Future Past' (1981), and Mark Millar's 'Old Man Logan' (2008).",
                     "doomsdayLink": "Provides direct legacy character context for the Fox X-Men universe."
                 },
                 {
@@ -1519,6 +1718,8 @@
                     "release": "2002–2021",
                     "note": "Spider-Man 1–3, Venom, Venom: Let There Be Carnage",
                     "synopsis": "Tobey Maguire’s Peter Parker trilogy and Eddie Brock’s symbiote adventures culminating in a multiversal jump to Earth-616.",
+                    "timelinePlacement": "Earth-96283 (Raimi Spider-Man) & Earth-688 (Sony Venom) • 2002–2021.",
+                    "comicOrigins": "Draws on Lee/Ditko/Romita Spider-Man classics and David Michelinie & Todd McFarlane's Venom (Amazing Spider-Man #300, 1988).",
                     "doomsdayLink": "Establishes Peter-Two and symbiote multiverse mechanics."
                 },
                 {
@@ -1528,6 +1729,8 @@
                     "release": "2013–2020",
                     "note": "Complete 154 Episodes",
                     "synopsis": "Phil Coulson’s S.H.I.E.L.D. team battles Hydra, Inhumans, the Framework, and Chronicom time-travelers, alongside Peggy Carter’s founding SSR missions.",
+                    "timelinePlacement": "Earth-616 & Branched Timelines • 1946–2020. Early SSR and S.H.I.E.L.D. espionage.",
+                    "comicOrigins": "Peggy Carter debuted in Tales of Suspense #77 (May 1966); Phil Coulson transitioned from the MCU into Battle Scars #1 (2012).",
                     "doomsdayLink": "Deep-cut Quantum Realm and timeline-branching mechanics."
                 },
                 {
@@ -1537,6 +1740,8 @@
                     "release": "2003–2021",
                     "note": "Daredevil (2003), Elektra (2005), Hulk (2003), M.O.D.O.K.",
                     "synopsis": "Pre-MCU Marvel theatrical standalones and Hulu’s stop-motion A.I.M. comedy.",
+                    "timelinePlacement": "Pre-MCU Legacy Standalones & Earth-1226 • 2003–2021.",
+                    "comicOrigins": "M.O.D.O.K. was created by Stan Lee and Jack Kirby in Tales of Suspense #93 (Sept 1967).",
                     "doomsdayLink": "Includes Jennifer Garner’s Elektra prior to her Void appearance in Deadpool & Wolverine."
                 }
             ],
@@ -1553,6 +1758,8 @@
                     "threshold": 240,
                     "statusNote": "Unlocks as soon as Net Buffer covers its 240m runtime",
                     "synopsis": "Hollywood actor Simon Williams auditions for a remake of a classic superhero film alongside Trevor Slattery while gaining ionic superpowers.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Phase 6 — Set in Hollywood prior to Spider-Man: Brand New Day.",
+                    "comicOrigins": "Simon Williams (Wonder Man) was created by Stan Lee, Don Heck, and Jack Kirby in The Avengers #9 (Oct 1964).",
                     "doomsdayLink": "Introduces Simon Williams (Wonder Man) to Earth-616.",
                     "loreNotes": "8 episodes (~30 mins avg). Placed in Act 4 as an Earth-616 character spotlight prior to Spider-Man: Brand New Day."
                 },
@@ -1568,6 +1775,8 @@
                     "threshold": 270,
                     "statusNote": "Unlocks as soon as Net Buffer covers its 270m runtime",
                     "synopsis": "Following the restoration of his memories in WandaVision, White Vision embarks on a journey to reconcile his identity, humanity, and Ultron’s legacy.",
+                    "timelinePlacement": "Earth-616 (Sacred Timeline) • Phase 6 — Follows White Vision's departure from Westview in WandaVision (2023).",
+                    "comicOrigins": "The Vision debuted in The Avengers #57 (Oct 1968) by Roy Thomas and John Buscema; White Vision debuted in West Coast Avengers #45 (June 1989) by John Byrne.",
                     "doomsdayLink": "Resolves White Vision’s whereabouts ahead of Avengers-level threats.",
                     "loreNotes": "6 episodes (~45 mins avg). Placed in Act 4 after Agatha All Along."
                 },
@@ -1583,6 +1792,8 @@
                     "threshold": 160,
                     "statusNote": "Unlocks as soon as Net Buffer covers its 160m runtime",
                     "synopsis": "A new generation of heroes battles an ever-spreading zombie scourge across a brutal alternate timeline spun out of What If...?",
+                    "timelinePlacement": "Branched Reality (Earth-89521) • Spin-off from What If...? Season 1 Episode 5.",
+                    "comicOrigins": "Inspired by Robert Kirkman and Sean Phillips's Marvel Zombies #1–5 (2005–2006).",
                     "doomsdayLink": "Alternate multiverse horror timeline.",
                     "loreNotes": "4 episodes (~40 mins avg). Placed in Act 3 directly after What If...? Season 3."
                 },
@@ -1598,6 +1809,8 @@
                     "threshold": 350,
                     "statusNote": "Unlocks when Net Buffer covers 350m runtime",
                     "synopsis": "Half-vampire daywalker Eric Brooks wages a relentless war against Deacon Frost, the Reaper strain, and Dracula.",
+                    "timelinePlacement": "Pre-MCU Legacy Reality (Earth-26320) • 1998–2004.",
+                    "comicOrigins": "Blade (Eric Brooks) was created by Marv Wolfman and Gene Colan in The Tomb of Dracula #10 (July 1973).",
                     "doomsdayLink": "Wesley Snipes’s Void legacy variant origin.",
                     "loreNotes": "3 films: Blade (120m), Blade II (117m), Blade: Trinity (113m). Placed in Act 3 with pre-MCU legacy lore."
                 },
@@ -1613,6 +1826,8 @@
                     "threshold": 278,
                     "statusNote": "Post-Doomsday Legacy Archive",
                     "synopsis": "Andrew Garfield’s Peter Parker uncovers Oscorp secrets and faces the Lizard, Electro, and Green Goblin.",
+                    "timelinePlacement": "Earth-120703 (Webb Spider-Man Reality) • 2012–2014.",
+                    "comicOrigins": "Draws on Ultimate Spider-Man (2000) by Brian Michael Bendis & Mark Bagley and classic Lee/Romita Gwen Stacy stories.",
                     "doomsdayLink": "Peter-Three canon archive.",
                     "loreNotes": "2 films: The Amazing Spider-Man (136m) & The Amazing Spider-Man 2 (142m). Placed in Act 3 multiverse archive."
                 },
@@ -1628,6 +1843,8 @@
                     "threshold": 298,
                     "statusNote": "Post-Doomsday Legacy Archive",
                     "synopsis": "Previous theatrical adaptations of Marvel’s First Family, including Chris Evans’s Johnny Storm.",
+                    "timelinePlacement": "Earth-121698 (2005/2007) & Earth-15866 (2015) • Pre-MCU Fantastic Four realities.",
+                    "comicOrigins": "Adapted from Stan Lee & Jack Kirby's 1960s Fantastic Four and Brian Michael Bendis & Mark Millar's Ultimate Fantastic Four (2004).",
                     "doomsdayLink": "Alternate universe Fantastic Four variants.",
                     "loreNotes": "3 films placed in Act 3 prior to The Fantastic Four: First Steps."
                 },
@@ -1643,6 +1860,8 @@
                     "threshold": 330,
                     "statusNote": "Post-Doomsday Legacy Archive",
                     "synopsis": "Sony’s standalone Spider-Man universe entries exploring Morbius, Cassandra Webb, and Knull’s symbiote invasion.",
+                    "timelinePlacement": "Earth-688 (Sony's Spider-Man Universe) • 2022–2024.",
+                    "comicOrigins": "Morbius debuted in Amazing Spider-Man #101 (Oct 1971); Madame Web debuted in Amazing Spider-Man #210 (Nov 1980).",
                     "doomsdayLink": "SSU multiversal rift entries.",
                     "loreNotes": "3 films placed in Act 3 multiversal anthology."
                 },
@@ -1658,6 +1877,8 @@
                     "threshold": 2450,
                     "statusNote": "Completionist Mutant Television Vault",
                     "synopsis": "David Haller’s surreal Omega-level psychic journey in Legion and the Mutant Underground’s survival in The Gifted.",
+                    "timelinePlacement": "Alternate Fox Mutant Television Timelines • 2017–2019.",
+                    "comicOrigins": "Legion (David Haller) was created by Chris Claremont and Bill Sienkiewicz in New Mutants #25 (March 1985).",
                     "doomsdayLink": "Alternate Fox mutant television timelines."
                 },
                 {
@@ -1672,6 +1893,8 @@
                     "threshold": 2800,
                     "statusNote": "Completionist Marvel Television Vault",
                     "synopsis": "Teenage heroes in New Orleans and Los Angeles, the Inhuman Royal Family, and Daimon & Ana Helstrom.",
+                    "timelinePlacement": "Earth-616 Extended Marvel Television Corner • 2017–2020.",
+                    "comicOrigins": "Cloak & Dagger debuted in Peter Parker, the Spectacular Spider-Man #64 (1982); Runaways debuted in Runaways #1 (2003) by Brian K. Vaughan and Adrian Alphona.",
                     "doomsdayLink": "Extended Marvel Television archive."
                 },
                 {
@@ -1686,6 +1909,8 @@
                     "threshold": 4200,
                     "statusNote": "Modern & Anime Animation Archive",
                     "synopsis": "The Avengers: Earth’s Mightiest Heroes, X-Men: Evolution, Wolverine and the X-Men, and Madhouse’s 4 anime series.",
+                    "timelinePlacement": "Animated Multiverse (Earth-8096, Earth-11052, Earth-101001) • 2000–2017.",
+                    "comicOrigins": "Adapts classic 1960s–2000s Avengers and X-Men runs in serialized animated form.",
                     "doomsdayLink": "Beloved animated adaptations of classic Avengers & X-Men arcs."
                 },
                 {
@@ -1700,6 +1925,8 @@
                     "threshold": 5500,
                     "statusNote": "Vintage Multiverse Archive",
                     "synopsis": "90s Spider-Man: TAS, Fantastic Four: TAS, Silver Surfer, 1978 Incredible Hulk, Supaidāman, and 1990 Captain America.",
+                    "timelinePlacement": "1990s Marvel Animated Universe (Earth-92131) & Classic Live-Action Realities • 1978–2000.",
+                    "comicOrigins": "Includes Toei's 1978 Supaidāman, Bixby/Ferrigno's Incredible Hulk, and Saban's 1990s Saturday-morning animated universe.",
                     "doomsdayLink": "Deepest retro multiverse archive.",
                     "production": "Produced across 1970s network TV, 1980s–90s genre films, and Saban/Marvel Films Animation’s Saturday-morning block."
                 }
@@ -1762,6 +1989,8 @@
                         act: placement.act,
                         actLabel: placement.actLabel,
                         synopsis: (masterItem && masterItem.synopsis) || savedItem.synopsis,
+                        timelinePlacement: (masterItem && masterItem.timelinePlacement) || savedItem.timelinePlacement,
+                        comicOrigins: (masterItem && masterItem.comicOrigins) || savedItem.comicOrigins,
                         doomsdayLink: (masterItem && masterItem.doomsdayLink) || savedItem.doomsdayLink,
                         loreNotes: (masterItem && masterItem.loreNotes) || savedItem.loreNotes,
                         production: (masterItem && masterItem.production) || savedItem.production,
@@ -1779,6 +2008,8 @@
                         ? {
                             ...savedItem,
                             synopsis: masterItem.synopsis || savedItem.synopsis,
+                            timelinePlacement: masterItem.timelinePlacement || savedItem.timelinePlacement,
+                            comicOrigins: masterItem.comicOrigins || savedItem.comicOrigins,
                             doomsdayLink: masterItem.doomsdayLink || savedItem.doomsdayLink,
                             production: masterItem.production || savedItem.production
                         }
@@ -1796,6 +2027,8 @@
                             ...savedItem,
                             threshold: savedItem.mins,
                             synopsis: (masterItem && masterItem.synopsis) || savedItem.synopsis,
+                            timelinePlacement: (masterItem && masterItem.timelinePlacement) || savedItem.timelinePlacement,
+                            comicOrigins: (masterItem && masterItem.comicOrigins) || savedItem.comicOrigins,
                             doomsdayLink: (masterItem && masterItem.doomsdayLink) || savedItem.doomsdayLink,
                             production: (masterItem && masterItem.production) || savedItem.production
                         };
@@ -2053,6 +2286,8 @@
                 threshold: remainingItemMins,
                 statusNote: `Deferred from Queue (+${remainingItemMins}m freed in buffer)`,
                 synopsis: item.synopsis,
+                timelinePlacement: item.timelinePlacement,
+                comicOrigins: item.comicOrigins,
                 doomsdayLink: item.doomsdayLink,
                 loreNotes: item.loreNotes || ''
             });
@@ -2093,6 +2328,8 @@
                 totalMins: vaultItem.totalMins || itemMins,
                 statusBadge: 'UNLOCKED FROM VAULT',
                 synopsis: (masterItem && masterItem.synopsis) || vaultItem.synopsis,
+                timelinePlacement: (masterItem && masterItem.timelinePlacement) || vaultItem.timelinePlacement,
+                comicOrigins: (masterItem && masterItem.comicOrigins) || vaultItem.comicOrigins,
                 doomsdayLink: (masterItem && masterItem.doomsdayLink) || vaultItem.doomsdayLink,
                 loreNotes: (masterItem && masterItem.loreNotes) || vaultItem.loreNotes || `${placement.placementNote}. Pulled from Vault (-${itemMins}m buffer).`,
                 production: (masterItem && masterItem.production) || vaultItem.production,
@@ -2526,6 +2763,8 @@
                 release: item.release,
                 note: `Completed (${item.totalMins} mins) • Moved from Essential Queue`,
                 synopsis: item.synopsis,
+                timelinePlacement: item.timelinePlacement,
+                comicOrigins: item.comicOrigins,
                 doomsdayLink: item.doomsdayLink
             });
 
@@ -2639,6 +2878,7 @@
             const runtimePill = document.getElementById('modal-ep-runtime-pill');
             const synopsisHeading = document.getElementById('modal-synopsis-heading');
             const loreHeading = document.getElementById('modal-lore-heading');
+            const comicsGatePill = document.getElementById('modal-comics-gate-pill');
 
             const hasEpisodesArray = Array.isArray(item.episodes) && item.episodes.length > 0;
 
@@ -2695,6 +2935,12 @@
                         synopsisHeading.innerHTML = `<span>📖 ${epData.title} — Synopsis</span>`;
                         loreHeading.innerHTML = `<span>⚡ ${labelPrefix} — Wider MCU Background & Lore</span>`;
                         document.getElementById('modal-synopsis').textContent = epData.synopsis;
+                        document.getElementById('modal-timeline').textContent = epData.timelinePlacement || item.timelinePlacement || 'Earth-616 (Sacred Timeline)';
+                        document.getElementById('modal-comics').textContent = epData.comicOrigins || item.comicOrigins || 'Marvel Comics source material.';
+                        if (comicsGatePill) {
+                            comicsGatePill.textContent = '🛡️ SPOILER-SAFE';
+                            comicsGatePill.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/15 text-purple-300 border border-purple-500/30';
+                        }
                         document.getElementById('modal-production').textContent = epData.production || item.production || 'Marvel Studios / Marvel Television production.';
                         document.getElementById('modal-doomsday-link').textContent = epData.lore;
                     } else {
@@ -2702,6 +2948,12 @@
                         synopsisHeading.innerHTML = `<span>🛡️ Spoiler-Protected Overview</span>`;
                         loreHeading.innerHTML = `<span>⚡ Feature World-Building & Placement</span>`;
                         document.getElementById('modal-synopsis').textContent = `Plot details for ${labelPrefix} ("${epData.title}") are shielded until you reach or log this ${isMovieBreakdown ? 'film' : 'episode'}. Premise: ${item.synopsis}`;
+                        document.getElementById('modal-timeline').textContent = item.timelinePlacement || 'Earth-616 (Sacred Timeline)';
+                        document.getElementById('modal-comics').textContent = `🔒 Episode-specific comic references are locked until you reach ${labelPrefix} so future character arcs and comic transformations cannot be spoiled. Series baseline: ${item.comicOrigins || 'Marvel Comics source material.'}`;
+                        if (comicsGatePill) {
+                            comicsGatePill.textContent = '🔒 EPISODE GATE LOCKED';
+                            comicsGatePill.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40';
+                        }
                         document.getElementById('modal-production').textContent = epData.production || item.production || 'Marvel Studios / Marvel Television production.';
                         document.getElementById('modal-doomsday-link').textContent = item.doomsdayLink;
                     }
@@ -2713,6 +2965,12 @@
                     loreHeading.innerHTML = `<span>⚡ Wider MCU Background & World-Building</span>`;
                     runtimePill.classList.add('hidden');
                     document.getElementById('modal-synopsis').textContent = item.synopsis;
+                    document.getElementById('modal-timeline').textContent = item.timelinePlacement || 'Earth-616 (Sacred Timeline)';
+                    document.getElementById('modal-comics').textContent = item.comicOrigins || 'Marvel Comics source material.';
+                    if (comicsGatePill) {
+                        comicsGatePill.textContent = '🛡️ SPOILER-SAFE';
+                        comicsGatePill.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/15 text-purple-300 border border-purple-500/30';
+                    }
                     document.getElementById('modal-production').textContent = item.production || 'Marvel Studios / Marvel Television production.';
                     document.getElementById('modal-doomsday-link').textContent = item.doomsdayLink;
                 }
@@ -2728,6 +2986,12 @@
                     runtimePill.classList.add('hidden');
                 }
                 document.getElementById('modal-synopsis').textContent = item.synopsis;
+                document.getElementById('modal-timeline').textContent = item.timelinePlacement || 'Marvel Multiverse';
+                document.getElementById('modal-comics').textContent = item.comicOrigins || 'Marvel Comics source material.';
+                if (comicsGatePill) {
+                    comicsGatePill.textContent = '🛡️ SPOILER-SAFE';
+                    comicsGatePill.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/15 text-purple-300 border border-purple-500/30';
+                }
                 document.getElementById('modal-production').textContent = item.production || 'Marvel Studios / Legacy Marvel production.';
                 document.getElementById('modal-doomsday-link').textContent = item.doomsdayLink;
             }
@@ -2793,7 +3057,7 @@
                          appState.workbook3.find(i => i.id === activeModalItemId);
 
             answerBox.classList.remove('hidden');
-            answerBox.innerHTML = `<strong class="text-cyan-300">Spoiler-Safe Briefing on ${item.title}:</strong> ${item.loreNotes || item.doomsdayLink} <br><span class="text-slate-400 text-xs mt-1 block">Query logged: "${q}" — Unwatched episode twists and unreached post-credits scenes remain shielded.</span>`;
+            answerBox.innerHTML = `<strong class="text-cyan-300">Spoiler-Safe Briefing on ${item.title}:</strong> ${item.loreNotes || item.doomsdayLink} <br><span class="text-slate-400 text-xs mt-1 block">Query logged: "${q}" — Unwatched episode twists, future comic transformations, and unreached post-credits scenes remain strictly shielded.</span>`;
         }
 
         function openLogMinutesModal() {
@@ -2872,7 +3136,7 @@
             appState = JSON.parse(JSON.stringify(DEFAULT_DATA));
             saveState();
             renderCurrentTab();
-            showToast('Reset to Nov 13, 2026 baseline snapshot');
+            showToast('Reset to Nov 14, 2026 baseline snapshot');
         }
 
         function showToast(msg) {
@@ -2893,4 +3157,5 @@
             }
         });
     </script>
-</body></html>
+</body>
+</html>
